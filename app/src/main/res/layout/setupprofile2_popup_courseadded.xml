@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="320dp"
+    android:layout_height="255dp"
+    android:layout_gravity="center"
+    android:background="@drawable/custom_background_vividblue"
+    >
+    <ImageView
+        android:id="@+id/click_icon_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/clickicon"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        />
+    <TextView
+        android:id="@+id/course_added_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="@string/courseaddedtext"
+        android:layout_toRightOf="@id/click_icon_id"
+        android:layout_marginLeft="10dp"
+        android:textSize="21dp"
+        android:fontFamily="@font/montserratsemibold"
+        android:textColor="@color/colorWhite"
+
+        />
+    <Button
+        android:id="@+id/course_added_button1_id"
+        android:layout_width="135dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/course_added_text_id"
+        android:background="@drawable/custom_button"
+        android:text="@string/courseaddedbuttontext"
+        android:textColor="@color/colorVividBlue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:id="@+id/course_added_button2_id"
+        android:layout_width="135dp"
+        android:layout_height="37dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/courseaddedbuttontext1"
+        android:textColor="@color/colorVividBlue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/course_added_button1_id"
+        />
+
+
+</RelativeLayout>
