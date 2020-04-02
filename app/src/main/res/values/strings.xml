@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">Project</string>
+    <string name="app_name">Studiac</string>
+    <string name="onstarttext">A platform designed to</string>
+    <string name="onstarttext1">make your education more productive</string>
+    <string name="alert1text">Incorrect credentials</string>
+    <string name="alert1text1">entered.</string>
+    <string name="alert1buttontext">OK</string>
+    <string name="changingtext">Go on. Pick an image!</string>
+    <string name="changimgbuttontext">NEXT</string>
+    <string name="courseaddedtext">Course Added</string>
+    <string name="courseaddedbuttontext">Add more</string>
+    <string name="courseaddedbuttontext1">Continue</string>
+    <string name="forgotpasswordtext">A temporary password</string>
+    <string name="forgotpasswordtext1">has been sent to your email.</string>
+    <string name="addroutinetext">Add routine</string>
+    <string name="addroutinetext1">Add </string>
+    <string name="addroutinebuttontext1">Done</string>
 </resources>
