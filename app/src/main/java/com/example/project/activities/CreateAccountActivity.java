@@ -25,7 +25,6 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_createaccount);
         initialize(savedInstanceState);
 
-
     }
 
     private void initialize(Bundle savedInstanceState){
