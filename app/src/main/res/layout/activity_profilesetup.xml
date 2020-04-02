@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.LoginActivity"
     android:orientation="vertical"
-    android:background="#24ADF3"
+    android:background="@color/colorVividBlue"
     >
 
     <TextView
@@ -17,8 +17,8 @@
         android:fontFamily="@font/montserrasemibold"
         android:gravity="center_horizontal"
         android:text="You need to setup your profile first"
-        android:textColor="#FFFFFF"
-        android:textSize="26dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="26sp"
         android:textStyle="bold" />
 
 
@@ -48,13 +48,14 @@
         android:layout_marginTop="7dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="University Name"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
         android:textStyle="bold"
 
         />
 
     <EditText
+        android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/universityNameField"
         android:layout_width="340dp"
         android:layout_height="75dp"
@@ -63,12 +64,12 @@
         android:background="@drawable/shape_user_input"
         android:drawableStart="@drawable/common_email_icon"
         android:fontFamily="@font/montserrat_regular"
-        android:hint="Enter your University name"
+        android:hint="@string/profileSetup1University"
         android:paddingLeft="13dp"
         android:paddingBottom="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="15sp"
 
         />
 
@@ -79,11 +80,12 @@
         android:layout_marginLeft="45dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Department"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <EditText
+        android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/departmentNameField"
         android:layout_width="340dp"
         android:layout_height="75dp"
@@ -92,12 +94,12 @@
         android:background="@drawable/shape_user_input"
         android:drawableStart="@drawable/common_key_icon"
         android:fontFamily="@font/montserrat_regular"
-        android:hint="Enter your department here"
+        android:hint="@string/profileSetup1Department"
         android:paddingLeft="13dp"
         android:paddingBottom="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="15sp"
 
         />
 
@@ -118,7 +120,7 @@
             android:paddingBottom="5dp"
             android:text="Current Semester"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -126,13 +128,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="33dp"
+            android:layout_marginLeft="28dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/montserrat_regular"
             android:paddingBottom="5dp"
             android:text="Total Semester"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:textSize="15sp"
             android:textStyle="bold" />
 
@@ -143,41 +145,40 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="-12dp"
-        android:layout_marginLeft="35dp"
+        android:layout_marginLeft="25dp"
         android:paddingLeft="10dp"
         >
 
         <EditText
             android:id="@+id/currentSemesterField"
-            android:layout_width="154dp"
+            android:layout_width="165dp"
             android:layout_height="73dp"
             android:layout_marginTop="3dp"
-            android:background="@drawable/shape_user_input"
+            android:background="@drawable/rectangle_for_semester_value"
             android:drawableStart="@drawable/common_student_icon"
             android:fontFamily="@font/montserrat_regular"
-            android:hint="Enter value"
+            android:hint="@string/profileSetup1EnterValue"
             android:paddingLeft="13dp"
             android:paddingBottom="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="15dp" />
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="15sp" />
 
 
         <EditText
             android:id="@+id/totalSemesterField"
-            android:layout_width="154dp"
+            android:layout_width="165dp"
             android:layout_height="73dp"
-            android:layout_marginLeft="15dp"
             android:layout_marginTop="3dp"
-            android:background="@drawable/shape_user_input"
+            android:background="@drawable/rectangle_for_semester_value"
             android:drawableStart="@drawable/common_hat_icon"
             android:fontFamily="@font/montserrat_regular"
-            android:hint="Enter value"
+            android:hint="@string/profileSetup1EnterValue"
             android:paddingLeft="13dp"
             android:paddingBottom="10dp"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="15dp" />
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="15sp" />
 
     </LinearLayout>
 
@@ -192,9 +193,9 @@
         android:background="@drawable/common_ui_btn"
         android:fontFamily="@font/montserrat_medium"
         android:paddingBottom="5dp"
-        android:text="Next"
+        android:text="@string/profileSetup1NextBtn"
         android:textAlignment="center"
-        android:textColor="#51BEF5"
-        android:textSize="15dp" />
+        android:textColor="@color/colorVividLightBlue"
+        android:textSize="15sp" />
 
 </LinearLayout>

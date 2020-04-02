@@ -11,12 +11,12 @@ import com.example.project.R;
 
 public class ProfileSetupActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button changeAvatarBtn;
-    private EditText universityNameField;
-    private EditText departmentNameField;
-    private EditText currentSemesterField;
-    private EditText totalSemesterField;
-    private Button nextBtn;
+    private Button mChangeAvatarBtn;
+    private EditText mUniversityNameField;
+    private EditText mDepartmentNameField;
+    private EditText mCurrentSemesterField;
+    private EditText mTotalSemesterField;
+    private Button mNextBtn;
 
 
     @Override
@@ -28,18 +28,18 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initialize(Bundle savedInstanceState){
-        universityNameField = (EditText) findViewById(R.id.universityNameField);
-        departmentNameField = (EditText) findViewById(R.id.departmentNameField);
-        currentSemesterField = (EditText) findViewById(R.id.currentSemesterField);
-        totalSemesterField = (EditText) findViewById(R.id.totalSemesterField);
-        nextBtn= (Button) findViewById(R.id.nextButton);
-        changeAvatarBtn= (Button) findViewById(R.id.changeAvatarBtn);
-        universityNameField.setOnClickListener(this);
-        departmentNameField.setOnClickListener(this);
-        currentSemesterField.setOnClickListener(this);
-        totalSemesterField.setOnClickListener(this);
-        nextBtn.setOnClickListener(this);
-        changeAvatarBtn.setOnClickListener(this);
+        mUniversityNameField = (EditText) findViewById(R.id.universityNameField);
+        mDepartmentNameField = (EditText) findViewById(R.id.departmentNameField);
+        mCurrentSemesterField = (EditText) findViewById(R.id.currentSemesterField);
+        mTotalSemesterField = (EditText) findViewById(R.id.totalSemesterField);
+        mNextBtn = (Button) findViewById(R.id.nextButton);
+        mChangeAvatarBtn = (Button) findViewById(R.id.changeAvatarBtn);
+        mUniversityNameField.setOnClickListener(this);
+        mDepartmentNameField.setOnClickListener(this);
+        mCurrentSemesterField.setOnClickListener(this);
+        mTotalSemesterField.setOnClickListener(this);
+        mNextBtn.setOnClickListener(this);
+        mChangeAvatarBtn.setOnClickListener(this);
     }
 
 
@@ -47,39 +47,39 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
 
 
-        if(v.getId()==universityNameField.getId()){
+        if(v.getId()== mUniversityNameField.getId()){
 
 
         }
 
 
-        if(v.getId()==departmentNameField.getId()){
-
-
-        }
-
-
-
-        if(v.getId()==currentSemesterField.getId()){
+        if(v.getId()== mDepartmentNameField.getId()){
 
 
         }
 
 
 
-        if(v.getId()==totalSemesterField.getId()){
+        if(v.getId()== mCurrentSemesterField.getId()){
 
 
         }
 
 
-        if(v.getId()==nextBtn.getId()){
+
+        if(v.getId()== mTotalSemesterField.getId()){
 
 
         }
 
 
-        if(v.getId()==changeAvatarBtn.getId()){
+        if(v.getId()== mNextBtn.getId()){
+
+
+        }
+
+
+        if(v.getId()== mChangeAvatarBtn.getId()){
 
 
         }

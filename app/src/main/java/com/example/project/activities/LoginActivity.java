@@ -13,12 +13,12 @@ import com.example.project.R;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView mForgotPasswordBtn;
-    private EditText emailField;
-    private EditText passswordField;
-    private EditText signInBtn;
-    private Button loginButton;
-    private Button loginWithFacebook;
-    private Button loginWithGoogle;
+    private EditText mEmailField;
+    private EditText mPassswordField;
+    private TextView mSignUpBtn;
+    private Button mLoginButton;
+    private Button mLoginWithFacebook;
+    private Button mLoginWithGoogle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,20 +31,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initialize(Bundle savedInstanceState){
-        mForgotPasswordBtn = (TextView) findViewById(R.id.forgotPasswordBtn);
-        emailField = (EditText) findViewById(R.id.emailField);
-        passswordField = (EditText) findViewById(R.id.passwordField);
-        signInBtn = (EditText) findViewById(R.id.signInBtn);
-        loginButton = (Button) findViewById(R.id.loginBtn);
-        loginWithFacebook = (Button) findViewById(R.id.loginWithFacebook);
-        loginWithGoogle = (Button) findViewById(R.id.loginWithGoogle);
+        mForgotPasswordBtn =  findViewById(R.id.forgotPasswordBtn);
+        mEmailField =  findViewById(R.id.emailField);
+        mPassswordField = findViewById(R.id.passwordField);
+        mSignUpBtn =  findViewById(R.id.signUpBtn);
+        mLoginButton =  findViewById(R.id.loginBtn);
+        mLoginWithFacebook = findViewById(R.id.loginWithFacebook);
+        mLoginWithGoogle =  findViewById(R.id.loginWithGoogle);
         mForgotPasswordBtn.setOnClickListener(this);
-        emailField.setOnClickListener(this);
-        passswordField.setOnClickListener(this);
-        signInBtn.setOnClickListener(this);
-        loginButton.setOnClickListener(this);
-        loginWithFacebook.setOnClickListener(this);
-        loginWithGoogle.setOnClickListener(this);
+        mEmailField.setOnClickListener(this);
+        mPassswordField.setOnClickListener(this);
+        mSignUpBtn.setOnClickListener(this);
+        mLoginButton.setOnClickListener(this);
+        mLoginWithFacebook.setOnClickListener(this);
+        mLoginWithGoogle.setOnClickListener(this);
     }
 
     @Override
@@ -56,37 +56,37 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
 
-        if(v.getId()==emailField.getId()){
+        if(v.getId()== mEmailField.getId()){
 
 
         }
 
 
-        if(v.getId()==passswordField.getId()){
+        if(v.getId()== mPassswordField.getId()){
 
 
         }
 
 
-        if(v.getId()==signInBtn.getId()){
+        if(v.getId()== mSignUpBtn.getId()){
 
 
         }
 
 
-        if(v.getId()==loginButton.getId()){
+        if(v.getId()== mLoginButton.getId()){
 
 
         }
 
 
-        if(v.getId()==loginWithFacebook.getId()){
+        if(v.getId()== mLoginWithFacebook.getId()){
 
 
         }
 
 
-        if(v.getId()==loginWithGoogle.getId()){
+        if(v.getId()== mLoginWithGoogle.getId()){
 
 
         }

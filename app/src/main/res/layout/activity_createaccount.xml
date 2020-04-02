@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.CreateAccountActivity"
     android:orientation="vertical"
-    android:background="#24ADF3">
+    android:background="@color/colorVividBlue">
 
     <TextView
         android:gravity="center_horizontal"
@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="Create a new account"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/colorWhite"
         android:textSize="26dp"
         android:textStyle="bold"
         android:layout_marginTop="35dp"
@@ -29,13 +29,14 @@
         android:layout_marginTop="35dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Full Name"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
         android:textStyle="bold"
+    />
 
-        />
 
     <EditText
+        android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/nameField"
         android:layout_width="340dp"
         android:layout_height="75dp"
@@ -44,13 +45,12 @@
         android:background="@drawable/shape_user_input"
         android:drawableStart="@drawable/common_name_icon"
         android:fontFamily="@font/montserrat_regular"
-        android:hint="Enter your full name"
+        android:hint="@string/createAccountName"
         android:paddingLeft="13dp"
         android:paddingBottom="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="15dp"
-
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="15sp"
         />
 
 
@@ -61,13 +61,14 @@
         android:layout_marginTop="3dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Email"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
         android:textStyle="bold"
 
         />
 
     <EditText
+        android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/emailField"
         android:layout_width="340dp"
         android:layout_height="75dp"
@@ -76,12 +77,12 @@
         android:background="@drawable/shape_user_input"
         android:drawableStart="@drawable/common_email_icon"
         android:fontFamily="@font/montserrat_regular"
-        android:hint="Enter your email"
+        android:hint="@string/createAccountEmail"
         android:paddingLeft="13dp"
         android:paddingBottom="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="15sp"
 
         />
 
@@ -92,11 +93,12 @@
         android:layout_marginTop="3dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Password"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <EditText
+        android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/passwordField"
         android:layout_width="340dp"
         android:layout_height="75dp"
@@ -105,12 +107,12 @@
         android:background="@drawable/shape_user_input"
         android:drawableStart="@drawable/common_key_icon"
         android:fontFamily="@font/montserrat_regular"
-        android:hint="Enter your password"
+        android:hint="@string/createAccountPassword"
         android:paddingLeft="13dp"
         android:paddingBottom="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="15sp"
 
         />
 
@@ -121,11 +123,12 @@
         android:layout_marginTop="3dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Password"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <EditText
+        android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/reTypePasswordField"
         android:layout_width="340dp"
         android:layout_height="75dp"
@@ -134,12 +137,12 @@
         android:background="@drawable/shape_user_input"
         android:drawableStart="@drawable/common_key_icon"
         android:fontFamily="@font/montserrat_regular"
-        android:hint="Enter your password again"
+        android:hint="@string/createAccountReTypePassword"
         android:paddingLeft="13dp"
         android:paddingBottom="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="15sp"
 
         />
 
@@ -153,10 +156,10 @@
         android:background="@drawable/common_ui_btn"
         android:fontFamily="@font/montserrat_medium"
         android:paddingBottom="5dp"
-        android:text="CREATE ACCOUNT"
+        android:text="@string/createAccountBtn"
         android:textAlignment="center"
-        android:textColor="#51BEF5"
-        android:textSize="16dp"
+        android:textColor="@color/colorVividLightBlue"
+        android:textSize="16sp"
 
         />
 
@@ -170,27 +173,27 @@
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal">
 
-        <EditText
+        <TextView
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
+            android:background="@color/colorTransparentWhite"
             android:fontFamily="@font/montserrat_regular"
             android:paddingBottom="5dp"
             android:text="Recalled already? "
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="16dp" />
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/alreadySignedInBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign In"
-            android:background="#00FFFFFF"
-            android:textColor="#FFFFFF"
+            android:text="@string/createAccountSignInBtn"
+            android:background="@color/colorTransparentWhite"
+            android:textColor="@color/colorWhite"
             android:textAlignment="center"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:paddingBottom="5dp"
             android:fontFamily="@font/montserrat_bold"
             />

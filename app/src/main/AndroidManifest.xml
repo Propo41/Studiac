@@ -11,9 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activities.ProfileSetupActivity"></activity>
         <activity android:name=".activities.ForgotPasswordAlertActivity" />
-        <activity android:name=".activities.CreateAccountActivity" />
+        <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.ProfileSetup2Activity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".activities.CreateAccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

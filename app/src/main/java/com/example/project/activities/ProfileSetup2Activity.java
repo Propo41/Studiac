@@ -6,17 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.project.R;
 
 public class ProfileSetup2Activity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText courseNameField;
-    private EditText courseCodeField;
-    private EditText courseCreditField;
-    private Button addRoutine;
-    private Button addCourse;
-    private EditText addLater;
+    private EditText mCourseNameField;
+    private EditText mCourseCodeField;
+    private EditText mCourseCreditField;
+    private Button mAddRoutine;
+    private Button mAddCourse;
+    private TextView mAddLater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,53 +27,53 @@ public class ProfileSetup2Activity extends AppCompatActivity implements View.OnC
     }
 
     private void initialize(Bundle savedInstanceState){
-        courseNameField= (EditText) findViewById(R.id.courseNameField);
-        courseCodeField = (EditText) findViewById(R.id.courseCode);
-        courseCreditField = (EditText) findViewById(R.id.courseCredit);
-        addRoutine = (Button) findViewById(R.id.addroutineBtn);
-        addCourse = (Button) findViewById(R.id.addCourseBtn);
-        addLater = (EditText) findViewById(R.id.addLaterBtn);
-        courseNameField.setOnClickListener(this);
-        courseCodeField.setOnClickListener(this);
-        courseCreditField.setOnClickListener(this);
-        addRoutine.setOnClickListener(this);
-        addCourse.setOnClickListener(this);
-        addLater.setOnClickListener(this);
+        mCourseNameField = (EditText) findViewById(R.id.courseNameField);
+        mCourseCodeField = (EditText) findViewById(R.id.courseCode);
+        mCourseCreditField = (EditText) findViewById(R.id.courseCredit);
+        mAddRoutine = (Button) findViewById(R.id.addroutineBtn);
+        mAddCourse = (Button) findViewById(R.id.addCourseBtn);
+        mAddLater = (TextView) findViewById(R.id.addLaterBtn);
+        mCourseNameField.setOnClickListener(this);
+        mCourseCodeField.setOnClickListener(this);
+        mCourseCreditField.setOnClickListener(this);
+        mAddRoutine.setOnClickListener(this);
+        mAddCourse.setOnClickListener(this);
+        mAddLater.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
 
-        if(v.getId()==courseNameField.getId()){
+        if(v.getId()== mCourseNameField.getId()){
 
 
         }
 
-        if(v.getId()==courseCodeField.getId()){
-
-
-        }
-
-
-        if(v.getId()==courseCreditField.getId()){
+        if(v.getId()== mCourseCodeField.getId()){
 
 
         }
 
 
-        if(v.getId()==addRoutine.getId()){
+        if(v.getId()== mCourseCreditField.getId()){
 
 
         }
 
 
-        if(v.getId()==addCourse.getId()){
+        if(v.getId()== mAddRoutine.getId()){
 
 
         }
 
 
-        if(v.getId()==addLater.getId()){
+        if(v.getId()== mAddCourse.getId()){
+
+
+        }
+
+
+        if(v.getId()== mAddLater.getId()){
 
 
         }

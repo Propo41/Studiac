@@ -15,4 +15,60 @@
     <string name="addroutinetext">Add routine</string>
     <string name="addroutinetext1">Add </string>
     <string name="addroutinebuttontext1">Done</string>
+
+
+    <string name="createAccountName">Enter your full name</string>
+    <string name="createAccountEmail">Enter your email</string>
+    <string name="createAccountPassword">Enter your password</string>
+    <string name="createAccountReTypePassword">Enter your password again</string>
+    <string name="createAccountBtn">CREATE ACCOUNT</string>
+    <string name="createAccountSignInBtn">Sign In</string>
+
+
+
+
+    <string name="forgotPasswordEmail">Enter your email</string>
+    <string name="forgotPasswordConfirmBtn">CONFIRM</string>
+    <string name="forgotPasswordSignInBtn">Sign In</string>
+
+
+
+
+    <string name="loginEmail">Enter your email</string>
+    <string name="loginPassword">Enter your password</string>
+    <string name="loginBtn">LOGIN</string>
+    <string name="loginSignUpBtn">Sign up</string>
+
+
+
+    <string name="profileSetup1University">Enter your University name</string>
+    <string name="profileSetup1Department">Enter your Department name</string>
+    <string name="profileSetup1EnterValue">Enter Value</string>
+    <string name="profileSetup1NextBtn">NEXT</string>
+
+
+
+
+
+
+    <string name="profileSetup2Course">Enter course name</string>
+    <string name="profileSetup2CourseCode">Enter course code</string>
+    <string name="profileSetup2Credit">Enter course credit</string>
+    <string name="profileSetup2AddCourse">Add course</string>
+    <string name="profileSetup2AddLaterBtn">Add Later</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

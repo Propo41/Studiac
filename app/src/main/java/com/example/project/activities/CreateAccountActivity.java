@@ -6,17 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.project.R;
 
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText nameField;
-    private EditText emailField;
-    private EditText passwordField;
-    private EditText reTypePasswordField;
-    private Button createAccountBtn;
-    private EditText alreadySignIn;
+    private EditText mNameField;
+    private EditText nEmailField;
+    private EditText nPasswordField;
+    private EditText nReTypePasswordField;
+    private Button mCreateAccountBtn;
+    private TextView mAlreadySignIn;
 
 
     @Override
@@ -28,18 +29,18 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     }
 
     private void initialize(Bundle savedInstanceState){
-        emailField =  findViewById(R.id.emailField);
-        nameField =  findViewById(R.id.nameField);
-        passwordField =  findViewById(R.id.passwordField);
-        reTypePasswordField = findViewById(R.id.reTypePasswordField);
-        alreadySignIn =  findViewById(R.id.alreadySignedInBtn);
-        createAccountBtn =  findViewById(R.id.createAccountBtn);
-        emailField.setOnClickListener(this);
-        nameField.setOnClickListener(this);
-        passwordField.setOnClickListener(this);
-        reTypePasswordField.setOnClickListener(this);
-        alreadySignIn.setOnClickListener(this);
-        createAccountBtn.setOnClickListener(this);
+        nEmailField =  findViewById(R.id.emailField);
+        mNameField =  findViewById(R.id.nameField);
+        nPasswordField =  findViewById(R.id.passwordField);
+        nReTypePasswordField = findViewById(R.id.reTypePasswordField);
+        mAlreadySignIn =  findViewById(R.id.alreadySignedInBtn);
+        mCreateAccountBtn =  findViewById(R.id.createAccountBtn);
+        nEmailField.setOnClickListener(this);
+        mNameField.setOnClickListener(this);
+        nPasswordField.setOnClickListener(this);
+        nReTypePasswordField.setOnClickListener(this);
+        mAlreadySignIn.setOnClickListener(this);
+        mCreateAccountBtn.setOnClickListener(this);
 
     }
 
@@ -47,31 +48,31 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onClick(View v) {
 
-        if(v.getId()==emailField.getId()){
+        if(v.getId()==nEmailField.getId()){
 
 
         }
 
-        if(v.getId()==nameField.getId()){
+        if(v.getId()==mNameField.getId()){
 
 
         }
-        if(v.getId()==reTypePasswordField.getId()){
-
-
-        }
-
-        if(v.getId()==alreadySignIn.getId()){
+        if(v.getId()==nReTypePasswordField.getId()){
 
 
         }
 
-        if(v.getId()==passwordField.getId()){
+        if(v.getId()==mAlreadySignIn.getId()){
 
 
         }
 
-        if(v.getId()==createAccountBtn.getId()){
+        if(v.getId()==nPasswordField.getId()){
+
+
+        }
+
+        if(v.getId()==mCreateAccountBtn.getId()){
 
 
         }

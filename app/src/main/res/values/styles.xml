@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+
+    <style name="editText" parent="AppTheme">
+        <item name="colorAccent">@color/colorWhite</item>
+    </style>
+
+
+
 </resources>

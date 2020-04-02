@@ -35,8 +35,6 @@ public class StartAppActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-
-
                         /*final Dialog dialogIncorrectcredential = new Dialog(context);
                         dialog.setContentView(R.layout.dialog_login_incorrectcredentials);
 
