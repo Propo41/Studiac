@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfileSetup"></activity>
-        <activity android:name=".ForgotPasswordAlert" />
-        <activity android:name=".CreateNewAccount" />
-        <activity android:name=".ProfileSetup2" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.ProfileSetupActivity"></activity>
+        <activity android:name=".activities.ForgotPasswordAlertActivity" />
+        <activity android:name=".activities.CreateAccountActivity" />
+        <activity android:name=".activities.ProfileSetup2Activity" />
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

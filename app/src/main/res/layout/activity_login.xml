@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.LoginActivity"
+    android:orientation="vertical"
+    android:background="#24ADF3"
+    >
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/montserrasemibold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's begin"
+        android:textColor="#FFFFFF"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Email"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:textStyle="bold"
+
+        />
+
+    <EditText
+        android:id="@+id/emailField"
+        android:layout_width="340dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/rectangle_user_input"
+        android:drawableStart="@drawable/common_email_icon"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="Enter your email"
+        android:paddingLeft="13dp"
+        android:paddingBottom="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="15dp"
+
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Password"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="340dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/rectangle_user_input"
+        android:drawableStart="@drawable/common_key_icon"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="Enter your password"
+        android:paddingLeft="13dp"
+        android:paddingBottom="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="15dp"
+
+        />
+
+    <TextView
+        android:id="@+id/forgotPasswordBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Forgot Password?"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/loginBtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="340dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/common_ui_btn"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingBottom="5dp"
+        android:text="LOGIN"
+        android:textAlignment="center"
+        android:textColor="#51BEF5"
+        android:textSize="16dp"
+
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:background="#00FFFFFF"
+
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingBottom="5dp"
+        android:text="- OR -"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingBottom="5dp"
+        android:text="Sign in with"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16dp" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        >
+
+    <Button
+        android:id="@+id/loginWithFacebook"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/login_facebook_icon"
+        android:textAlignment="center"
+        />
+
+
+        <Button
+            android:id="@+id/loginWithGoogle"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/login_google_icon"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:fontFamily="@font/montserrat_regular"
+            android:paddingBottom="5dp"
+            android:text="Don't have an account? "
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/signInBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:fontFamily="@font/montserrat_bold"
+            android:paddingBottom="5dp"
+            android:text="Sign up"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
