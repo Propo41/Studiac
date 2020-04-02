@@ -20,3 +20,8 @@ Bus tracker: a tracking service that allows the students to track their universi
 
 <b>1:1 live chat session</b>: A feature that connects a student with their target senior or someone who has taken a particular course before based on a topic. Upon choosing a topic and the target domain by a student, a notification will be sent to all available students in the target domain. Students who are willing to help can then enter a 1:1 live chat session with the student in need.
 
+
+
+Project Tracker: https://docs.google.com/spreadsheets/d/1A2JqFxCHdygT_PnYNztQmMI-_O3uoOfdiQrATbli3gY/edit?usp=sharing
+
+
