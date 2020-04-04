@@ -4,28 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginActivity"
-    android:orientation="vertical"
+    android:layout_centerVertical="true"
+    android:layout_gravity="center_vertical"
     android:background="@color/colorVividBlue"
-    >
+    android:orientation="vertical"
+    tools:context=".activities.LoginActivity">
 
     <TextView
-        android:gravity="center_horizontal"
-        android:fontFamily="@font/montserrasemibold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrasemibold"
+        android:gravity="center_horizontal"
         android:text="Let's begin"
         android:textColor="@color/colorWhite"
         android:textSize="26sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="130dp"
-        android:layout_marginTop="30dp"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
+        android:layout_marginLeft="39dp"
+        android:paddingBottom="6dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Email"
@@ -35,30 +36,30 @@
 
         />
 
+
     <EditText
-        android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/emailField"
-        android:layout_width="340dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="35dp"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="3dp"
-        android:background="@drawable/shape_user_input"
+        android:background="@drawable/shape_input"
         android:drawableStart="@drawable/common_email_icon"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/loginEmail"
-        android:paddingLeft="13dp"
-        android:paddingBottom="10dp"
+        android:paddingStart="13dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
+        android:textCursorDrawable="@drawable/colored_cursor"
         android:textSize="15sp"
-
         />
-
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="6dp"
+        android:layout_marginLeft="39dp"
         android:layout_marginTop="3dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Password"
@@ -67,30 +68,29 @@
         android:textStyle="bold" />
 
     <EditText
-        android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/passwordField"
-        android:layout_width="340dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/shape_user_input"
+        android:layout_width="325dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/shape_input"
         android:drawableStart="@drawable/common_key_icon"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/loginPassword"
-        android:paddingLeft="13dp"
-        android:paddingBottom="10dp"
+        android:paddingStart="13dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
+        android:textCursorDrawable="@drawable/colored_cursor"
         android:textSize="15sp"
-
         />
 
     <TextView
         android:id="@+id/forgotPasswordBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="230dp"
+        android:layout_marginLeft="225dp"
         android:fontFamily="@font/montserrat_regular"
+        android:paddingTop="15dp"
         android:text="Forgot Password?"
         android:textColor="@color/colorWhite"
         android:textSize="15sp"
@@ -100,14 +100,16 @@
     <Button
         android:id="@+id/loginBtn"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="340dp"
-        android:layout_height="65dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_width="325dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="22dp"
-        android:background="@drawable/common_ui_btn"
+        android:background="@drawable/button_login"
         android:fontFamily="@font/montserrat_medium"
         android:paddingBottom="5dp"
         android:text="@string/loginBtn"
+        android:elevation="3dp"
+
         android:textAlignment="center"
         android:textColor="@color/colorVividLightBlue"
         android:textSize="16sp"
@@ -145,19 +147,17 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
-        >
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/loginWithFacebook"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/login_facebook_icon"
-        android:textAlignment="center"
-        />
+        <Button
+            android:id="@+id/loginWithFacebook"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/login_facebook_icon"
+            android:textAlignment="center" />
 
 
         <Button
@@ -175,9 +175,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"

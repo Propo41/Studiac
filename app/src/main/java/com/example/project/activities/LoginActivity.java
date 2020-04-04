@@ -2,6 +2,7 @@ package com.example.project.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private TextView mForgotPasswordBtn;
     private EditText mEmailField;
-    private EditText mPassswordField;
+    private EditText mPasswordField;
     private TextView mSignUpBtn;
     private Button mLoginButton;
     private Button mLoginWithFacebook;
@@ -24,23 +25,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        initialize(savedInstanceState);
+        initViews();
 
 
 
     }
 
-    private void initialize(Bundle savedInstanceState){
+    private void initViews(){
         mForgotPasswordBtn =  findViewById(R.id.forgotPasswordBtn);
         mEmailField =  findViewById(R.id.emailField);
-        mPassswordField = findViewById(R.id.passwordField);
+        mPasswordField = findViewById(R.id.passwordField);
         mSignUpBtn =  findViewById(R.id.signUpBtn);
         mLoginButton =  findViewById(R.id.loginBtn);
         mLoginWithFacebook = findViewById(R.id.loginWithFacebook);
         mLoginWithGoogle =  findViewById(R.id.loginWithGoogle);
         mForgotPasswordBtn.setOnClickListener(this);
         mEmailField.setOnClickListener(this);
-        mPassswordField.setOnClickListener(this);
+        mPasswordField.setOnClickListener(this);
         mSignUpBtn.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
         mLoginWithFacebook.setOnClickListener(this);
@@ -52,25 +53,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         if(v.getId()==mForgotPasswordBtn.getId()){
 
-
-        }
-
-
-        if(v.getId()== mEmailField.getId()){
-
-
-        }
-
-
-        if(v.getId()== mPassswordField.getId()){
-
-
+            // @TODO: make ForgotPasswordActivity a fragment
+            startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
         }
 
 
         if(v.getId()== mSignUpBtn.getId()){
-
-
+            startActivity(new Intent(LoginActivity.this, CreateAccountActivity.class));
         }
 
 
@@ -90,9 +79,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
         }
-
-
-
 
 
     }

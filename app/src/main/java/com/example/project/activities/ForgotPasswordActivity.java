@@ -2,6 +2,7 @@ package com.example.project.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.project.R;
 
-public class ForgotPasswordAlertActivity extends AppCompatActivity implements View.OnClickListener {
+public class ForgotPasswordActivity extends AppCompatActivity {
 
     private EditText mEmailField;
     private Button mConfirmBtn;
@@ -19,35 +20,23 @@ public class ForgotPasswordAlertActivity extends AppCompatActivity implements Vi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgotpassword);
-        initialize(savedInstanceState);
+        initViews();
     }
 
-
-    private void initialize(Bundle savedInstanceState){
+    private void initViews(){
         mSignInBtn = findViewById(R.id.signInBtn);
         mEmailField =  findViewById(R.id.emailField);
         mConfirmBtn =  findViewById(R.id.confirmBtn);
-        mSignInBtn.setOnClickListener(this);
-        mEmailField.setOnClickListener(this);
-        mConfirmBtn.setOnClickListener(this);
 
     }
 
-    @Override
-    public void onClick(View v) {
-        if(v.getId()== mSignInBtn.getId()){
-
-
-        }
-
-        if(v.getId()== mEmailField.getId()){
-
-
-        }
-
-        if(v.getId()== mConfirmBtn.getId()){
-
-
-        }
+    public void signInPressed(View v)
+    {
+        startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class));
     }
+    public void confirmPressed(View v)
+    {
+        // TODO: open dialog box
+    }
+
 }

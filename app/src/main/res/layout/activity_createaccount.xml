@@ -155,13 +155,13 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/common_ui_btn"
         android:fontFamily="@font/montserrat_medium"
+        android:onClick="createAccountPressed"
         android:paddingBottom="5dp"
         android:text="@string/createAccountBtn"
         android:textAlignment="center"
         android:textColor="@color/colorVividLightBlue"
-        android:textSize="16sp"
 
-        />
+        android:textSize="16sp" />
 
 
 
@@ -186,17 +186,18 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/alreadySignedInBtn"
+            android:id="@+id/signInBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/createAccountSignInBtn"
             android:background="@color/colorTransparentWhite"
-            android:textColor="@color/colorWhite"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:paddingBottom="5dp"
+            android:clickable="true"
             android:fontFamily="@font/montserrat_bold"
-            />
+            android:onClick="signInPressed"
+            android:paddingBottom="5dp"
+            android:text="@string/createAccountSignInBtn"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

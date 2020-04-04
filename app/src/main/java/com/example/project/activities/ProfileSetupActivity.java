@@ -2,6 +2,7 @@ package com.example.project.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,17 +24,17 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilesetup);
-        initialize(savedInstanceState);
+        initViews();
 
     }
 
-    private void initialize(Bundle savedInstanceState){
-        mUniversityNameField = (EditText) findViewById(R.id.universityNameField);
-        mDepartmentNameField = (EditText) findViewById(R.id.departmentNameField);
-        mCurrentSemesterField = (EditText) findViewById(R.id.currentSemesterField);
-        mTotalSemesterField = (EditText) findViewById(R.id.totalSemesterField);
-        mNextBtn = (Button) findViewById(R.id.nextButton);
-        mChangeAvatarBtn = (Button) findViewById(R.id.changeAvatarBtn);
+    private void initViews() {
+        mUniversityNameField = findViewById(R.id.universityNameField);
+        mDepartmentNameField = findViewById(R.id.departmentNameField);
+        mCurrentSemesterField = findViewById(R.id.currentSemesterField);
+        mTotalSemesterField = findViewById(R.id.totalSemesterField);
+        mNextBtn = findViewById(R.id.nextButton);
+        mChangeAvatarBtn = findViewById(R.id.changeAvatarBtn);
         mUniversityNameField.setOnClickListener(this);
         mDepartmentNameField.setOnClickListener(this);
         mCurrentSemesterField.setOnClickListener(this);
@@ -47,41 +48,15 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
 
 
-        if(v.getId()== mUniversityNameField.getId()){
-
-
-        }
-
-
-        if(v.getId()== mDepartmentNameField.getId()){
-
+        if (v.getId() == mNextBtn.getId()) {
+            startActivity(new Intent(ProfileSetupActivity.this, ProfileSetup2Activity.class));
 
         }
 
 
-
-        if(v.getId()== mCurrentSemesterField.getId()){
-
-
-        }
-
-
-
-        if(v.getId()== mTotalSemesterField.getId()){
-
-
-        }
-
-
-        if(v.getId()== mNextBtn.getId()){
-
-
-        }
-
-
-        if(v.getId()== mChangeAvatarBtn.getId()){
-
-
+        if (v.getId() == mChangeAvatarBtn.getId()) {
+            // @TODO: make SelectImageActivity a fragment
+            startActivity(new Intent(ProfileSetupActivity.this, SelectImageActivity.class));
         }
     }
 }
