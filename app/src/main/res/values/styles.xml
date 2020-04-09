@@ -3,16 +3,59 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimaryLight</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/montserrasemibold</item>
     </style>
-
-
-
     <style name="editText" parent="AppTheme">
         <item name="colorAccent">@color/colorWhite</item>
     </style>
+
+    <style name="PopupMenuStyleWhiteToolbar">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="CustomDrawerFont" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/colorAsh </item>
+        <item name="android:textSize"> 14sp </item>
+    </style>
+
+    <style name="CustomTitleFont" >
+        <item name="android:fontFamily">@font/montserrasemibold</item>
+        <item name="android:textColor">@color/colorWhite </item>
+        <item name="android:textSize"> 20sp </item>
+    </style>
+
+    <style name="CustomSubtitleFont" >
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/colorWhite </item>
+        <item name="android:textSize"> 15sp </item>
+    </style>
+
+    <style name="CustomToolbarFontBlue" >
+        <item name="android:fontFamily">@font/montserrasemibold</item>
+        <item name="android:textColor">@color/colorPrimaryDark </item>
+        <item name="titleTextColor"> @color/colorPrimaryDark </item>
+        <item name="colorControlNormal">@color/colorPrimaryDark</item> <!-- changes the color of hamburger icon to blue -->
+        <!-- this can also be done programatically by adding:
+         actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white)); -->
+
+    </style>
+
+    <style name="WhiteActionBar">
+        <item name="titleTextColor">@color/colorPrimaryDark</item>
+    </style>
+
+
+
+
 
 
 

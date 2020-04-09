@@ -21,13 +21,12 @@
         android:textSize="26sp"
         android:textStyle="bold" />
 
-
     <ImageView
         android:layout_width="128dp"
         android:layout_height="124dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/profilesetup_avator_icon" />
+        android:layout_marginTop="15dp"
+        android:src="@drawable/profilesetup_ic_avator" />
 
     <Button
         android:id="@+id/changeAvatarBtn"
@@ -40,7 +39,6 @@
         android:layout_marginTop="-40dp"
         />
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,33 +48,30 @@
         android:text="University Name"
         android:textColor="@color/colorWhite"
         android:textSize="15sp"
-        android:textStyle="bold"
-
-        />
+        android:textStyle="bold" />
 
     <EditText
+        android:paddingEnd="7dp"
+        android:paddingStart="5dp"
         android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/universityNameField"
-        android:layout_width="340dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="3dp"
-        android:background="@drawable/shape_user_input"
-        android:drawableStart="@drawable/common_email_icon"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_input"
+        android:drawableStart="@drawable/common_ic_university2"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/profileSetup1University"
-        android:paddingLeft="13dp"
-        android:paddingBottom="10dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         android:textSize="15sp"
-
         />
-
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="45dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Department"
@@ -87,27 +82,25 @@
     <EditText
         android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/departmentNameField"
-        android:layout_width="340dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/shape_user_input"
-        android:drawableStart="@drawable/common_key_icon"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_input"
+        android:drawableStart="@drawable/profilesetup_ic_department"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/profileSetup1Department"
-        android:paddingLeft="13dp"
-        android:paddingBottom="10dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         android:textSize="15sp"
-
         />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="45dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
         >
 
 
@@ -128,7 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="28dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/montserrat_regular"
             android:paddingBottom="5dp"
@@ -141,41 +134,36 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="-12dp"
-        android:layout_marginLeft="25dp"
-        android:paddingLeft="10dp"
+        android:layout_marginTop="-10dp"
+        android:layout_gravity="center_horizontal"
         >
 
         <EditText
             android:id="@+id/currentSemesterField"
-            android:layout_width="165dp"
-            android:layout_height="73dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/rectangle_for_semester_value"
-            android:drawableStart="@drawable/common_student_icon"
+            android:layout_width="145dp"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_input"
+            android:drawableStart="@drawable/common_ic_student"
             android:fontFamily="@font/montserrat_regular"
             android:hint="@string/profileSetup1EnterValue"
-            android:paddingLeft="13dp"
-            android:paddingBottom="10dp"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textSize="15sp" />
 
 
         <EditText
+            android:layout_marginLeft="30dp"
             android:id="@+id/totalSemesterField"
-            android:layout_width="165dp"
-            android:layout_height="73dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/rectangle_for_semester_value"
-            android:drawableStart="@drawable/common_hat_icon"
+            android:layout_width="145dp"
+            android:layout_height="50dp"
+            android:background="@drawable/shape_input"
+            android:drawableStart="@drawable/common_ic_hat"
             android:fontFamily="@font/montserrat_regular"
             android:hint="@string/profileSetup1EnterValue"
-            android:paddingLeft="13dp"
-            android:paddingBottom="10dp"
+
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textSize="15sp" />
@@ -185,17 +173,19 @@
 
     <Button
         android:id="@+id/nextButton"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="187dp"
-        android:layout_height="65dp"
+        android:gravity="center_horizontal"
+        android:layout_width="140dp"
+        android:layout_height="38dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="3dp"
-        android:background="@drawable/common_ui_btn"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/shape_button_white_two"
         android:fontFamily="@font/montserrat_medium"
-        android:paddingBottom="5dp"
         android:text="@string/profileSetup1NextBtn"
         android:textAlignment="center"
         android:textColor="@color/colorVividLightBlue"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:paddingTop="9dp"
+        android:elevation="3dp"
+        />
 
 </LinearLayout>

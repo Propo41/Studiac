@@ -34,9 +34,26 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     {
         startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class));
     }
+
     public void confirmPressed(View v)
     {
+
+        if(forgotPassWordInputCheck(v)){
+
+        }
         // TODO: open dialog box
     }
+
+    public boolean forgotPassWordInputCheck(View v) {
+        boolean mReturnValue = true;
+        if(mEmailField.getText().length() == 0) {
+            mEmailField.setError("Field cannot be empty!");
+            mReturnValue = false;
+        }
+
+        return  mReturnValue;
+
+    }
+
 
 }

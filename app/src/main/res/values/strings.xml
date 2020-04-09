@@ -39,6 +39,9 @@
     <string name="loginBtn">LOGIN</string>
     <string name="loginSignUpBtn">Sign up</string>
 
+    <string name="navigation_drawer_open"> Open navigation drawer</string>
+    <string name="navigation_drawer_close"> Close navigation drawer</string>
+
 
 
     <string name="profileSetup1University">Enter your University name</string>
@@ -56,6 +59,11 @@
     <string name="profileSetup2Credit">Enter course credit</string>
     <string name="profileSetup2AddCourse">Add course</string>
     <string name="profileSetup2AddLaterBtn">Add Later</string>
+
+
+
+
+    <string name="inputError">This field cannot be empty</string>
 
 
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/drawer_ic_dashboard"
+            android:title="Dashboard"
+            />
+        <item
+            android:id="@+id/nav_gpaCalculator"
+            android:icon="@drawable/drawer_ic_calculator"
+            android:title="CGPA Calculator" />
+
+        <item
+            android:id="@+id/nav_toDoTask"
+            android:icon="@drawable/drawer_ic_todolist"
+            android:title="To do Tasks" />
+
+        <item
+            android:id="@+id/nav_bulletinBoard"
+            android:icon="@drawable/drawer_ic_magazine"
+            android:title="Bulletin Board" />
+
+        <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/drawer_ic_mail"
+            android:title="Messages" />
+
+    </group>
+
+    <item android:title="More">
+        <menu>
+            <item
+                android:id="@+id/nav_editProfile"
+                android:icon="@drawable/drawer_ic_edit"
+                android:title="Edit Profile"/>
+            <item
+                android:id="@+id/nav_updateSemester"
+                android:icon="@drawable/drawer_ic_update"
+                android:title="Update Semester"/>
+            <item
+                android:id="@+id/nav_helpSupport"
+                android:icon="@drawable/drawer_ic_logout"
+                android:title="Help &amp; Support"/>
+
+        </menu>
+    </item>
+
+
+
+
+
+</menu>

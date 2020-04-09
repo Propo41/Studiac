@@ -26,9 +26,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initViews();
-
-
-
     }
 
     private void initViews(){
@@ -64,19 +61,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
         if(v.getId()== mLoginButton.getId()){
+            if(loginInputErrorCheck()){
+                // code after successful login
+                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
 
-
+            }
         }
 
 
         if(v.getId()== mLoginWithFacebook.getId()){
 
-
         }
 
 
         if(v.getId()== mLoginWithGoogle.getId()){
-
 
         }
 
@@ -84,7 +82,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
+    public boolean loginInputErrorCheck(){
+        boolean mReturnValue = true;
+        if(mEmailField.getText().length()==0){
+            mEmailField.setError("This field cannot be empty");
+            mReturnValue = false;
+        }
 
+        if(mPasswordField.getText().length()==0 && mReturnValue){
+            mPasswordField.setError("This field cannot be empty");
+            mReturnValue = false;
+        }
+
+
+        return  mReturnValue;
+
+    }
 
 
 }

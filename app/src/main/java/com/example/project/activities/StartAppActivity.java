@@ -82,7 +82,7 @@ public class StartAppActivity extends AppCompatActivity {
             }
         });
 
-        //profile_icon image change start
+        //common_ic_profile image change start
 
         setupProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +92,7 @@ public class StartAppActivity extends AppCompatActivity {
             }
         });
 
-        //profile_icon image change end
+        //common_ic_profile image change end
 
         courseAddedPopupButton.setOnClickListener(new View.OnClickListener() {
             @Override

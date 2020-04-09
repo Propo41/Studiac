@@ -31,32 +31,32 @@
         android:textColor="@color/colorWhite"
         android:textSize="15sp"
         android:textStyle="bold"
-
         />
 
     <EditText
         android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/courseNameField"
-        android:layout_width="340dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="3dp"
-        android:background="@drawable/shape_user_input"
-        android:drawableStart="@drawable/book_icon"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_input"
+        android:drawableStart="@drawable/profilesetup2_ic_book"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/profileSetup2Course"
-        android:paddingLeft="13dp"
-        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:paddingRight="17.5dp"
+        />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Course Code (Optional)"
         android:textColor="@color/colorWhite"
@@ -66,17 +66,16 @@
     <EditText
         android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/courseCode"
-        android:layout_width="340dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="3dp"
-        android:background="@drawable/shape_user_input"
-        android:drawableStart="@drawable/code_icon"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_input"
+        android:drawableStart="@drawable/profilesetup2_ic_code"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/profileSetup2CourseCode"
-        android:paddingLeft="13dp"
-        android:paddingBottom="10dp"
         android:textColor="@color/colorWhite"
+        android:paddingRight="17.5dp"
         android:textColorHint="@color/colorWhite"
         android:textSize="15sp"
 
@@ -86,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Course Credit"
         android:textColor="@color/colorWhite"
@@ -96,25 +95,24 @@
     <EditText
         android:textCursorDrawable="@drawable/colored_cursor"
         android:id="@+id/courseCredit"
-        android:layout_width="340dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="2dp"
-        android:background="@drawable/shape_user_input"
-        android:drawableStart="@drawable/course_credit_icon"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_input"
+        android:drawableStart="@drawable/course_ic_credit"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/profileSetup2Credit"
-        android:paddingLeft="13dp"
-        android:paddingBottom="10dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
+        android:paddingRight="17.5dp"
         android:textSize="15sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Add Routine"
         android:textColor="@color/colorWhite"
@@ -126,23 +124,24 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="117dp"
         android:layout_height="80dp"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/profilesetup2_addroutine_icon"
+        android:background="@drawable/profilesetup2_ic_addroutine"
         android:textAlignment="center" />
 
     <Button
         android:id="@+id/addCourseBtn"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="182dp"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/common_ui_btn"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_button_white_two"
+        android:elevation="3dp"
         android:fontFamily="@font/montserrat_medium"
-        android:paddingBottom="5dp"
         android:text="@string/profileSetup2AddCourse"
         android:textAlignment="center"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textColor="@color/colorVividLightBlue"
         android:textSize="16sp" />
 
@@ -150,7 +149,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_gravity="center_horizontal">
 
@@ -177,7 +176,6 @@
             android:paddingBottom="5dp"
             android:fontFamily="@font/montserrat_bold"
             />
-
     </LinearLayout>
 
 </LinearLayout>

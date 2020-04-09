@@ -19,7 +19,6 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
     private EditText mTotalSemesterField;
     private Button mNextBtn;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +48,8 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
 
 
         if (v.getId() == mNextBtn.getId()) {
-            startActivity(new Intent(ProfileSetupActivity.this, ProfileSetup2Activity.class));
-
+            if(checkUserInputProfileSetup(v))
+                startActivity(new Intent(ProfileSetupActivity.this, ProfileSetup2Activity.class));
         }
 
 
@@ -58,5 +57,35 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
             // @TODO: make SelectImageActivity a fragment
             startActivity(new Intent(ProfileSetupActivity.this, SelectImageActivity.class));
         }
+
     }
+
+
+    public boolean checkUserInputProfileSetup(View v){
+        boolean mReturnValue = true;
+
+        if(mUniversityNameField.getText().length()==0){
+            mUniversityNameField.setError("This Field cannot be Empty");
+            mReturnValue = false;
+            return mReturnValue;
+        }
+
+        if(mDepartmentNameField.getText().length()==0){
+            mDepartmentNameField.setError("This Field cannot be Empty");
+            mReturnValue = false;
+        }
+
+        if(mCurrentSemesterField.getText().length()==0){
+            mCurrentSemesterField.setError("This Field cannot be Empty");
+            mReturnValue = false;
+        }
+
+        if(mTotalSemesterField.getText().length()==0){
+            mTotalSemesterField.setError("This Field cannot be Empty");
+            mReturnValue = false;
+        }
+
+        return mReturnValue;
+    }
+
 }

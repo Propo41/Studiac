@@ -2,6 +2,7 @@ package com.example.project.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +34,6 @@ public class ProfileSetup2Activity extends AppCompatActivity implements View.OnC
         mAddRoutine = findViewById(R.id.addroutineBtn);
         mAddCourse = findViewById(R.id.addCourseBtn);
         mAddLater = findViewById(R.id.addLaterBtn);
-
     }
 
     @Override
@@ -45,16 +45,36 @@ public class ProfileSetup2Activity extends AppCompatActivity implements View.OnC
             // routine is optional
         }
 
-
         if(v.getId()== mAddCourse.getId()){
             //@TODO: open dialog box
-
-
+            // call profileSetup2InputCheck() to check input errors
         }
-
 
         if(v.getId()== mAddLater.getId()){
-
+            startActivity(new Intent(ProfileSetup2Activity.this, DashboardActivity.class));
         }
+
+    }
+
+
+    public boolean profileSetup2InputCheck(){
+        boolean mReturnValue = true;
+
+        if(mCourseNameField.getText().length()==0){
+            mCourseNameField.setError("This field cannot be empty");
+            mReturnValue = false;
+        }
+
+
+        if(mCourseCodeField.getText().length()==0 && mReturnValue){
+            mCourseCodeField.setError("This field cannot be empty");
+            mReturnValue = false;
+        }
+
+        if(mCourseCreditField.getText().length()==0 && mReturnValue){
+            mCourseCreditField.setError("This field cannot be empty");
+            mReturnValue = false;
+        }
+        return  mReturnValue;
     }
 }

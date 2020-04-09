@@ -20,8 +20,7 @@
         android:text="Let's begin"
         android:textColor="@color/colorWhite"
         android:textSize="26sp"
-        android:textStyle="bold" />
-
+        android:textStyle="bold"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,10 +43,11 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/shape_input"
-        android:drawableStart="@drawable/common_email_icon"
+        android:drawableStart="@drawable/common_ic_email"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/loginEmail"
-        android:paddingStart="13dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="5dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         android:textCursorDrawable="@drawable/colored_cursor"
@@ -74,15 +74,15 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="3dp"
         android:background="@drawable/shape_input"
-        android:drawableStart="@drawable/common_key_icon"
+        android:drawableStart="@drawable/common_ic_key"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/loginPassword"
-        android:paddingStart="13dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="10dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         android:textCursorDrawable="@drawable/colored_cursor"
-        android:textSize="15sp"
-        />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/forgotPasswordBtn"
@@ -109,11 +109,9 @@
         android:paddingBottom="5dp"
         android:text="@string/loginBtn"
         android:elevation="3dp"
-
         android:textAlignment="center"
         android:textColor="@color/colorVividLightBlue"
         android:textSize="16sp"
-
         />
 
     <TextView
@@ -156,7 +154,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/login_facebook_icon"
+            android:background="@drawable/login_ic_facebook"
             android:textAlignment="center" />
 
 
@@ -166,7 +164,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/login_google_icon"
+            android:background="@drawable/login_ic_google"
             android:textAlignment="center" />
 
     </LinearLayout>
@@ -200,7 +198,8 @@
             android:text="@string/loginSignUpBtn"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            />
 
     </LinearLayout>
 

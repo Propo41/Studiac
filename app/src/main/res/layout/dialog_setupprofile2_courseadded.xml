@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
-        android:src="@drawable/dialog_righttick_icon" />
+        android:src="@drawable/dialog_ic_righttick" />
 
     <Button
         android:id="@+id/course_added_button1_id"
