@@ -17,14 +17,24 @@
         android:fitsSystemWindows="true">
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+            android:id="@+id/viewRoutine_prompt_id2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="100dp"
-            android:layout_marginLeft="100dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/viewRoutine_prompt_3"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:layout_marginTop="40dp"
+        />
+
+        <TextView
+            android:id="@+id/viewRoutine_prompt_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_medium"
             android:paddingTop="60dp"
+            android:textAlignment="center"
             android:text="Swipe left/right to navigate"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp"
@@ -32,7 +42,7 @@
             app:layout_anchor="@+id/viewPager"
             app:layout_anchorGravity="bottom" />
 
-        <androidx.viewpager.widget.ViewPager
+        <com.example.project.adapters.CustomViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="446dp"
@@ -45,7 +55,7 @@
             android:paddingRight="@dimen/card_padding"
             android:paddingBottom="30dp">
 
-        </androidx.viewpager.widget.ViewPager>
+        </com.example.project.adapters.CustomViewPager>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

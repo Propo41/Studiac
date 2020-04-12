@@ -34,6 +34,7 @@ public class NavigationToolbarBlue extends AppCompatActivity implements Navigati
 
     protected FrameLayout mFrameLayout;
     protected DrawerLayout mDrawer;
+    protected NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,17 +56,18 @@ public class NavigationToolbarBlue extends AppCompatActivity implements Navigati
         toggle.syncState(); // this will handle the animation of the icon
 
         // to interact with the navigation items, we need to reference it first
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_dashboard); // initially this will be checked
+        mNavigationView = findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(this);
+        // navigationView.setCheckedItem(R.id.nav_dashboard); // initially this will be checked
 
     }
 
-    public void setContent(int layout){
+    public void setContent(int layout, int id){
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //inflate the activity layout
         View contentView = inflater.inflate(layout, null, false);
         mFrameLayout.addView(contentView, 0);
+        mNavigationView.setCheckedItem(id); // initially this will be checked
 
     }
 

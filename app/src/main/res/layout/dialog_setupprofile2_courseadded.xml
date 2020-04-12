@@ -22,10 +22,10 @@
         />
 
     <Button
-        android:id="@+id/course_added_button2_id"
+        android:id="@+id/course_continue_button_id"
         android:layout_width="135dp"
         android:layout_height="37dp"
-        android:layout_below="@+id/course_added_button1_id"
+        android:layout_below="@+id/course_addmore_button_id"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
         android:background="@drawable/shape_button_white"
@@ -43,7 +43,7 @@
         android:src="@drawable/dialog_ic_righttick" />
 
     <Button
-        android:id="@+id/course_added_button1_id"
+        android:id="@+id/course_addmore_button_id"
         android:layout_width="135dp"
         android:layout_height="37dp"
         android:layout_below="@+id/course_added_text_id"

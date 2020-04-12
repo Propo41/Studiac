@@ -36,7 +36,7 @@ public class StartAppActivity extends AppCompatActivity {
             public void onClick(View arg0) {
 
                         /*final Dialog dialogIncorrectcredential = new Dialog(context);
-                        dialog.setContentView(R.layout.dialog_login_incorrectcredentials);
+                        dialog.setContentView(R.layout.dialog_login_incorrect);
 
                         // set the custom dialog components - text, image and button
                         TextView text =  dialogIncorrectcredential.findViewById(R.id.incorrect_text_id);
@@ -56,7 +56,7 @@ public class StartAppActivity extends AppCompatActivity {
                         dialogIncorrectcredential.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                         dialogIncorrectcredential.show();
 
-                        //dialog (dialog_login_incorrectcredentials)end
+                        //dialog (dialog_login_incorrect)end
                         */
                         final Dialog dialogAddroutine = new Dialog(context);
                         dialogAddroutine.setContentView(R.layout.dialog_setupprofile2_addroutine);
@@ -107,7 +107,7 @@ public class StartAppActivity extends AppCompatActivity {
                 ImageView clickicon = (ImageView) dialogCourseadded.findViewById(R.id.click_icon_id);
 
 
-                Button dialogCourseaddedButton = (Button) dialogCourseadded.findViewById(R.id.course_added_button2_id);
+                Button dialogCourseaddedButton = (Button) dialogCourseadded.findViewById(R.id.course_continue_button_id);
 
                 dialogCourseaddedButton.setOnClickListener(new View.OnClickListener() {
                     @Override

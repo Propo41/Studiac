@@ -7,18 +7,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.R;
-import com.example.project.adapters.ExampleAdapter;
+import com.example.project.adapters.ViewCoursesAdapter;
 import com.example.project.toolbars.NavigationToolbarWhite;
-import com.example.project.utility.ExampleItem;
+import com.example.project.utility.CourseItems;
 
 import java.util.ArrayList;
 
 public class ViewCoursesActivity extends NavigationToolbarWhite {
 
-    ArrayList<ExampleItem> exampleItemsList = new ArrayList<>();
+    ArrayList<CourseItems> mExampleItemsList = new ArrayList<>();
     // we need to change it to ExampleAdapter object
     // the adapter slowly passes the views that we need to the recycler view
-    private ExampleAdapter mAdapter;
+    private ViewCoursesAdapter mAdapter;
     // used to align our views using code
     private RecyclerView.LayoutManager mLayoutManager;
     Context context; // for debug
@@ -38,9 +38,17 @@ public class ViewCoursesActivity extends NavigationToolbarWhite {
         RecyclerView recyclerView = findViewById(R.id.recycle_view_id);
         recyclerView.setHasFixedSize(true); // this will lock the scrolling. We cant scroll
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new ExampleAdapter(exampleItemsList);
+        mAdapter = new ViewCoursesAdapter(mExampleItemsList);
+        handleUserEvents();
 
-        mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(mAdapter);
+
+    }
+
+    private void handleUserEvents() {
+
+        mAdapter.setOnItemClickListener(new ViewCoursesAdapter.OnItemClickListener() {
             @Override
             public void onButtonClick(int position) {
                 Toast.makeText(context, "button clicked at position: " + position, Toast.LENGTH_SHORT).show();
@@ -56,32 +64,28 @@ public class ViewCoursesActivity extends NavigationToolbarWhite {
 
             }
         });
-
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setAdapter(mAdapter);
-
     }
 
     private void initList() {
 
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        exampleItemsList.add(new ExampleItem("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
+        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
 
 
     }

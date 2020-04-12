@@ -7,6 +7,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.project.adapters.CardAdapter;
 
+/*
+The following class creates visual animations for the view pager.
+When a particular pager is on focus, it'll create a shadow and elevate itself.
+ */
 public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPager.PageTransformer {
 
     private ViewPager mViewPager;

@@ -65,9 +65,14 @@
 
     <string name="inputError">This field cannot be empty</string>
 
+    <string name="viewRoutine_prompt_1">Swipe left/right to navigate</string>
+
+    <string name="viewRoutine_prompt_2">Tap on the item you wish to change</string>
+
+    <string name="viewRoutine_prompt_3">Done already? Tap on the button below </string>
 
 
-
+    <string name="todo_currentTasks_headerText">Current Tasks</string>
 
 
 

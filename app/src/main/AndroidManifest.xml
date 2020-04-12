@@ -26,7 +26,12 @@
         </activity>
 
         <activity android:name=".activities.ProfileSetupActivity" />
-        <activity android:name=".activities.ProfileSetup2Activity" />
+        <activity android:name=".activities.ProfileSetup2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activities.DashboardActivity"
             android:label="Dashboard">
@@ -51,6 +56,12 @@
         <activity android:name=".toolbars.NavigationToolbarWhite" />
         <activity android:name=".activities.ViewCoursesActivity"
             android:label="View Courses">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.ToDoTaskActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

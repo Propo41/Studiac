@@ -139,6 +139,7 @@
         android:background="@drawable/shape_button_white_two"
         android:elevation="3dp"
         android:fontFamily="@font/montserrat_medium"
+        android:onClick="addCoursePressed"
         android:text="@string/profileSetup2AddCourse"
         android:textAlignment="center"
         android:textAllCaps="true"

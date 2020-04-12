@@ -15,5 +15,7 @@
     <color name="colorLightBlueShapeNav">#D8F4FF</color>
     <color name="colorCuteBlue"> #76D7FE </color>
     <color name="colorBlack">#000000</color>
+    <color name="colorBaseWhite">#FAFAFA</color>
+    <color name="colorLightAsh">#F0F0F0</color>
 
 </resources>

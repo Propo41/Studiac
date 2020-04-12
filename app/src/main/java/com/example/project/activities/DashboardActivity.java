@@ -14,7 +14,7 @@ public class DashboardActivity extends NavigationToolbarBlue {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContent(R.layout.activity_dashboard);
+        super.setContent(R.layout.activity_dashboard, R.id.nav_dashboard);
 
     }
 
