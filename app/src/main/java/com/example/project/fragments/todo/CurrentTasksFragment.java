@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.project.R;
-import com.example.project.adapters.CurrentTasksAdapter;
-import com.example.project.utility.CurrentTaskItems;
+import com.example.project.adapters.todo.CurrentTasksAdapter;
+import com.example.project.utility.todo.CurrentTaskItems;
 import java.util.ArrayList;
 import java.util.Collections;
 

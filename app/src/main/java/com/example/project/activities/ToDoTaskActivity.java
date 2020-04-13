@@ -11,7 +11,7 @@ import com.example.project.fragments.todo.UpcomingFragment;
 import com.example.project.toolbars.NavigationToolbarBlue;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class ToDoTaskActivity extends NavigationToolbarBlue {
+public class TodoTaskActivity extends NavigationToolbarBlue {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

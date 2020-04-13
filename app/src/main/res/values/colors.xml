@@ -12,6 +12,8 @@
     <color name="colorVividBlueTransparent">#7ECEF7</color>
     <color name="colorPrimaryLight">#51BEF5</color>
     <color name="colorAsh">#575757</color>
+    <color name="colorAshLight">#F1F1F1</color>
+
     <color name="colorLightBlueShapeNav">#D8F4FF</color>
     <color name="colorCuteBlue"> #76D7FE </color>
     <color name="colorBlack">#000000</color>

@@ -25,7 +25,7 @@
     <style name="CustomDrawerFont" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:fontFamily">@font/montserrat_medium</item>
         <item name="android:textColor">@color/colorAsh </item>
-        <item name="android:textSize"> 14sp </item>
+        <item name="android:textSize"> 16sp </item>
         <item name="itemIconSize"> 18dp </item>
 
     </style>
@@ -49,6 +49,20 @@
         <item name="colorControlNormal">@color/colorPrimaryDark</item> <!-- changes the color of hamburger icon to blue -->
         <!-- this can also be done programatically by adding:
          actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white)); -->
+
+        CustomTabStyle
+
+    </style>
+
+
+    <style name="CustomTabStyle" parent="TextAppearance.Design.Tab" >
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAllCaps">true</item>
+        <!--to fix the selected tab color side effect   -->
+        <item name="tabSelectedTextColor"> @color/colorPrimaryDark </item>
+
+        <item name="tabTextColor"> @color/colorAsh </item>
+
 
     </style>
 
