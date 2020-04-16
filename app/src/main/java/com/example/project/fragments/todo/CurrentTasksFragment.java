@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -12,9 +14,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.project.R;
 import com.example.project.adapters.todo.CurrentTasksAdapter;
+import com.example.project.fragments.dialogs.RoundBottomSheetDialog;
 import com.example.project.utility.todo.CurrentTaskItems;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -32,16 +38,12 @@ public class CurrentTasksFragment extends Fragment {
         mContext = getActivity();
         initList();
         setupList();
-
         return mView;
-
     }
-
-
 
     private void setupList() {
 
-        RecyclerView recyclerView = mView.findViewById(R.id.recycle_view_id);
+        RecyclerView recyclerView = mView.findViewById(R.id.todo_current_recycle_view_id);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext);
         mAdapter = new CurrentTasksAdapter(mCurrentTaskItems);
@@ -102,7 +104,19 @@ public class CurrentTasksFragment extends Fragment {
 
     private void handleEvents() {
 
-        // handle user events
+       /* // when user clicks on the large add button
+        FloatingActionButton button = mView.findViewById(R.id.todo_current_add_main_id);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RoundBottomSheetDialog bottomSheetDialog = new RoundBottomSheetDialog();
+                if (getFragmentManager() != null) {
+                    bottomSheetDialog.show(getFragmentManager(), "example");
+                }
+            }
+        });*/
+
+        // handle events on the adapters
         mAdapter.setOnItemClickListener(new CurrentTasksAdapter.OnItemClickListener() {
 
             // when the mini add button is clicked

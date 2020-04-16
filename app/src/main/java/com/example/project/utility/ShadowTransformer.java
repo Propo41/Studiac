@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.project.adapters.CardAdapter;
+import com.example.project.adapters.dashboard.CardAdapter;
 
 /*
 The following class creates visual animations for the view pager.

@@ -2,23 +2,18 @@ package com.example.project.activities;
 
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.graphics.drawable.Icon;
 import android.os.Bundle;
-import android.os.TestLooperManager;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import androidx.viewpager.widget.ViewPager;
-
 import com.example.project.R;
-import com.example.project.adapters.CustomViewPager;
-import com.example.project.adapters.ViewCoursesAdapter;
-import com.example.project.adapters.ViewRoutineAdapter;
+import com.example.project.adapters.dashboard.CustomViewPager;
+import com.example.project.adapters.dashboard.ViewRoutineAdapter;
 import com.example.project.toolbars.NavigationToolbarWhite;
 import com.example.project.utility.ShadowTransformer;
-import com.example.project.utility.CardItem;
+import com.example.project.utility.dashboard.CardItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;

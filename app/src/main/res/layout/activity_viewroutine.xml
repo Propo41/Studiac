@@ -42,7 +42,7 @@
             app:layout_anchor="@+id/viewPager"
             app:layout_anchorGravity="bottom" />
 
-        <com.example.project.adapters.CustomViewPager
+        <com.example.project.adapters.dashboard.CustomViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="446dp"
@@ -55,7 +55,7 @@
             android:paddingRight="@dimen/card_padding"
             android:paddingBottom="30dp">
 
-        </com.example.project.adapters.CustomViewPager>
+        </com.example.project.adapters.dashboard.CustomViewPager>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

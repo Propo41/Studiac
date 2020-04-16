@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.R;
-import com.example.project.adapters.ViewCoursesAdapter;
+import com.example.project.adapters.dashboard.ViewCoursesAdapter;
 import com.example.project.toolbars.NavigationToolbarWhite;
-import com.example.project.utility.CourseItems;
+import com.example.project.utility.dashboard.CourseItems;
 
 import java.util.ArrayList;
 

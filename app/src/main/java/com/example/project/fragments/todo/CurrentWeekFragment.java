@@ -11,8 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.project.R;
-import com.example.project.adapters.todo.TabLayoutAdapter;
-import com.example.project.utility.todo.CurrentWeekItems;
+import com.example.project.adapters.todo.CurrentWeekPagerAdapter;
 import com.example.project.utility.todo.Days;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -31,22 +30,19 @@ public class CurrentWeekFragment extends Fragment {
 
 
     // we can pass data through this constructor
-    public CurrentWeekFragment(){
-        mDays = new ArrayList<>();
-        initList();
-
+    public CurrentWeekFragment( ArrayList<Days> days){
+        mDays = days;
     }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_todo_week, container, false);
 
-        TabLayoutAdapter tabLayoutAdapter = new TabLayoutAdapter(this, mDays);
-        ViewPager2 viewPager = view.findViewById(R.id.viewpager2);
-
-        TabLayout tabLayout = view.findViewById(R.id.tab_layout);
-
-        viewPager.setAdapter(tabLayoutAdapter);
+        CurrentWeekPagerAdapter currentWeekPagerAdapter = new CurrentWeekPagerAdapter(this, mDays);
+        ViewPager2 viewPager = view.findViewById(R.id.todo_week_viewpager2_id);
+        TabLayout tabLayout = view.findViewById(R.id.todo_week_tab_layout_id);
+        viewPager.setAdapter(currentWeekPagerAdapter);
+        // attach the tab layout with the view pager
         new TabLayoutMediator(tabLayout, viewPager,
                 new TabLayoutMediator.TabConfigurationStrategy() {
                     @Override
@@ -60,76 +56,6 @@ public class CurrentWeekFragment extends Fragment {
 
     }
 
-
-    private void initList() {
-
-        // we can define the sections in an array list of Objects and then use
-        // if (object instanceof SectionClass) to identify if it is a section or not
-
-        ArrayList<CurrentWeekItems> exampleItemsList = new ArrayList<>();
-
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        mDays.add(new Days(exampleItemsList)); // day 1 initialized
-        exampleItemsList = new ArrayList<>();
-
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        mDays.add(new Days(exampleItemsList)); // day 1 initialized
-        exampleItemsList = new ArrayList<>();
-
-
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        mDays.add(new Days(exampleItemsList)); // day 1 initialized
-        exampleItemsList = new ArrayList<>();
-
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        mDays.add(new Days(exampleItemsList)); // day 1 initialized
-        exampleItemsList = new ArrayList<>();
-
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        mDays.add(new Days(exampleItemsList)); // day 1 initialized
-        exampleItemsList = new ArrayList<>();
-
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        mDays.add(new Days(exampleItemsList)); // day 1 initialized
-        exampleItemsList = new ArrayList<>();
-
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        exampleItemsList.add(new CurrentWeekItems("this is android", true));
-        exampleItemsList.add(new CurrentWeekItems("is cloud"));
-        mDays.add(new Days(exampleItemsList)); // day 1 initialized
-        exampleItemsList = new ArrayList<>();
-
-
-
-
-
-    }
 
 
 }

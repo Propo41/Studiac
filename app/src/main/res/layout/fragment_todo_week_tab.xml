@@ -7,10 +7,11 @@
     android:background="@color/colorAshLight">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id = "@+id/recycle_view_id"
+        android:id = "@+id/todo_week_recycle_view_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
+
         />
 
 </RelativeLayout>

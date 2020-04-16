@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.TodoTaskActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bulletin_add_post_button_id"
+        style="@style/AddFABStyle"
+        android:elevation="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:pressedTranslationZ="12dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bulletin_add_post_official_button_id"
+        style="@style/AddFABStyle_Official"
+        android:layout_marginBottom="20dp"
+        android:elevation="6dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bulletin_add_post_button_id"
+        app:layout_constraintEnd_toEndOf="@+id/bulletin_add_post_button_id"
+        app:layout_constraintStart_toStartOf="@+id/bulletin_add_post_button_id" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bulletin_add_post_advertisement_button_id"
+        style="@style/AddFABStyle_Advertisement"
+        android:layout_marginBottom="20dp"
+        android:elevation="6dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bulletin_add_post_official_button_id"
+        app:layout_constraintEnd_toEndOf="@+id/bulletin_add_post_official_button_id"
+        app:layout_constraintStart_toStartOf="@+id/bulletin_add_post_official_button_id" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bulletin_add_post_help_button_id"
+        style="@style/AddFABStyle_Help"
+        android:layout_marginBottom="20dp"
+        android:elevation="6dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bulletin_add_post_advertisement_button_id"
+        app:layout_constraintEnd_toEndOf="@+id/bulletin_add_post_advertisement_button_id"
+        app:layout_constraintStart_toStartOf="@+id/bulletin_add_post_advertisement_button_id" />
+
+    <!-- adding tabIconTint may cause an error in sdk < 23.
+    if it doesnt work, then follow this https://stackoverflow.com/questions/34562117/how-do-i-change-the-color-of-icon-of-the-selected-tab-of-tablayout/36161252#36161252 -->
+    <TextView
+        android:id="@+id/bulletin_add_post_official_prompt_id"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_background_black"
+        android:elevation="4dp"
+        android:visibility="invisible"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Official"
+        android:gravity="center"
+        android:layout_marginEnd="@dimen/fab_popup_prompt_marginEnd"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bulletin_add_post_official_button_id"
+        app:layout_constraintEnd_toStartOf="@+id/bulletin_add_post_official_button_id"
+        app:layout_constraintTop_toTopOf="@+id/bulletin_add_post_official_button_id" />
+
+    <TextView
+        android:id="@+id/bulletin_add_post_advertisement_prompt_id"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_background_black"
+        android:elevation="4dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="Advertisement"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/bulletin_add_post_advertisement_button_id"
+        app:layout_constraintEnd_toStartOf="@+id/bulletin_add_post_advertisement_button_id"
+        app:layout_constraintTop_toTopOf="@+id/bulletin_add_post_advertisement_button_id" />
+
+
+    <TextView
+        android:id="@+id/bulletin_add_post_add_prompt_id"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_background_black"
+        android:elevation="4dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:layout_marginEnd="@dimen/fab_popup_prompt_marginEnd"
+        android:text="Create Post"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/bulletin_add_post_button_id"
+        app:layout_constraintEnd_toStartOf="@+id/bulletin_add_post_button_id"
+        app:layout_constraintTop_toTopOf="@+id/bulletin_add_post_button_id" />
+
+    <TextView
+        android:id="@+id/bulletin_add_post_help_prompt_id"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_background_black"
+        android:elevation="4dp"
+        android:visibility="invisible"
+
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="Help"
+        android:layout_marginEnd="@dimen/fab_popup_prompt_marginEnd"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bulletin_add_post_help_button_id"
+        app:layout_constraintEnd_toStartOf="@+id/bulletin_add_post_help_button_id"
+        app:layout_constraintTop_toTopOf="@+id/bulletin_add_post_help_button_id" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/bulletin_tab_layout_id"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIconTint="@color/bulletin_selector_tab"
+        app:tabIndicatorColor="@color/colorPrimaryDark"
+        app:tabTextAppearance="@style/CustomTabStyle" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/bulletin_viewpager2_id"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bulletin_tab_layout_id">
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
