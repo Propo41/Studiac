@@ -74,10 +74,10 @@ public class BulletinRecycleAdapter extends RecyclerView.Adapter<BulletinRecycle
 
         BulletinBoardViewHolder(View itemView, final OnItemClickListener customListener) {
             super(itemView);
-            mUserName = itemView.findViewById(R.id.bulletin_user_name_id);
+            mUserName = itemView.findViewById(R.id.messenger_user_name_id);
             mCategory = itemView.findViewById(R.id.bulletin_post_category_id);
             mPostTime = itemView.findViewById(R.id.bulletin_post_time_id);
-            mPostDescription = itemView.findViewById(R.id.bulletin_post_description_id);
+            mPostDescription = itemView.findViewById(R.id.messenger_post_description_id);
             mKnockUserButton = itemView.findViewById(R.id.bulletin_knock_user_id);
 
             mKnockUserButton.setOnClickListener(new View.OnClickListener() {

@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/bulletin_user_name_id"
+        android:id="@+id/messenger_user_name_id"
         style="@style/CustomTitleFontBlue"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
@@ -45,8 +45,8 @@
         android:padding="3dp"
         android:text="Category"
         android:textAlignment="textStart"
-        app:layout_constraintStart_toStartOf="@+id/bulletin_user_name_id"
-        app:layout_constraintTop_toBottomOf="@+id/bulletin_user_name_id" />
+        app:layout_constraintStart_toStartOf="@+id/messenger_user_name_id"
+        app:layout_constraintTop_toBottomOf="@+id/messenger_user_name_id" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/bulletin_knock_user_id"
@@ -72,7 +72,7 @@
         app:srcCompat="@drawable/common_ic_dp" />
 
     <TextView
-        android:id="@+id/bulletin_post_description_id"
+        android:id="@+id/messenger_post_description_id"
         style="@style/CustomSubtitleFontAsh"
         android:layout_width="370dp"
         android:layout_height="wrap_content"

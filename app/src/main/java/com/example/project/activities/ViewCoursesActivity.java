@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.R;
-import com.example.project.adapters.dashboard.ViewCoursesAdapter;
+import com.example.project.adapters.dashboard.ViewCoursesRecycleAdapter;
 import com.example.project.toolbars.NavigationToolbarWhite;
 import com.example.project.utility.dashboard.CourseItems;
 
@@ -18,7 +18,7 @@ public class ViewCoursesActivity extends NavigationToolbarWhite {
     ArrayList<CourseItems> mExampleItemsList = new ArrayList<>();
     // we need to change it to ExampleAdapter object
     // the adapter slowly passes the views that we need to the recycler view
-    private ViewCoursesAdapter mAdapter;
+    private ViewCoursesRecycleAdapter mAdapter;
     // used to align our views using code
     private RecyclerView.LayoutManager mLayoutManager;
     Context context; // for debug
@@ -38,7 +38,7 @@ public class ViewCoursesActivity extends NavigationToolbarWhite {
         RecyclerView recyclerView = findViewById(R.id.recycle_view_id);
         recyclerView.setHasFixedSize(true); // this will lock the scrolling. We cant scroll
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new ViewCoursesAdapter(mExampleItemsList);
+        mAdapter = new ViewCoursesRecycleAdapter(mExampleItemsList);
         handleUserEvents();
 
         recyclerView.setLayoutManager(mLayoutManager);
@@ -48,7 +48,7 @@ public class ViewCoursesActivity extends NavigationToolbarWhite {
 
     private void handleUserEvents() {
 
-        mAdapter.setOnItemClickListener(new ViewCoursesAdapter.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new ViewCoursesRecycleAdapter.OnItemClickListener() {
             @Override
             public void onButtonClick(int position) {
                 Toast.makeText(context, "button clicked at position: " + position, Toast.LENGTH_SHORT).show();

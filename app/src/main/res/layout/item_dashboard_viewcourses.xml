@@ -17,7 +17,7 @@
         android:id="@+id/relativeLayout">
 
         <TextView
-            android:id="@+id/bulletin_user_name_id"
+            android:id="@+id/messenger_user_name_id"
             style="@style/CustomTitleFontWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_alignParentTop="true"
             android:text="Course Credit: 3.00"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/bulletin_user_name_id"
+            app:layout_constraintStart_toStartOf="@+id/messenger_user_name_id"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -50,7 +50,7 @@
             android:text="Course Code: MATH1234"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/viewCourses_courseCredit_id"
-            app:layout_constraintTop_toBottomOf="@+id/bulletin_user_name_id" />
+            app:layout_constraintTop_toBottomOf="@+id/messenger_user_name_id" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/bulletin_knock_user_id"

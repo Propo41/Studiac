@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.example.project.R;
 import com.example.project.adapters.dashboard.CustomViewPager;
-import com.example.project.adapters.dashboard.ViewRoutineAdapter;
+import com.example.project.adapters.dashboard.ViewRoutinePagerAdapter;
 import com.example.project.toolbars.NavigationToolbarWhite;
 import com.example.project.utility.ShadowTransformer;
 import com.example.project.utility.dashboard.CardItem;
@@ -21,7 +21,7 @@ import java.util.Calendar;
 public class ViewRoutineActivity extends NavigationToolbarWhite {
 
     Context mContext; // for debug
-    private ViewRoutineAdapter mCardAdapter;
+    private ViewRoutinePagerAdapter mCardAdapter;
     private CustomViewPager viewPager;
 
 
@@ -40,7 +40,7 @@ public class ViewRoutineActivity extends NavigationToolbarWhite {
 
         viewPager = findViewById(R.id.viewPager);
 
-        mCardAdapter = new ViewRoutineAdapter();
+        mCardAdapter = new ViewRoutinePagerAdapter();
         mCardAdapter.addCardItem(new CardItem("Sunday", "Course names"));
         mCardAdapter.addCardItem(new CardItem("Monday", "Course names"));
         mCardAdapter.addCardItem(new CardItem("Tuesday", "Course names"));
@@ -65,7 +65,7 @@ public class ViewRoutineActivity extends NavigationToolbarWhite {
         final TextView promptTop = findViewById(R.id.viewRoutine_prompt_id2);
         promptTop.setVisibility(View.INVISIBLE);
 
-        mCardAdapter.setOnItemClickListener(new ViewRoutineAdapter.OnItemClickListener() {
+        mCardAdapter.setOnItemClickListener(new ViewRoutinePagerAdapter.OnItemClickListener() {
 
             @Override
             public void onButtonClick(final CardItem item, View view, int pos) {
@@ -77,16 +77,16 @@ public class ViewRoutineActivity extends NavigationToolbarWhite {
                 // if editing mode is on, then change the image icon to edit
                 // and the user cant interact with the items.
                 // else, do the opposite
-                if(ViewRoutineAdapter.isEditingMode()){
+                if(ViewRoutinePagerAdapter.isEditingMode()){
                     editBv.setImageResource(R.drawable.common_ic_edit);
-                    ViewRoutineAdapter.setEditingMode(false);
+                    ViewRoutinePagerAdapter.setEditingMode(false);
                     viewPager.setPagingEnabled(true);
                     prompt.setText(R.string.viewRoutine_prompt_1);
                     promptTop.setVisibility(View.INVISIBLE);
 
                 }else{
                     editBv.setImageResource(R.drawable.common_ic_check);
-                    ViewRoutineAdapter.setEditingMode(true);
+                    ViewRoutinePagerAdapter.setEditingMode(true);
                     viewPager.setPagingEnabled(false);
                     prompt.setText(R.string.viewRoutine_prompt_2);
                     promptTop.setVisibility(View.VISIBLE);
@@ -101,7 +101,7 @@ public class ViewRoutineActivity extends NavigationToolbarWhite {
             public void onCourseNameClick(CardItem item, View view, int pos) {
 
 
-                if(ViewRoutineAdapter.isEditingMode()){
+                if(ViewRoutinePagerAdapter.isEditingMode()){
                     // @TODO: open dialog: Select_Course (31)
                     Toast.makeText(mContext, "clicked: " , Toast.LENGTH_SHORT).show();
 
@@ -116,7 +116,7 @@ public class ViewRoutineActivity extends NavigationToolbarWhite {
 
                 Toast.makeText(mContext, "start" , Toast.LENGTH_SHORT).show();
 
-                if(ViewRoutineAdapter.isEditingMode()){
+                if(ViewRoutinePagerAdapter.isEditingMode()){
 
                     Calendar calendar = Calendar.getInstance();
                     final int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -137,7 +137,7 @@ public class ViewRoutineActivity extends NavigationToolbarWhite {
 
             @Override
             public void onCourseEndClick(CardItem item, View view, int pos) {
-                if(ViewRoutineAdapter.isEditingMode()){
+                if(ViewRoutinePagerAdapter.isEditingMode()){
 
                     Toast.makeText(mContext, "pos: " + pos , Toast.LENGTH_SHORT).show();
 
