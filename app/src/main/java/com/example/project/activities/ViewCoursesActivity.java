@@ -16,10 +16,7 @@ import java.util.ArrayList;
 public class ViewCoursesActivity extends NavigationToolbarWhite {
 
     ArrayList<CourseItems> mExampleItemsList = new ArrayList<>();
-    // we need to change it to ExampleAdapter object
-    // the adapter slowly passes the views that we need to the recycler view
     private ViewCoursesRecycleAdapter mAdapter;
-    // used to align our views using code
     private RecyclerView.LayoutManager mLayoutManager;
     Context context; // for debug
 
@@ -40,7 +37,6 @@ public class ViewCoursesActivity extends NavigationToolbarWhite {
         mLayoutManager = new LinearLayoutManager(this);
         mAdapter = new ViewCoursesRecycleAdapter(mExampleItemsList);
         handleUserEvents();
-
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
 
@@ -51,12 +47,14 @@ public class ViewCoursesActivity extends NavigationToolbarWhite {
         mAdapter.setOnItemClickListener(new ViewCoursesRecycleAdapter.OnItemClickListener() {
             @Override
             public void onButtonClick(int position) {
+                // todo: open dialog C
                 Toast.makeText(context, "button clicked at position: " + position, Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onItemClick(int position) {
+                // todo: open dialog B
                 Toast.makeText(context, "Item clicked at position: " + position, Toast.LENGTH_SHORT).show();
                 // when the particular card view item is clicked, then do:
                 //exampleItemsList.get(position).changeText("clicked!!");

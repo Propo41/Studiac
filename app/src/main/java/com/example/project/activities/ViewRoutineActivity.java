@@ -12,7 +12,7 @@ import com.example.project.R;
 import com.example.project.adapters.dashboard.CustomViewPager;
 import com.example.project.adapters.dashboard.ViewRoutinePagerAdapter;
 import com.example.project.toolbars.NavigationToolbarWhite;
-import com.example.project.utility.ShadowTransformer;
+import com.example.project.utility.common.ShadowTransformer;
 import com.example.project.utility.dashboard.CardItem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

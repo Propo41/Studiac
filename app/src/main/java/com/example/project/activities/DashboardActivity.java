@@ -1,9 +1,7 @@
 package com.example.project.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import com.example.project.R;
 import com.example.project.toolbars.NavigationToolbarBlue;

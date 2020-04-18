@@ -88,7 +88,6 @@ public class ViewCoursesRecycleAdapter extends RecyclerView.Adapter<ViewCoursesR
     // this view holder object will hold the views that is to be passed onto the recycler view
     // initially, onCreateViewHolder() will be called which will return the view holder object
     // containing the views
-
     static class ViewCoursesViewHolder extends RecyclerView.ViewHolder {
         TextView mCourseNameTv;
         TextView mCourseCreditTv;
@@ -121,6 +120,9 @@ public class ViewCoursesRecycleAdapter extends RecyclerView.Adapter<ViewCoursesR
                     }
                 }
             });
+
+
+
 
             mEditBv.setOnClickListener(new View.OnClickListener() {
                 @Override

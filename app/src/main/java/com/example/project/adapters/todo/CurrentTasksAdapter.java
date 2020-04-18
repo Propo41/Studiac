@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.R;
 import com.example.project.utility.todo.CurrentTaskItems;
+import com.example.project.utility.todo.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -19,12 +20,20 @@ import java.util.ArrayList;
 public class CurrentTasksAdapter extends RecyclerView.Adapter<CurrentTasksAdapter.CurrentTasksViewHolder> {
 
     private OnItemClickListener mListener;
-    private ArrayList<CurrentTaskItems> mCurrentTaskItems;
+    private ArrayList<Task> mCurrentTaskItems;
 
     // creating macros to identify the header and the list
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_LIST = 1;
 
+
+    public ArrayList<Task> getCurrentTaskItems() {
+        return mCurrentTaskItems;
+    }
+
+    public void setCurrentTaskItems(ArrayList<Task> currentTaskItems) {
+        mCurrentTaskItems = currentTaskItems;
+    }
 
     // view holder class for the adapter.
     // it creates objects at runtime for the adapter
@@ -96,7 +105,7 @@ public class CurrentTasksAdapter extends RecyclerView.Adapter<CurrentTasksAdapte
 
 
     // to extract the data from the Array list (that we created in out MainActivity file) we create a constructor
-    public CurrentTasksAdapter(ArrayList<CurrentTaskItems> currentTaskItems) {
+    public CurrentTasksAdapter(ArrayList<Task> currentTaskItems) {
         mCurrentTaskItems = currentTaskItems;
     }
 
@@ -155,8 +164,8 @@ public class CurrentTasksAdapter extends RecyclerView.Adapter<CurrentTasksAdapte
             holder.mHeaderTextView.setText(R.string.todo_currentTasks_headerText);
 
         } else {
-            CurrentTaskItems currentItem = mCurrentTaskItems.get(position - 1); // since is one extra row for the header, we are subtracting one
-            holder.mTask.setText(currentItem.getText1());
+            Task currentItem = mCurrentTaskItems.get(position ); // since is one extra row for the header, we are subtracting one
+            holder.mTask.setText(currentItem.getDescription());
             // don't change this ever. Used to reset the checkbox of the recycled item
             holder.mCheckBox.setChecked(false);
         }

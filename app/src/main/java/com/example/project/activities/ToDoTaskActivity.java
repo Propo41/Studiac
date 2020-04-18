@@ -4,17 +4,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
+
 import com.example.project.R;
-import com.example.project.fragments.dialogs.RoundBottomSheetDialog;
+import com.example.project.fragments.dialogs.AddTaskMainBSDialog;
 import com.example.project.fragments.todo.CurrentTasksFragment;
 import com.example.project.fragments.todo.CurrentWeekFragment;
 import com.example.project.fragments.todo.UpcomingFragment;
 import com.example.project.toolbars.NavigationToolbarBlue;
+import com.example.project.utility.common.Course;
 import com.example.project.utility.todo.Task;
 import com.example.project.utility.todo.TaskItems;
 import com.example.project.utility.todo.Days;
@@ -23,52 +23,22 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class TodoTaskActivity extends NavigationToolbarBlue implements RoundBottomSheetDialog.BottomSheetListener {
+public class TodoTaskActivity extends NavigationToolbarBlue  {
 
     private ArrayList<Days> mDays;
+    private int mCurrentSelectedItemBottomNav;
+    private ArrayList<Task> mCurrentTasks;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContent(R.layout.activity_todotask, R.id.nav_toDoTask);
-
-        initList();
+        //initList();
+        mCurrentTasks = new ArrayList<>();
+        mCurrentTasks.add(null);
         setupBottomNav();
-
-        handleEvents();
-
-
-
-
-    }
-
-    /*
-     * when the user clicks on the large add button, open up bottom sheet dialog to add task
-     */
-    private void handleEvents() {
-        // when user clicks on the large add button
-        FloatingActionButton addButton = findViewById(R.id.todo_ADD_task_button_id);
-
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RoundBottomSheetDialog bottomSheetDialog = new RoundBottomSheetDialog();
-                if (getFragmentManager() != null) {
-                    bottomSheetDialog.show(getSupportFragmentManager(), "example");
-                }
-            }
-        });
-    }
-
-
-    @Override
-    public void onAddPressed(Task task) {
-
-        // if task.type == "Current Task", add it into current task stack
-        // if task.type == "Current Week", add it to current week stack
-        // if task.type == "Future", add it to future stack
-
     }
 
 
@@ -89,10 +59,10 @@ public class TodoTaskActivity extends NavigationToolbarBlue implements RoundBott
         mDays.add(new Days(exampleItemsList, "APRIL 2020")); // day 1 initialized
         exampleItemsList = new ArrayList<>();
 
-        exampleItemsList.add(new TaskItems("this is android", "MATH 1230",  true));
+        exampleItemsList.add(new TaskItems("this is android", "MATH 1230", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         exampleItemsList.add(new TaskItems("is cloud"));
-        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254" , true));
+        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         mDays.add(new Days(exampleItemsList, "Wed")); // day 2 initialized
         exampleItemsList = new ArrayList<>();
@@ -106,28 +76,10 @@ public class TodoTaskActivity extends NavigationToolbarBlue implements RoundBott
         mDays.add(new Days(exampleItemsList, "Thurs")); // day 2 initialized
         exampleItemsList = new ArrayList<>();
 
-        exampleItemsList.add(new TaskItems("this is android", "MATH 1230",  true));
+        exampleItemsList.add(new TaskItems("this is android", "MATH 1230", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         exampleItemsList.add(new TaskItems("is cloud"));
-        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254" , true));
-        exampleItemsList.add(new TaskItems("is cloud"));
-        mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
-        exampleItemsList = new ArrayList<>();
-
-        exampleItemsList.add(new TaskItems("this is android", "ALGORITHM 1234", true));
-        exampleItemsList.add(new TaskItems("is cloud"));
-        exampleItemsList.add(new TaskItems("is cloud"));
-        exampleItemsList.add(new TaskItems("this is android", "CSE 1200", true));
-        exampleItemsList.add(new TaskItems("is cloud"));
-        mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
-        exampleItemsList = new ArrayList<>();
-
-
-
-        exampleItemsList.add(new TaskItems("this is android", "MATH 1230",  true));
-        exampleItemsList.add(new TaskItems("is cloud"));
-        exampleItemsList.add(new TaskItems("is cloud"));
-        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254" , true));
+        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
         exampleItemsList = new ArrayList<>();
@@ -140,10 +92,11 @@ public class TodoTaskActivity extends NavigationToolbarBlue implements RoundBott
         mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
         exampleItemsList = new ArrayList<>();
 
-        exampleItemsList.add(new TaskItems("this is android", "MATH 1230",  true));
+
+        exampleItemsList.add(new TaskItems("this is android", "MATH 1230", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         exampleItemsList.add(new TaskItems("is cloud"));
-        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254" , true));
+        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
         exampleItemsList = new ArrayList<>();
@@ -156,10 +109,10 @@ public class TodoTaskActivity extends NavigationToolbarBlue implements RoundBott
         mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
         exampleItemsList = new ArrayList<>();
 
-        exampleItemsList.add(new TaskItems("this is android", "MATH 1230",  true));
+        exampleItemsList.add(new TaskItems("this is android", "MATH 1230", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         exampleItemsList.add(new TaskItems("is cloud"));
-        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254" , true));
+        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
         exampleItemsList = new ArrayList<>();
@@ -172,14 +125,28 @@ public class TodoTaskActivity extends NavigationToolbarBlue implements RoundBott
         mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
         exampleItemsList = new ArrayList<>();
 
-        exampleItemsList.add(new TaskItems("this is android", "MATH 1230",  true));
+        exampleItemsList.add(new TaskItems("this is android", "MATH 1230", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         exampleItemsList.add(new TaskItems("is cloud"));
-        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254" , true));
+        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254", true));
         exampleItemsList.add(new TaskItems("is cloud"));
         mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
+        exampleItemsList = new ArrayList<>();
 
+        exampleItemsList.add(new TaskItems("this is android", "ALGORITHM 1234", true));
+        exampleItemsList.add(new TaskItems("is cloud"));
+        exampleItemsList.add(new TaskItems("is cloud"));
+        exampleItemsList.add(new TaskItems("this is android", "CSE 1200", true));
+        exampleItemsList.add(new TaskItems("is cloud"));
+        mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
+        exampleItemsList = new ArrayList<>();
 
+        exampleItemsList.add(new TaskItems("this is android", "MATH 1230", true));
+        exampleItemsList.add(new TaskItems("is cloud"));
+        exampleItemsList.add(new TaskItems("is cloud"));
+        exampleItemsList.add(new TaskItems("this is android", "ARCH 1254", true));
+        exampleItemsList.add(new TaskItems("is cloud"));
+        mDays.add(new Days(exampleItemsList, "Fri")); // day 2 initialized
 
 
     }
@@ -189,27 +156,36 @@ public class TodoTaskActivity extends NavigationToolbarBlue implements RoundBott
 
         // the default fragment that is open initially
         getSupportFragmentManager().beginTransaction().replace(R.id.todo_fragment_container,
-                new CurrentTasksFragment()).commit();
+                new CurrentTasksFragment(mCurrentTasks)).commit();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selected = new CurrentTasksFragment();
-                switch (item.getItemId()){
-                    case R.id.nav_btm_current:
-                        selected = new CurrentTasksFragment();
-                        break;
-                    case R.id.nav_btm_week:
-                        selected = new CurrentWeekFragment(mDays);
-                        break;
-                    case R.id.nav_btm_upcoming:
-                        selected = new UpcomingFragment(mDays);
-                        break;
+                Fragment selected = new CurrentTasksFragment(mCurrentTasks);
+                if(mCurrentSelectedItemBottomNav != item.getItemId()){
+                    switch (item.getItemId()) {
+
+                        case R.id.nav_btm_current:
+                            Log.println(Log.DEBUG, "todoActivity", "current tasks tab selected");
+                            selected = new CurrentTasksFragment(mCurrentTasks);
+                            mCurrentSelectedItemBottomNav = item.getItemId();
+                            break;
+                        case R.id.nav_btm_week:
+                            Log.println(Log.DEBUG, "todoActivity", "current week tab selected");
+                            selected = new CurrentWeekFragment(mDays);
+                            mCurrentSelectedItemBottomNav = item.getItemId();
+                            break;
+                        case R.id.nav_btm_upcoming:
+                            Log.println(Log.DEBUG, "todoActivity", "upcoming tab selected");
+                            selected = new UpcomingFragment(mDays);
+                            mCurrentSelectedItemBottomNav = item.getItemId();
+                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.todo_fragment_container,
+                            selected).commit();
                 }
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.todo_fragment_container,
-                        selected).commit();
                 return true;
             }
         });

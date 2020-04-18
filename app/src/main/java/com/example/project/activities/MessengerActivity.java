@@ -3,6 +3,8 @@ package com.example.project.activities;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import com.example.project.R;
 import com.example.project.adapters.messenger.MessengerRecycleAdapter;
@@ -32,6 +34,8 @@ public class MessengerActivity extends NavigationToolbarBlue {
             @Override
             public void onSelectMessage(int position) {
                 // todo: open activity 16
+                startActivity(new Intent(MessengerActivity.this, MessageActivity.class));
+
             }
         });
 

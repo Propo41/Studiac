@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.TodoTaskActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/todo_ADD_task_button_id"
-        style="@style/AddFABStyle"
-        android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"

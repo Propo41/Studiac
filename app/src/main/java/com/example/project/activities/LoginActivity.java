@@ -56,8 +56,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
 
         if (v.getId() == mForgotPasswordBtn.getId()) {
-
-            // @TODO: make ForgotPasswordActivity a fragment
             startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
         }
 

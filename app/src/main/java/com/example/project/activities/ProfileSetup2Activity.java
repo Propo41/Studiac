@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.example.project.R;
 
-public class ProfileSetup2Activity extends AppCompatActivity implements View.OnClickListener {
+public class ProfileSetup2Activity extends AppCompatActivity {
 
     private EditText mCourseNameField;
     private EditText mCourseCodeField;
@@ -41,56 +41,56 @@ public class ProfileSetup2Activity extends AppCompatActivity implements View.OnC
         mAddLater = findViewById(R.id.addLaterBtn);
     }
 
+    public void addRoutinePressed(View v){
+
+        // todo: open dialog 10
+
+    }
+
 
     public void addCoursePressed(View v){
 
-        final Dialog courseAddedDialog = new Dialog(context);
-        courseAddedDialog.setContentView(R.layout.dialog_setupprofile2_courseadded);
+        if(!isInputValid()){
+            final Dialog courseAddedDialog = new Dialog(context);
+            courseAddedDialog.setContentView(R.layout.dialog_setupprofile2_courseadded);
+            Button addMoreBv = courseAddedDialog.findViewById(R.id.course_addmore_button_id);
+            Button continueBv = courseAddedDialog.findViewById(R.id.course_continue_button_id);
 
-        Button addMoreBv = courseAddedDialog.findViewById(R.id.course_addmore_button_id);
-        Button continueBv = courseAddedDialog.findViewById(R.id.course_continue_button_id);
+            // when addMore button is clicked, dismiss the dialog
+            addMoreBv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v0) {
+                    courseAddedDialog.dismiss();
+                }
+            });
 
-        addMoreBv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v0) {
-                courseAddedDialog.dismiss();
-            }
-        });
+            // when continue button is clicked, open dashboard
+            continueBv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v0) {
+                    courseAddedDialog.dismiss();
+                    // @TODO: open dashboard
+                    startActivity(new Intent(ProfileSetup2Activity.this, DashboardActivity.class));
 
-        continueBv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v0) {
-                courseAddedDialog.dismiss();
-                // @TODO: open dashboard
+                }
+            });
 
-            }
-        });
+            courseAddedDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            courseAddedDialog.show();
 
-        courseAddedDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        courseAddedDialog.show();
+        }else{
+
+            // todo: set error here, instead of the method isInputValid().
+
+        }
 
 
     }
 
-    @Override
-    public void onClick(View v) {
 
-
-        if(v.getId()== mAddRoutine.getId()){
-             //@TODO: open dialog box
-            // routine is optional
-        }
-
-        if(v.getId()== mAddLater.getId()){
-            startActivity(new Intent(ProfileSetup2Activity.this, DashboardActivity.class));
-        }
-
-    }
-
-
-    public boolean profileSetup2InputCheck(){
+    public boolean isInputValid(){
         boolean mReturnValue = true;
-
+        // todo: add stroke and more functionality, such as when texts are too long, or etc
         if(mCourseNameField.getText().length()==0){
             mCourseNameField.setError("This field cannot be empty");
             mReturnValue = false;

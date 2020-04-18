@@ -6,13 +6,24 @@
     android:layout_height="match_parent"
     android:background="@color/colorVividBlue"
     android:gravity="center"
-    tools:context=".SelectImageActivity">
+    tools:context=".activities.SelectImageActivity">
+
+    <ImageView
+        android:id="@+id/change_img5_id"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="210dp"
+        android:layout_toEndOf="@+id/change_img4_id"
+        android:src="@drawable/common_ic_profile" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="48dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/changingtext"
         android:textColor="@color/colorWhite"
@@ -24,6 +35,17 @@
         android:layout_height="150dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
+        android:src="@drawable/common_ic_profile" />
+
+    <ImageView
+        android:id="@+id/change_img2_id"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="80dp"
+        android:layout_toEndOf="@+id/change_img1_id"
         android:src="@drawable/common_ic_profile" />
 
     <ImageView
@@ -41,15 +63,6 @@
         android:layout_height="150dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="210dp"
-        android:src="@drawable/common_ic_profile" />
-
-    <ImageView
-        android:id="@+id/change_img5_id"
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="210dp"
-        android:layout_toEndOf="@+id/change_img4_id"
         android:src="@drawable/common_ic_profile" />
 
     <ImageView
@@ -104,17 +117,6 @@
         android:textAlignment="center"
         android:textColor="@color/colorVividBlue"
         android:textSize="12sp" />
-
-    <ImageView
-        android:id="@+id/change_img2_id"
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="80dp"
-        android:layout_toEndOf="@+id/change_img1_id"
-        android:src="@drawable/common_ic_profile" />
 
 
 </RelativeLayout>

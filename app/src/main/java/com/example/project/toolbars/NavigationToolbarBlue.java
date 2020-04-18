@@ -19,6 +19,11 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.project.R;
+import com.example.project.activities.BulletinBoardActivity;
+import com.example.project.activities.DashboardActivity;
+import com.example.project.activities.LoginActivity;
+import com.example.project.activities.MessengerActivity;
+import com.example.project.activities.TodoTaskActivity;
 import com.google.android.material.navigation.NavigationView;
 
 /*
@@ -30,11 +35,12 @@ navigation facilities.
 When inheriting this class, make sure to call the method setContent(layout_of_activity/fragment)
 from the onCreate() method.
  */
-public class NavigationToolbarBlue extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
+public class NavigationToolbarBlue extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     protected FrameLayout mFrameLayout;
     protected DrawerLayout mDrawer;
     protected NavigationView mNavigationView;
+    protected int mCurrentSelectedItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +68,8 @@ public class NavigationToolbarBlue extends AppCompatActivity implements Navigati
 
     }
 
-    public void setContent(int layout, int id){
+    public void setContent(int layout, int id) {
+        mCurrentSelectedItem = id;
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //inflate the activity layout
         View contentView = inflater.inflate(layout, null, false);
@@ -92,14 +99,12 @@ public class NavigationToolbarBlue extends AppCompatActivity implements Navigati
     @Override
     public void onBackPressed() {
         // if the drawer is open, close the drawer instead
-        if(mDrawer.isDrawerOpen(GravityCompat.START)){
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
             mDrawer.closeDrawer(GravityCompat.START);
-        }else{
+        } else {
             super.onBackPressed();
-
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,24 +114,31 @@ public class NavigationToolbarBlue extends AppCompatActivity implements Navigati
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_dashboard:
-                // do nothing, as it's already here
-                break;
-            case R.id.nav_gpaCalculator:
-                break;
-            case R.id.nav_toDoTask:
-                break;
-            case R.id.nav_bulletinBoard:
-                break;
-            case R.id.nav_messages:
-                break;
-            case R.id.nav_editProfile:
-                break;
-            case R.id.nav_updateSemester:
-                break;
-            case R.id.nav_helpSupport:
-                break;
+        if (item.getItemId() != mCurrentSelectedItem) {
+            switch (item.getItemId()) {
+                case R.id.nav_dashboard:
+                    startActivity(new Intent(this, DashboardActivity.class));
+                    break;
+                case R.id.nav_gpaCalculator:
+                   // startActivity(new Intent(this, DashboardActivity.class));
+                    break;
+                case R.id.nav_toDoTask:
+                    startActivity(new Intent(this, TodoTaskActivity.class));
+                    break;
+                case R.id.nav_bulletinBoard:
+                    startActivity(new Intent(this, BulletinBoardActivity.class));
+                    break;
+                case R.id.nav_messages:
+                    startActivity(new Intent(this, MessengerActivity.class));
+                    break;
+                case R.id.nav_editProfile:
+                    break;
+                case R.id.nav_updateSemester:
+                    break;
+                case R.id.nav_helpSupport:
+                    break;
+
+            }
 
         }
 

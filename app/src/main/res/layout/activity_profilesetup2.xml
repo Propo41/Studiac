@@ -124,9 +124,10 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="117dp"
         android:layout_height="80dp"
-        android:layout_marginTop="5dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
         android:background="@drawable/profilesetup2_ic_addroutine"
+        android:onClick="addRoutinePressed"
         android:textAlignment="center" />
 
     <Button
