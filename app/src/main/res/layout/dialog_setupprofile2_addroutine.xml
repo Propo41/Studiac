@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="320dp"
+    android:layout_height="451dp"
+    android:background="@drawable/shape_background_vividblue"
+    android:layout_gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/addroutine_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/addroutinetext"
+        android:textColor="@color/colorWhite"
+        android:textSize="21dp" />
+    <TextView
+        android:id="@+id/addroutine_text1_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/addroutinetext1"
+        android:fontFamily="@font/montserrat_regular"
+        android:textSize="12dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_marginTop="8dp"
+
+        />
+
+
+
+    <ImageView
+        android:id="@+id/add_icon_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/common_ic_add"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/addroutine_text1_id"
+        android:layout_marginTop="5dp"
+
+
+        />
+
+
+    <TableLayout
+        android:layout_width="283dp"
+        android:layout_height="228dp"
+        android:layout_below="@+id/add_icon_id"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="72dp"
+        android:background="@drawable/shape_background_lightblue" />
+
+    <Button
+        android:id="@+id/addroutine_button_id"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/shape_button_white"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/addroutinebuttontext1"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="12dp" />
+
+</RelativeLayout>

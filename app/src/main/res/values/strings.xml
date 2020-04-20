@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Studiac</string>
+    <string name="onstarttext">A platform designed to</string>
+    <string name="onstarttext1">make your education more productive</string>
+
+    <string name="navigation_drawer_open"> Open navigation drawer</string>
+    <string name="navigation_drawer_close"> Close navigation drawer</string>
+
+
+    <!-- user prompts/alerts-->
+    <string name="viewRoutine_prompt_1">Swipe left/right to navigate</string>
+    <string name="viewRoutine_prompt_2">Tap on the item you wish to change</string>
+    <string name="viewRoutine_prompt_3">Done already? Tap on the button below </string>
+    <string name="profileSetup1University">Enter your University name</string>
+    <string name="profileSetup1Department">Enter your Department name</string>
+    <string name="profileSetup1EnterValue">Enter Value</string>
+    <string name="profileSetup1NextBtn">NEXT</string>
+    <string name="profileSetup2Course">Enter course name</string>
+    <string name="profileSetup2CourseCode">Enter course code</string>
+    <string name="profileSetup2Credit">Enter course credit</string>
+    <string name="profileSetup2AddCourse">Add course</string>
+    <string name="profileSetup2AddLaterBtn">Add Later</string>
+
+    <string name="createAccountName">Enter your full name</string>
+    <string name="createAccountEmail">Enter your email</string>
+    <string name="createAccountPassword">Enter your password</string>
+    <string name="createAccountReTypePassword">Enter your password again</string>
+    <string name="createAccountBtn">CREATE ACCOUNT</string>
+    <string name="createAccountSignInBtn">Sign In</string>
+
+
+    <string name="forgotPasswordEmail">Enter your email</string>
+    <string name="forgotPasswordConfirmBtn">CONFIRM</string>
+    <string name="forgotPasswordSignInBtn">Sign In</string>
+
+
+    <string name="loginEmail">Enter your email</string>
+    <string name="loginPassword">Enter your password</string>
+    <string name="loginBtn">LOGIN</string>
+    <string name="loginSignUpBtn">Sign up</string>
+
+
+    <string name="alert1text">Incorrect credentials</string>
+    <string name="alert1text1">entered.</string>
+    <string name="alert1buttontext">OK</string>
+    <string name="changingtext">Go on. Pick an image!</string>
+    <string name="changimgbuttontext">NEXT</string>
+    <string name="courseaddedtext">Course Added</string>
+    <string name="courseaddedbuttontext">Add more</string>
+    <string name="courseaddedbuttontext1">Continue</string>
+    <string name="forgotpasswordtext">A temporary password</string>
+    <string name="forgotpasswordtext1">has been sent to your email.</string>
+    <string name="addroutinetext">Add routine</string>
+    <string name="addroutinetext1">Add </string>
+    <string name="addroutinebuttontext1">Done</string>
+    <string name="fieldRequiredPrompt">* required</string>
+
+
+    <!-- Place holder names -->
+    <string name="sampleTextBulletin">lorem epsum lorem epsumlorem   </string>
+
+    <!-- header names -->
+    <string name="Header_Others">Others</string>
+    <string name="Header_SelfStudy">Self Study</string>
+    <string name="Header_Course">Course</string>
+    <string name="Header_CurrentTasks">Current Tasks</string>
+
+
+
+</resources>

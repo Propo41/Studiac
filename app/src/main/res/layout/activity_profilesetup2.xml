@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CreateAccountActivity"
+    android:orientation="vertical"
+    android:background="@color/colorVividBlue">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/montserrasemibold"
+        android:gravity="center_horizontal"
+        android:text="You're almost finished\nAdd your courses!"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Course Name"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:textCursorDrawable="@drawable/colored_cursor"
+        android:id="@+id/courseNameField"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_input_blue"
+        android:drawableStart="@drawable/profilesetup2_ic_book"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/profileSetup2Course"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="15sp"
+        android:paddingRight="17.5dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Course Code (Optional)"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:textCursorDrawable="@drawable/colored_cursor"
+        android:id="@+id/courseCode"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_input_blue"
+        android:drawableStart="@drawable/profilesetup2_ic_code"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/profileSetup2CourseCode"
+        android:textColor="@color/colorWhite"
+        android:paddingRight="17.5dp"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="15sp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Course Credit"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:textCursorDrawable="@drawable/colored_cursor"
+        android:id="@+id/courseCredit"
+        android:layout_width="320dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_input_blue"
+        android:drawableStart="@drawable/course_ic_credit"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/profileSetup2Credit"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:paddingRight="17.5dp"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Add Routine"
+        android:textColor="@color/colorWhite"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/addroutineBtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="117dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/profilesetup2_ic_addroutine"
+        android:onClick="addRoutinePressed"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/addCourseBtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_button_white_two"
+        android:elevation="3dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:onClick="addCoursePressed"
+        android:text="@string/profileSetup2AddCourse"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorVividLightBlue"
+        android:textSize="16sp" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTransparentWhite"
+            android:fontFamily="@font/montserrat_regular"
+            android:paddingBottom="5dp"
+            android:text="Feeling lazy? "
+            android:textAlignment="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/addLaterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profileSetup2AddLaterBtn"
+            android:background="@color/colorTransparentWhite"
+            android:textColor="@color/colorWhite"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:paddingBottom="5dp"
+            android:fontFamily="@font/montserrat_bold"
+            />
+    </LinearLayout>
+
+</LinearLayout>
