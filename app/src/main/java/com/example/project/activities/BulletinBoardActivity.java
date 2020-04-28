@@ -11,11 +11,12 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.example.project.R;
 import com.example.project.adapters.bulletinboard.BulletinPagerAdapter;
 import com.example.project.toolbars.NavigationToolbarBlue;
+import com.example.project.toolbars.NavigationToolbarWhite;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class BulletinBoardActivity extends NavigationToolbarBlue {
+public class BulletinBoardActivity extends NavigationToolbarWhite {
 
     private int[] tabIcons = {R.drawable.bulletin_ic_official, R.drawable.bulletin_ic_advertisement, R.drawable.bulletin_ic_help};
     private FloatingActionButton fab_main, fab_official, fab_ad, fab_help;
@@ -26,7 +27,7 @@ public class BulletinBoardActivity extends NavigationToolbarBlue {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContent(R.layout.activity_bulletin_board, R.id.nav_bulletinBoard);
+        super.setContent(R.layout.activity_bulletin_board);
 
         initViews();
         initAnimations();

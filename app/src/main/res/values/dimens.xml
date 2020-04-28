@@ -11,4 +11,12 @@
 
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">13sp</dimen>
 
+
+
+    <!-- contains the dimens of view routine items -->
+    <dimen name="ViewRoutineItemHeight">30dp</dimen>
+    <dimen name="ViewRoutineItemWidthName">108dp</dimen>
+    <dimen name="ViewRoutineItemWidthTime">78dp</dimen>
+    <dimen name="ViewRoutineItemTextSize">15sp</dimen>
+
 </resources>

@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.project.R;
+import com.example.project.utility.common.Student;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -20,7 +20,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private EditText nReTypePasswordField;
     private Button mCreateAccountBtn;
     private TextView mSignIn;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,30 +30,36 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     private void initViews(){
-        nEmailField =  findViewById(R.id.emailField);
-        mNameField =  findViewById(R.id.nameField);
-        nPasswordField =  findViewById(R.id.passwordField);
-        nReTypePasswordField = findViewById(R.id.reTypePasswordField);
-        mSignIn =  findViewById(R.id.signInBtn);
-        mCreateAccountBtn =  findViewById(R.id.createAccountBtn);
+        nEmailField =  findViewById(R.id.setup_email_id);
+        mNameField =  findViewById(R.id.setup_name_id);
+        nPasswordField =  findViewById(R.id.setup_password_id);
+        nReTypePasswordField = findViewById(R.id.setup_retype_password_id);
+        mSignIn =  findViewById(R.id.setup_sign_in_button_id);
+        mCreateAccountBtn =  findViewById(R.id.setup_create_account_button_id);
     }
 
-    public void signInPressed(View v)
+    public void onSignInClick(View v)
     {
         startActivity(new Intent(CreateAccountActivity.this, LoginActivity.class));
     }
 
-    public void createAccountPressed(View v)
+    public void onCreateAccountClick(View v)
     {
-        if(createAccountInputCheck(v)) {
-            startActivity(new Intent(CreateAccountActivity.this, ProfileSetupActivity.class));
-        }
-        else{
+        if(isInputValid()) {
+            Intent intent = new Intent(getBaseContext(), ProfileSetupActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("studentName", mNameField.getText().toString());
+            bundle.putString("studentEmail", nEmailField.getText().toString());
+            bundle.putString("studentPassword", nPasswordField.getText().toString());
+            intent.putExtras(bundle);
+            startActivity(intent);
 
         }
+
+
     }
-    
-    public boolean createAccountInputCheck(View v){
+
+    public boolean isInputValid(){
 
         boolean returnValue = true;
         if(mNameField.getText().length() == 0) {
@@ -101,6 +107,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             nReTypePasswordField.setError("Password doesn't match");
             returnValue =true;
         }
+        returnValue = true; // for debug
         return  returnValue ;
     }
 

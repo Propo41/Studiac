@@ -24,6 +24,8 @@ import com.example.project.activities.DashboardActivity;
 import com.example.project.activities.LoginActivity;
 import com.example.project.activities.MessengerActivity;
 import com.example.project.activities.TodoTaskActivity;
+import com.example.project.utility.common.Common;
+import com.example.project.utility.common.Student;
 import com.google.android.material.navigation.NavigationView;
 
 /*
@@ -119,23 +121,19 @@ public class NavigationToolbarBlue extends AppCompatActivity implements Navigati
                 case R.id.nav_dashboard:
                     startActivity(new Intent(this, DashboardActivity.class));
                     break;
-                case R.id.nav_gpaCalculator:
-                   // startActivity(new Intent(this, DashboardActivity.class));
+                case R.id.nav_edit_profile:
+                    // startActivity(new Intent(this, DashboardActivity.class));
                     break;
-                case R.id.nav_toDoTask:
-                    startActivity(new Intent(this, TodoTaskActivity.class));
+                case R.id.nav_help:
+                    // startActivity(new Intent(this, TodoTaskActivity.class));
                     break;
-                case R.id.nav_bulletinBoard:
-                    startActivity(new Intent(this, BulletinBoardActivity.class));
+                case R.id.nav_settings:
+                    // startActivity(new Intent(this, BulletinBoardActivity.class));
                     break;
-                case R.id.nav_messages:
-                    startActivity(new Intent(this, MessengerActivity.class));
+                case R.id.nav_update_semester:
+                    // startActivity(new Intent(this, MessengerActivity.class));
                     break;
-                case R.id.nav_editProfile:
-                    break;
-                case R.id.nav_updateSemester:
-                    break;
-                case R.id.nav_helpSupport:
+                case R.id.nav_quit:
                     break;
 
             }
@@ -145,4 +143,5 @@ public class NavigationToolbarBlue extends AppCompatActivity implements Navigati
         mDrawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

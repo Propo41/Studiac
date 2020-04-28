@@ -4,11 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.project.R;
+import com.example.project.utility.common.Student;
+import com.example.project.utility.common.University;
 
 public class ProfileSetupActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,12 +21,21 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
     private EditText mCurrentSemesterField;
     private EditText mTotalSemesterField;
     private Button mNextBtn;
+    private int mImageId = R.drawable.profilesetup_ic_avator; // default value. If changes, then update it
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profilesetup);
         initViews();
+        mNextBtn = findViewById(R.id.nextButton);
+        mNextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onNextClick();
+            }
+        });
+
 
     }
 
@@ -42,49 +54,60 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
         mChangeAvatarBtn.setOnClickListener(this);
     }
 
+    public void onNextClick() {
+        Log.i("on next click:", "all input valid");
+        if (isInputValid()) {
+            Log.i("on next click:", "all input valid");
+            Bundle bundle = getIntent().getExtras();
+            bundle.putString("universityName", mDepartmentNameField.getText().toString());
+            bundle.putString("departmentName", mUniversityNameField.getText().toString());
+            bundle.putInt("currentSemester", Integer.parseInt(mCurrentSemesterField.getText().toString()));
+            bundle.putInt("totalSemesters", Integer.parseInt(mTotalSemesterField.getText().toString()));
+            bundle.putInt("studentImage", mImageId);
+            Intent intent = new Intent(ProfileSetupActivity.this, ProfileSetup2Activity.class);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+    }
+
 
     @Override
     public void onClick(View v) {
 
 
-        if (v.getId() == mNextBtn.getId()) {
-            if(checkUserInputProfileSetup(v))
-                startActivity(new Intent(ProfileSetupActivity.this, ProfileSetup2Activity.class));
-        }
-
-
         if (v.getId() == mChangeAvatarBtn.getId()) {
             // @TODO: make SelectImageActivity a fragment
-            startActivity(new Intent(ProfileSetupActivity.this, SelectImageActivity.class));
+            startActivity(new Intent(getBaseContext(), SelectImageActivity.class));
         }
 
     }
 
 
-    public boolean checkUserInputProfileSetup(View v){
+    public boolean isInputValid() {
         boolean mReturnValue = true;
 
-        if(mUniversityNameField.getText().length()==0){
+        if (mUniversityNameField.getText().length() == 0) {
             mUniversityNameField.setError("This Field cannot be Empty");
             mReturnValue = false;
             return mReturnValue;
         }
 
-        if(mDepartmentNameField.getText().length()==0){
+        if (mDepartmentNameField.getText().length() == 0) {
             mDepartmentNameField.setError("This Field cannot be Empty");
             mReturnValue = false;
         }
 
-        if(mCurrentSemesterField.getText().length()==0){
+        if (mCurrentSemesterField.getText().length() == 0) {
             mCurrentSemesterField.setError("This Field cannot be Empty");
             mReturnValue = false;
         }
 
-        if(mTotalSemesterField.getText().length()==0){
+        if (mTotalSemesterField.getText().length() == 0) {
             mTotalSemesterField.setError("This Field cannot be Empty");
             mReturnValue = false;
         }
 
+        mReturnValue = true;
         return mReturnValue;
     }
 

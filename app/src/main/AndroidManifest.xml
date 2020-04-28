@@ -12,28 +12,30 @@
         <activity android:name=".activities.MessageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.MessengerActivity">
+        <activity
+            android:name=".activities.MessengerActivity"
+            android:label="View Messages"
+            android:parentActivityName=".activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.BulletinBoardActivity">
+        <activity
+            android:name=".activities.BulletinBoardActivity"
+            android:label="Bulletin Board"
+            android:parentActivityName=".activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.CreateAccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,7 +43,6 @@
         <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -49,7 +50,6 @@
         <activity android:name=".activities.ProfileSetup2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -58,7 +58,6 @@
             android:label="Dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -68,7 +67,6 @@
             android:parentActivityName=".activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -76,16 +74,24 @@
         <activity android:name=".toolbars.NavigationToolbarWhite" />
         <activity
             android:name=".activities.ViewCoursesActivity"
-            android:label="View Courses">
+            android:label="View Courses"
+            android:parentActivityName=".activities.DashboardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.TodoTaskActivity"
+            android:label="To do Tasks"
+            android:parentActivityName=".activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.TodoTaskActivity"
-            android:label="To do Tasks">
+        <activity android:name=".activities.StartAppActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

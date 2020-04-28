@@ -21,20 +21,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/header_bv_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:clickable="true"
-        android:focusable="true"
-        app:backgroundTint="@color/colorCuteBlue"
+        android:id="@+id/todo_current_header_add_button_id"
+        style="@style/AddMiniFABStyle"
+        android:layout_marginEnd="24dp"
         app:fabCustomSize="26dp"
         app:layout_constraintBottom_toBottomOf="@+id/header_tv_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
-        app:layout_constraintStart_toEndOf="@+id/header_tv_id"
-        app:layout_constraintTop_toTopOf="@+id/header_tv_id"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/common_ic_add" />
+        app:layout_constraintTop_toTopOf="@+id/header_tv_id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

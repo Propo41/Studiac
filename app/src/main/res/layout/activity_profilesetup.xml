@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.LoginActivity"
+    tools:context=".activities.ProfileSetupActivity"
     android:orientation="vertical"
     android:background="@color/colorVividBlue"
     >
@@ -51,10 +51,10 @@
         android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/universityNameField"
         android:paddingEnd="7dp"
         android:paddingStart="5dp"
         android:textCursorDrawable="@drawable/colored_cursor"
-        android:id="@+id/universityNameField"
         android:layout_width="320dp"
         android:layout_height="47dp"
         android:layout_gravity="center_horizontal"
@@ -173,19 +173,21 @@
 
     <Button
         android:id="@+id/nextButton"
-        android:gravity="center_horizontal"
         android:layout_width="140dp"
         android:layout_height="38dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="45dp"
         android:background="@drawable/shape_button_white_two"
+        android:elevation="3dp"
+        android:clickable="true"
+        android:focusable="true"
         android:fontFamily="@font/montserrat_medium"
+        android:gravity="center_horizontal"
+        android:onClick="onNextClick"
+        android:paddingTop="9dp"
         android:text="@string/profileSetup1NextBtn"
         android:textAlignment="center"
         android:textColor="@color/colorVividLightBlue"
-        android:textSize="15sp"
-        android:paddingTop="9dp"
-        android:elevation="3dp"
-        />
+        android:textSize="15sp" />
 
 </LinearLayout>

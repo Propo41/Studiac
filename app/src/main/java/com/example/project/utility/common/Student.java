@@ -1,7 +1,5 @@
 package com.example.project.utility.common;
 
-import com.example.project.utility.todo.Others;
-import com.example.project.utility.todo.SelfStudy;
 import com.example.project.utility.todo.TodoTasks;
 
 
@@ -11,36 +9,24 @@ public class Student {
     private String mPassword;
     private int mImageResId;
     private University mUniversity;
-    private TodoTasks mTodoTasks;
-    private boolean registered;
+  //  private TodoTasks mTodoTasks;
+ //   private boolean registered = false;
 
-    public Student(String fullName, String email, University university, String password, int imageResId) {
+    public Student(String fullName, String email, String password, int imageResId, University university) {
         mFullName = fullName;
         mEmail = email;
         mPassword = password;
         mImageResId = imageResId;
         mUniversity = university;
-        mTodoTasks = new TodoTasks();
+       // mTodoTasks = new TodoTasks();
 
-
-    }
-
-    public Student(String fullName, String email, String password, int imageResId, University university, TodoTasks todoTasks, boolean registered) {
-        mFullName = fullName;
-        mEmail = email;
-        mPassword = password;
-        mImageResId = imageResId;
-        mUniversity = university;
-        mTodoTasks = todoTasks;
-        this.registered = registered;
-        mTodoTasks = new TodoTasks();
 
     }
 
     // for debug
-    public Student() {
+  /*  public Student() {
          mTodoTasks = new TodoTasks();
-    }
+    }*/
 
     public University getUniversity() {
         return mUniversity;
@@ -50,21 +36,21 @@ public class Student {
         mUniversity = university;
     }
 
-    public TodoTasks getTodoTasks() {
+  /*  public TodoTasks getTodoTasks() {
         return mTodoTasks;
     }
 
     public void setTodoTasks(TodoTasks todoTasks) {
         mTodoTasks = todoTasks;
-    }
+    }*/
 
-    public boolean isRegistered() {
+   /* public boolean isRegistered() {
         return registered;
     }
 
     public void setRegistered(boolean registered) {
         this.registered = registered;
-    }
+    }*/
 
     public String getFullName() {
         return mFullName;

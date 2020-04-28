@@ -19,7 +19,7 @@
         <TextView
             android:id="@+id/messenger_user_name_id"
             style="@style/CustomTitleFontWhite"
-            android:layout_width="wrap_content"
+            android:layout_width="270dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="30dp"
@@ -33,23 +33,21 @@
         <TextView
             android:id="@+id/viewCourses_courseCredit_id"
             style="@style/CustomSubtitleFontWhite"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:text="Course Credit: 3.00"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/messenger_user_name_id"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/bulletin_post_category_id" />
 
         <TextView
             android:id="@+id/bulletin_post_category_id"
             style="@style/CustomSubtitleFontWhite"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:text="Course Code: MATH1234"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/viewCourses_courseCredit_id"
+            app:layout_constraintStart_toStartOf="@+id/messenger_user_name_id"
             app:layout_constraintTop_toBottomOf="@+id/messenger_user_name_id" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

@@ -1,8 +1,10 @@
 package com.example.project.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,64 +14,65 @@ import com.example.project.fragments.todo.CurrentTasksFragment;
 import com.example.project.fragments.todo.CurrentWeekFragment;
 import com.example.project.fragments.todo.UpcomingFragment;
 import com.example.project.toolbars.NavigationToolbarBlue;
+import com.example.project.toolbars.NavigationToolbarWhite;
 import com.example.project.utility.common.Common;
-import com.example.project.utility.common.Student;
 import com.example.project.utility.todo.Task;
-import com.example.project.utility.todo.TaskItems;
-import com.example.project.utility.todo.Day;
+import com.example.project.utility.todo.TasksUtil;
+import com.example.project.utility.todo.TodoTasks;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.internal.LinkedTreeMap;
 
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class TodoTaskActivity extends NavigationToolbarBlue  {
+public class TodoTaskActivity extends NavigationToolbarWhite {
 
     private int mCurrentSelectedItemBottomNav;
     private ArrayList<Task> mCurrentTasks;
-    private ArrayList<Day> mCurrentWeek;
-    private Day mUpcoming;
+    private ArrayList<TasksUtil> mCurrentWeek;
+    private TasksUtil mUpcoming;
+    private TodoTasks mTodoTasks;
+    private String mStudentTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        // for debug
-        Student dStudent = new Student();
-        Common.setStudent(dStudent);
+        // uncomment the following lines.
+        // get the student tag from the passed intent
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        mStudentTag = bundle.getString("studentTag");
 
-        // if values are already initialized, then just fetch them
-        // else, initialize them
-        if(!Common.getStudent().getTodoTasks().isInitialized()) {
-            Common.getStudent().getTodoTasks().initialize();
-        }
+        // load data from file
+        mTodoTasks = (TodoTasks) Common.loadFromFile(Common.TODO, mStudentTag, getApplicationContext());
+        mCurrentTasks = mTodoTasks.getCurrentTasks();
+        mCurrentWeek = mTodoTasks.getCurrentWeek();
+        mUpcoming = mTodoTasks.getUpcoming();
 
-        mCurrentTasks = Common.getStudent().getTodoTasks().getCurrentTasks();
-        mCurrentWeek = Common.getStudent().getTodoTasks().getCurrentWeek();
-        mUpcoming = Common.getStudent().getTodoTasks().getUpcoming();
+        // https://stackoverflow.com/questions/32444863/google-gson-linkedtreemap-class-cast-to-myclass
+        // problem: generic types cause problem when deserialising. if the object is of a generic
+        // type, then the Generic type information is lost because of Java Type Erasure.
+       /* int i = 0;
+        for (Object object : mUpcoming.getTodoTasks()) {
+            System.out.println(i + ":  , " + object.getClass().getSimpleName());
+            if (object.getClass().getSimpleName().equals("LinkedTreeMap")) {
+                LinkedTreeMap<Object, Object> t = (LinkedTreeMap) object;
+
+            }
+            i++;
+        }*/
 
         super.onCreate(savedInstanceState);
-        super.setContent(R.layout.activity_todotask, R.id.nav_toDoTask);
-       /* mCurrentTasks = new ArrayList<>();
-        Day day1 = new Day("1 Nothing here yet! Add a task.");
-        Day day2 = new Day("2 Nothing here yet! Add a task.");
-        Day day3 = new Day("3 Nothing here yet! Add a task.");
-        Day day4 = new Day("4 Nothing here yet! Add a task.");
-        Day day5 = new Day("5 Nothing here yet! Add a task.");
-        Day day6 = new Day("6 Nothing here yet! Add a task.");
-        Day day7 = new Day("7 Nothing here yet! Add a task.");
-
-        mCurrentWeek = new ArrayList<>();
-        mCurrentWeek.add(day1);
-        mCurrentWeek.add(day2);
-        mCurrentWeek.add(day3);
-        mCurrentWeek.add(day4);
-        mCurrentWeek.add(day5);
-        mCurrentWeek.add(day6);
-        mCurrentWeek.add(day7);
-        mUpcoming = new Day();
-        mCurrentTasks.add(null);*/
+        super.setContent(R.layout.activity_todotask);
         setupBottomNav();
     }
 
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(getApplicationContext(), "on pause", Toast.LENGTH_SHORT).show();
+       // Common.saveToFile(mTodoTasks, Common.TODO, mStudentTag, getApplicationContext());
+    }
 
     private void setupBottomNav() {
 
@@ -82,7 +85,7 @@ public class TodoTaskActivity extends NavigationToolbarBlue  {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selected = new CurrentTasksFragment(mCurrentTasks);
-                if(mCurrentSelectedItemBottomNav != item.getItemId()){
+                if (mCurrentSelectedItemBottomNav != item.getItemId()) {
                     switch (item.getItemId()) {
 
                         case R.id.nav_btm_current:
@@ -92,12 +95,12 @@ public class TodoTaskActivity extends NavigationToolbarBlue  {
                             break;
                         case R.id.nav_btm_week:
                             Log.println(Log.DEBUG, "todoActivity", "current week tab selected");
-                            selected = new CurrentWeekFragment(mCurrentWeek);
+                            selected = new CurrentWeekFragment(mCurrentWeek, mCurrentTasks);
                             mCurrentSelectedItemBottomNav = item.getItemId();
                             break;
                         case R.id.nav_btm_upcoming:
                             Log.println(Log.DEBUG, "todoActivity", "upcoming tab selected");
-                            selected = new UpcomingFragment(mUpcoming);
+                            selected = new UpcomingFragment(mUpcoming, mCurrentTasks);
                             mCurrentSelectedItemBottomNav = item.getItemId();
                             break;
                     }

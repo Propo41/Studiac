@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.project.R;
 import com.example.project.adapters.dashboard.ViewCoursesRecycleAdapter;
 import com.example.project.toolbars.NavigationToolbarWhite;
-import com.example.project.utility.dashboard.CourseItems;
+import com.example.project.utility.common.Course;
 
 import java.util.ArrayList;
 
 public class ViewCoursesActivity extends NavigationToolbarWhite {
 
-    ArrayList<CourseItems> mExampleItemsList = new ArrayList<>();
+    ArrayList<Course> mCourses;
     private ViewCoursesRecycleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     Context context; // for debug
@@ -25,17 +25,20 @@ public class ViewCoursesActivity extends NavigationToolbarWhite {
         super.onCreate(savedInstanceState);
         context = this; // for debug
         super.setContent(R.layout.activity_viewcourses);
-        initList();
+        // fetch the transferred list of courses from the parent activity
+        Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
+        mCourses = bundle.getParcelableArrayList("courses");
         setupList();
 
     }
 
     private void setupList() {
         // will contain the View object we created in our layout file
-        RecyclerView recyclerView = findViewById(R.id.recycle_view_id);
+        RecyclerView recyclerView = findViewById(R.id.view_courses_recycle_view_id);
         recyclerView.setHasFixedSize(true); // this will lock the scrolling. We cant scroll
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new ViewCoursesRecycleAdapter(mExampleItemsList);
+        mAdapter = new ViewCoursesRecycleAdapter(mCourses);
         handleUserEvents();
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
@@ -64,27 +67,5 @@ public class ViewCoursesActivity extends NavigationToolbarWhite {
         });
     }
 
-    private void initList() {
 
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-        mExampleItemsList.add(new CourseItems("Course Name", "Course Credit: 3.00", "Course Code: MATH123"));
-
-
-    }
 }

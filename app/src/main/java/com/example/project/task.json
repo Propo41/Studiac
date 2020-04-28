@@ -1,0 +1,119 @@
+{
+  "mCurrentTasks": [
+    null,
+    {
+      "mAdditionalNotes": "",
+      "mCategory": {
+        "first": "Course",
+        "second": {
+          "mCode": "ALGO 1234",
+          "mCredit": 3.0,
+          "mName": "Algorithm"
+        }
+      },
+      "mDescription": "ffsdfdsf",
+      "mType": "Quiz"
+    },
+    {
+      "mAdditionalNotes": "",
+      "mCategory": {
+        "first": "Course",
+        "second": {
+          "mCode": "ALGO 1234",
+          "mCredit": 3.0,
+          "mName": "Algorithm"
+        }
+      },
+      "mDescription": "dsfsfds",
+      "mSchedule": "28-04-2020",
+      "mType": "Quiz"
+    }
+  ],
+  "mCurrentWeek": [
+    {
+      "mTodoTasks": [
+        {},
+        {
+          "mAdditionalNotes": "",
+          "mCategory": {
+            "first": "Others",
+            "second": {}
+          },
+          "mDescription": "dasdasd",
+          "mType": "More"
+        }
+      ],
+      "mVisited": {
+        "Others": {
+          "first": 0,
+          "second": 1
+        }
+      }
+    },
+    {
+      "mTodoTasks": [],
+      "mVisited": {}
+    },
+    {
+      "mTodoTasks": [],
+      "mVisited": {}
+    },
+    {
+      "mTodoTasks": [],
+      "mVisited": {}
+    },
+    {
+      "mTodoTasks": [],
+      "mVisited": {}
+    },
+    {
+      "mTodoTasks": [],
+      "mVisited": {}
+    },
+    {
+      "mTodoTasks": [
+        {},
+        {
+          "mAdditionalNotes": "",
+          "mCategory": {
+            "first": "Self Study",
+            "second": {}
+          },
+          "mDescription": "dddd",
+          "mType": "Assignment"
+        }
+      ],
+      "mVisited": {
+        "Self Study": {
+          "first": 0,
+          "second": 1
+        }
+      }
+    }
+  ],
+  "mUpcoming": {
+    "mTodoTasks": [
+      "April 2020",
+      {
+        "mAdditionalNotes": "",
+        "mCategory": {
+          "first": "Course",
+          "second": {
+            "mCode": "ALGO 1234",
+            "mCredit": 3.0,
+            "mName": "Algorithm"
+          }
+        },
+        "mDescription": "dsfsfds",
+        "mSchedule": "28-04-2020",
+        "mType": "Quiz"
+      }
+    ],
+    "mVisited": {
+      "April 2020": {
+        "first": 0,
+        "second": 1
+      }
+    }
+  }
+}

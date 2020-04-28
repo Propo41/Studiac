@@ -34,19 +34,12 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/todo_upcoming_add_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:backgroundTint="@color/colorPrimaryDark"
+        style="@style/AddMiniFABStyle"
         app:fabCustomSize="19dp"
         app:layout_constraintBottom_toBottomOf="@+id/todo_week_item_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/todo_week_item_id"
-        app:layout_constraintVertical_bias="0.6"
-        app:srcCompat="@drawable/common_ic_add" />
+        app:layout_constraintStart_toEndOf="@+id/todo_week_item_id"
+        app:layout_constraintTop_toTopOf="@+id/todo_week_item_id" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

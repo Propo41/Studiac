@@ -12,7 +12,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.project.R;
 import com.example.project.adapters.todo.CurrentWeekPagerAdapter;
-import com.example.project.utility.todo.Day;
+import com.example.project.utility.todo.Task;
+import com.example.project.utility.todo.TasksUtil;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -25,12 +26,14 @@ import java.util.ArrayList;
  */
 public class CurrentWeekFragment extends Fragment  {
 
-    private String[] days = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
-    private ArrayList<Day> mCurrentWeek;
+    private String[] DAYS = {"Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"};
+    private ArrayList<TasksUtil> mCurrentWeek;
     private CurrentWeekPagerAdapter mCurrentWeekPagerAdapter;
+    ArrayList<Task> mCurrentTasks;
 
     // we can pass data through this constructor
-    public CurrentWeekFragment(ArrayList<Day> currentWeek) {
+    public CurrentWeekFragment(ArrayList<TasksUtil> currentWeek, ArrayList<Task> currentTasks) {
+        mCurrentTasks = currentTasks;
         mCurrentWeek = currentWeek;
     }
 
@@ -39,7 +42,7 @@ public class CurrentWeekFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_todo_week, container, false);
 
-        mCurrentWeekPagerAdapter = new CurrentWeekPagerAdapter(this, mCurrentWeek);
+        mCurrentWeekPagerAdapter = new CurrentWeekPagerAdapter(this, mCurrentWeek, mCurrentTasks);
         final ViewPager2 viewPager = view.findViewById(R.id.todo_week_viewpager2_id);
 
         TabLayout tabLayout = view.findViewById(R.id.todo_week_tab_layout_id);
@@ -51,7 +54,7 @@ public class CurrentWeekFragment extends Fragment  {
                 new TabLayoutMediator.TabConfigurationStrategy() {
                     @Override
                     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                        tab.setText(days[position]);
+                        tab.setText(DAYS[position]);
                     }
                 }
         ).attach();

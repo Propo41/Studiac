@@ -8,12 +8,16 @@
         android:icon="@drawable/toolbar_ic_more_white">
         <menu>
             <item
+                android:title="Sync"
+                android:id="@+id/more_sync_id"
+                app:showAsAction="never"/>
+            <item
                 android:title="Settings"
-                android:id="@+id/settings_id"
+                android:id="@+id/more_settings_id"
                 app:showAsAction="never"/>
             <item
                 android:title="Main Menu"
-                android:id="@+id/main_menu_id"
+                android:id="@+id/more_main_menu_id"
                 app:showAsAction="never"/>
         </menu>
     </item>

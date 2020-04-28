@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.R;
-import com.example.project.adapters.todo.UpcomingAdapter;
+import com.example.project.adapters.todo.UpcomingRecycleAdapter;
 import com.example.project.fragments.dialogs.AddTaskBottomSheetDialog;
-import com.example.project.utility.todo.Day;
+import com.example.project.utility.todo.TasksUtil;
 import com.example.project.utility.todo.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -24,15 +24,16 @@ import java.util.ArrayList;
 
 public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDialog.BottomSheetListener {
 
-    private ArrayList<Day> mItems;
+    private ArrayList<TasksUtil> mItems;
     private RecyclerView mRecyclerView;
-    private UpcomingAdapter mAdapter;
+    private UpcomingRecycleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private Day mUpcoming;
+    private TasksUtil mUpcoming;
+    private ArrayList<Task> mCurrentTasks;
 
-
-    public UpcomingFragment(Day upcoming) {
+    public UpcomingFragment(TasksUtil upcoming, ArrayList<Task> currentTasks) {
         mUpcoming = upcoming;
+        mCurrentTasks = currentTasks;
     }
 
     @Nullable
@@ -64,9 +65,9 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
     private void setupList(View view) {
         mRecyclerView = view.findViewById(R.id.todo_upcoming_recycler_id);
         mLayoutManager = new LinearLayoutManager(getActivity());
-        mAdapter = new UpcomingAdapter(mUpcoming);
+        mAdapter = new UpcomingRecycleAdapter(mUpcoming);
 
-        mAdapter.setOnItemClickListener(new UpcomingAdapter.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new UpcomingRecycleAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 // @TODO: open dialog 24
@@ -75,7 +76,8 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
             @Override
             public void onButtonClick(int position) {
                 // @TODO: add logic for adding the item to current task
-                Toast.makeText(getActivity(), "Task added to current task", Toast.LENGTH_SHORT).show();
+                mCurrentTasks.add((Task) mUpcoming.getTodoTasks().get(position));
+                Toast.makeText(getActivity(), "Task added", Toast.LENGTH_SHORT).show();
 
             }
         });

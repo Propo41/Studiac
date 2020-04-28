@@ -76,7 +76,7 @@
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toEndOf="@+id/todo_upcoming_course_id"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/common_ic_add" />
+        app:srcCompat="@drawable/common_ic_add_white" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

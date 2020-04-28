@@ -17,9 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.project.R;
 import com.example.project.adapters.todo.CurrentWeekRecycleAdapter;
 import com.example.project.fragments.dialogs.AddTaskBottomSheetDialog;
-import com.example.project.utility.todo.Day;
+import com.example.project.utility.todo.TasksUtil;
 import com.example.project.utility.todo.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 /*
  * The Fragment that is used for the tabs.
@@ -29,13 +31,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomSheetDialog.BottomSheetListener {
 
 
-    private Day mDay; // contains the task items for the current day of the week
+    private TasksUtil mTasksUtil; // contains the task items for the current day of the week
     private CurrentWeekRecycleAdapter mAdapter; // we need to change it to ExampleAdapter object
+    private ArrayList<Task> mCurrentTasks;
 
-
-    public CurrentWeekTabFragment(Day day ){
-        mDay = day;
-
+    public CurrentWeekTabFragment(TasksUtil tasksUtil, ArrayList<Task> currentTasks){
+        mTasksUtil = tasksUtil;
+        mCurrentTasks = currentTasks;
     }
 
     public CurrentWeekRecycleAdapter getAdapter() {
@@ -81,18 +83,18 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
         Integer countOfItems;
         Integer indexOfHeader;
         if(object!=null){
-            Pair<Integer, Integer> index = mDay.isVisited(object);
+            Pair<Integer, Integer> index = mTasksUtil.isVisited(object);
             // if the header is not already present in the list
             if (index == null){
                 // add a new task with the header
-                indexOfHeader = mDay.insertNewTask(task, object);
+                indexOfHeader = mTasksUtil.insertNewTask(task, object);
                 mAdapter.notifyItemRangeInserted(indexOfHeader, 2);
 
             }else{
                 indexOfHeader = index.first;
                 countOfItems = index.second;
                 // add a task below the current header after all the items
-                mDay.insertTask(task, indexOfHeader, countOfItems);
+                mTasksUtil.insertTask(task, indexOfHeader, countOfItems);
               //  Log.i("index header: ", indexOfHeader + "");
               //  Log.i("item count: ", countOfItems + "");
                 mAdapter.notifyItemRangeInserted(indexOfHeader+countOfItems+1, 1);
@@ -117,21 +119,25 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
                 DividerItemDecoration.VERTICAL));*/
         recyclerView.setHasFixedSize(false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        if(mDay.getTodoTasks() == null){
-            Log.i("setuplist: ", "Nothing here yet. Add a task");
+        if(mTasksUtil.getTodoTasks() == null){
+            Log.i("setup list: ", "Nothing here yet. Add a task");
         }else{
-            mAdapter = new CurrentWeekRecycleAdapter(mDay.getTodoTasks());
+            mAdapter = new CurrentWeekRecycleAdapter(mTasksUtil.getTodoTasks());
             mAdapter.setOnItemClickListener(new CurrentWeekRecycleAdapter.OnItemClickListener() {
                 @Override
                 public void onButtonClick(int position) {
-                    // @TODO: add logic for adding task to current tasks
+                    // the mTasksUtil.getTodoTasks() contains several object types. But we need
+                    // only the Task object. So, we cast it into Task. We know for sure that the item
+                    // clicked must be a Task item, since we can't interact with headers
+                    mCurrentTasks.add((Task) mTasksUtil.getTodoTasks().get(position));
                     Toast.makeText(getContext(), "Task added", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
                 public void onItemClick(int position) {
-                    //mDays.getCurrentWeekItems().get(position).changeText("clicked!!");
                     //mAdapter.notifyItemChanged(position);
+                   // Task task = (Task) mTasksUtil.getTodoTasks().get(position);
+                    // open dialog and show contents of task instance
                     // @TODO: open dialog 24
                 }
             });

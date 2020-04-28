@@ -1,6 +1,7 @@
 package com.example.project.utility.common;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class University {
 
@@ -9,13 +10,42 @@ public class University {
     private int mTotalSemester;
     private int mCurrentSemester;
     private ArrayList<Course> mCourses;
+    private ArrayList<Routine> mDailyRoutine;
+    private ArrayList<Result> semesterResults;
+    private HashMap<String, Double> gradeWeights;
 
-    public University(String name, String department, int totalSemester, int currentSemester, ArrayList<Course> courses) {
+
+    public University(String name, String department, int totalSemester, int currentSemester, ArrayList<Routine> dailyRoutine, ArrayList<Course> courses) {
         mName = name;
         mDepartment = department;
         mTotalSemester = totalSemester;
         mCurrentSemester = currentSemester;
+        mDailyRoutine = dailyRoutine;
         mCourses = courses;
+    }
+
+    public ArrayList<Routine> getDailyRoutine() {
+        return mDailyRoutine;
+    }
+
+    public void setDailyRoutine(ArrayList<Routine> dailyRoutine) {
+        mDailyRoutine = dailyRoutine;
+    }
+
+    public ArrayList<Result> getSemesterResults() {
+        return semesterResults;
+    }
+
+    public void setSemesterResults(ArrayList<Result> semesterResults) {
+        this.semesterResults = semesterResults;
+    }
+
+    public HashMap<String, Double> getGradeWeights() {
+        return gradeWeights;
+    }
+
+    public void setGradeWeights(HashMap<String, Double> gradeWeights) {
+        this.gradeWeights = gradeWeights;
     }
 
     public String getName() {

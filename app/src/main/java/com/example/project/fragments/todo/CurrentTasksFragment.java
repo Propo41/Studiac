@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.R;
-import com.example.project.adapters.todo.CurrentTasksAdapter;
+import com.example.project.adapters.todo.CurrentTasksRecycleAdapter;
 import com.example.project.fragments.dialogs.AddTaskBottomSheetDialog;
 import com.example.project.utility.todo.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,18 +23,18 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheetDialog.BottomSheetListener{
+public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheetDialog.BottomSheetListener {
 
-   // private ArrayList<CurrentTaskItems> mCurrentTaskItems = new ArrayList<>();
-    private CurrentTasksAdapter mAdapter;
+    // private ArrayList<CurrentTaskItems> mCurrentTaskItems = new ArrayList<>();
+    private CurrentTasksRecycleAdapter mAdapter;
     private View mView;
     private Context mContext;
     private ArrayList<Task> mCurrentTasks;
+    private final int HEADER = 0;
 
-    public CurrentTasksFragment(ArrayList<Task> currentTasks){
+    public CurrentTasksFragment(ArrayList<Task> currentTasks) {
         mCurrentTasks = currentTasks;
     }
-
 
 
     @Nullable
@@ -54,7 +54,7 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
         RecyclerView recyclerView = mView.findViewById(R.id.todo_current_recycle_view_id);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext);
-        mAdapter = new CurrentTasksAdapter(mCurrentTasks);
+        mAdapter = new CurrentTasksRecycleAdapter(mCurrentTasks);
         recyclerView.setLayoutManager(layoutManager);
         handleEvents();
         ItemTouchHelper helper = handleDragEvents();
@@ -74,10 +74,24 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 int position_dragged = viewHolder.getAdapterPosition();
                 int position_target = target.getAdapterPosition();
+                if (position_target == 0) {
+                    return false;
+                }
+                if (position_dragged == 0) {
+                    return false;
+                }
                 Collections.swap(mCurrentTasks, position_dragged, position_target);
                 mAdapter.notifyItemMoved(position_dragged, position_target);
                 return false;
             }
+
+            @Override
+            public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+                // if it's a header, then don't drag it
+                return viewHolder.getItemViewType() == 0 ? HEADER : super.getMovementFlags(recyclerView, viewHolder);
+
+            }
+
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
@@ -109,7 +123,7 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
 
     private void handleEvents() {
 
-       // when user clicks on the large add button
+        // when user clicks on the large add button
         FloatingActionButton button = mView.findViewById(R.id.todo_ADD_current_button_id);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +137,7 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
         });
 
         // handle events on the adapters
-        mAdapter.setOnItemClickListener(new CurrentTasksAdapter.OnItemClickListener() {
+        mAdapter.setOnItemClickListener(new CurrentTasksRecycleAdapter.OnItemClickListener() {
 
             // when the mini add button is clicked
             @Override
@@ -156,8 +170,8 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
     public void onAddPressed(Task task) {
 
         mCurrentTasks.add(task);
-     //   mAdapter.getCurrentTaskItems().add(task);
-        mAdapter.notifyItemInserted(mAdapter.getCurrentTaskItems().size()-1);
+        //   mAdapter.getCurrentTaskItems().add(task);
+        mAdapter.notifyItemInserted(mAdapter.getCurrentTaskItems().size() - 1);
 
     /*    if (task.getCategory().first.equals("Course")) {
             Course course = (Course) task.getCategory().second;

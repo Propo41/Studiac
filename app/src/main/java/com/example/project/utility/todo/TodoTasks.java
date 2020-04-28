@@ -4,39 +4,27 @@ import java.util.ArrayList;
 
 public class TodoTasks {
     private ArrayList<Task> mCurrentTasks;
-    private ArrayList<Day> mCurrentWeek;
-    private Day mUpcoming;
-    private boolean initialized = false;
+    private ArrayList<TasksUtil> mCurrentWeek;
+    private TasksUtil mUpcoming;
 
-    public void initialize(){
+    public TodoTasks() {
         mCurrentTasks = new ArrayList<>();
         mCurrentTasks.add(null); // the first object is null due to the header. It has only 1 header
         mCurrentWeek = new ArrayList<>();
         // initializing all objects
-        for(int i=0; i<7; i++){
-            Day day = new Day();
-            mCurrentWeek.add(day);
+        for (int i = 0; i < 7; i++) {
+            TasksUtil tasksUtil = new TasksUtil();
+            mCurrentWeek.add(tasksUtil);
         }
-        mUpcoming = new Day();
-        initialized = true;
-
-
-
+        mUpcoming = new TasksUtil();
     }
 
-    public boolean isInitialized() {
-        return initialized;
-    }
 
-    public void setInitialized(boolean initialized) {
-        this.initialized = initialized;
-    }
-
-    public ArrayList<Day> getCurrentWeek() {
+    public ArrayList<TasksUtil> getCurrentWeek() {
         return mCurrentWeek;
     }
 
-    public void setCurrentWeek(ArrayList<Day> currentWeek) {
+    public void setCurrentWeek(ArrayList<TasksUtil> currentWeek) {
         mCurrentWeek = currentWeek;
     }
 
@@ -48,11 +36,11 @@ public class TodoTasks {
         mCurrentTasks = currentTasks;
     }
 
-    public Day getUpcoming() {
+    public TasksUtil getUpcoming() {
         return mUpcoming;
     }
 
-    public void setUpcoming(Day upcoming) {
+    public void setUpcoming(TasksUtil upcoming) {
         mUpcoming = upcoming;
     }
 }

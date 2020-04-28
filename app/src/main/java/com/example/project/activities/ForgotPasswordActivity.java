@@ -25,40 +25,43 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgotpassword);
         Common.addStroke(mEmailField, 0);
-
         initViews();
     }
 
     private void initViews(){
-        mEmailField =  findViewById(R.id.emailField);
+        mEmailField =  findViewById(R.id.setup_email_id);
     }
 
-    public void signInPressed(View v)
+
+    public void onSignInClick(View v)
     {
         startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class));
     }
 
-    public void confirmPressed(View v)
+    public void onConfirmClick(View v)
     {
         if(isInputValid()){
-            final Dialog dialogForgotPasswordEmailSent = new Dialog(context);
-            dialogForgotPasswordEmailSent.setContentView(R.layout.dialog_forgotpassword_emailsent);
-            Button dialogForgotPasswordEmailSentButton = dialogForgotPasswordEmailSent.findViewById(R.id.forgotpassword_button_id);
-            dialogForgotPasswordEmailSentButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v0) {
-                    dialogForgotPasswordEmailSent.dismiss();
-                    startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class));
-                }
-            });
-            dialogForgotPasswordEmailSent.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            dialogForgotPasswordEmailSent.show();
-
+            openDialog();
         }else{
             // TODO: show error popup with border when email not valid or no input provided
              Common.addStroke(mEmailField, 5);
              mEmailField.setError("");
         }
+    }
+
+    private void openDialog() {
+        final Dialog dialogForgotPasswordEmailSent = new Dialog(context);
+        dialogForgotPasswordEmailSent.setContentView(R.layout.dialog_forgotpassword_emailsent);
+        Button dialogForgotPasswordEmailSentButton = dialogForgotPasswordEmailSent.findViewById(R.id.forgotpassword_button_id);
+        dialogForgotPasswordEmailSentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v0) {
+                dialogForgotPasswordEmailSent.dismiss();
+                startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class));
+            }
+        });
+        dialogForgotPasswordEmailSent.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialogForgotPasswordEmailSent.show();
     }
 
     public boolean isInputValid() {

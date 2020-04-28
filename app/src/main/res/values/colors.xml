@@ -12,6 +12,9 @@
     <color name="Transparent">#00000000</color>
     <color name="colorVividBlueTransparent">#7ECEF7</color>
     <color name="colorPrimaryLight">#51BEF5</color>
+    <color name="colorPBlueViewRoutine1">#0DAFFF</color>
+    <color name="colorPBlueViewRoutine2">#44B8F3</color>
+
     <color name="colorAsh">#575757</color>
     <color name="colorAshLight">#F1F1F1</color>
     <color name="colorAshMedium">#E8E8E8</color>

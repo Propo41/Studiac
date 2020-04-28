@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,70 +8,74 @@
     android:orientation="vertical"
     android:background="@color/colorVividBlue">
 
+
     <TextView
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        android:fontFamily="@font/montserrasemibold"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/montserrasemibold"
+        android:gravity="center_horizontal"
         android:text="Create a new account"
+        android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="26dp"
         android:textStyle="bold"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="60dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="35dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Full Name"
         android:textColor="@color/colorWhite"
         android:textSize="15sp"
+        android:paddingBottom="5dp"
         android:textStyle="bold"
-    />
-
+        app:layout_constraintBottom_toTopOf="@+id/setup_name_id"
+        app:layout_constraintStart_toStartOf="@+id/setup_name_id" />
 
     <EditText
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/nameField"
+        android:id="@+id/setup_name_id"
         android:layout_width="320dp"
         android:layout_height="48dp"
-        android:layout_marginTop="6dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="55dp"
         android:background="@drawable/shape_input_blue"
         android:drawableStart="@drawable/common_ic_name"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/createAccountName"
+        android:paddingRight="10dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         android:textCursorDrawable="@drawable/colored_cursor"
         android:textSize="15sp"
-        android:paddingRight="10dp"
-        />
-
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Email"
         android:textColor="@color/colorWhite"
+        android:paddingBottom="5dp"
+
         android:textSize="15sp"
         android:textStyle="bold"
 
-        />
+        app:layout_constraintBottom_toTopOf="@+id/setup_email_id"
+        app:layout_constraintStart_toStartOf="@+id/setup_email_id" />
 
     <EditText
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/emailField"
+        android:id="@+id/setup_email_id"
         android:layout_width="320dp"
         android:layout_height="48dp"
-        android:layout_marginTop="6dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
         android:background="@drawable/shape_input_blue"
         android:drawableStart="@drawable/common_ic_email"
         android:fontFamily="@font/montserrat_regular"
@@ -80,116 +84,133 @@
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         android:textCursorDrawable="@drawable/colored_cursor"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/setup_name_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/setup_name_id"
+        app:layout_constraintTop_toBottomOf="@+id/setup_name_id" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="Password"
         android:textColor="@color/colorWhite"
         android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:paddingBottom="5dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/setup_password_id"
+        app:layout_constraintStart_toStartOf="@+id/setup_password_id" />
+
 
     <EditText
-        android:layout_gravity="center_horizontal"
-        android:textCursorDrawable="@drawable/colored_cursor"
-        android:id="@+id/passwordField"
+        android:id="@+id/setup_password_id"
         android:layout_width="320dp"
         android:layout_height="48dp"
-        android:layout_marginTop="6dp"
-        android:paddingRight="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
         android:background="@drawable/shape_input_blue"
         android:drawableStart="@drawable/common_ic_key"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/createAccountPassword"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite"
-        android:textSize="15sp"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="Re-type Password"
-        android:textColor="@color/colorWhite"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/reTypePasswordField"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="6dp"
         android:paddingRight="10dp"
-        android:background="@drawable/shape_input_blue"
-        android:drawableStart="@drawable/common_ic_key"
-        android:fontFamily="@font/montserrat_regular"
-        android:hint="@string/createAccountReTypePassword"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         android:textCursorDrawable="@drawable/colored_cursor"
         android:textSize="15sp"
-        />
+        app:layout_constraintEnd_toEndOf="@+id/setup_email_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/setup_email_id"
+        app:layout_constraintTop_toBottomOf="@+id/setup_email_id" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Re-type Password"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:paddingBottom="5dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/setup_retype_password_id"
+        app:layout_constraintStart_toStartOf="@+id/setup_retype_password_id" />
+
+    <EditText
+        android:id="@+id/setup_retype_password_id"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/shape_input_blue"
+        android:drawableStart="@drawable/common_ic_key"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/createAccountReTypePassword"
+        android:paddingRight="10dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textCursorDrawable="@drawable/colored_cursor"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/setup_password_id"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/setup_password_id"
+        app:layout_constraintTop_toBottomOf="@+id/setup_password_id" />
 
     <Button
-        android:paddingTop="5dp"
-        android:id="@+id/createAccountBtn"
+        android:id="@+id/setup_create_account_button_id"
         android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="45dp"
-        android:background="@drawable/shape_button_white_two"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/ripple_effect_1"
         android:elevation="3dp"
         android:fontFamily="@font/montserrat_medium"
-        android:onClick="createAccountPressed"
+        android:onClick="onCreateAccountClick"
+        android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:text="@string/createAccountBtn"
         android:textAlignment="center"
         android:textColor="@color/colorVividLightBlue"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/setup_retype_password_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/setup_retype_password_id"
+        app:layout_constraintTop_toBottomOf="@+id/setup_retype_password_id" />
 
+    <TextView
 
-    <LinearLayout
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
+        android:layout_marginBottom="32dp"
+        android:background="@color/colorTransparentWhite"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingBottom="5dp"
+        android:text="Already Have an account? "
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toStartOf="@+id/setup_create_account_button_id" />
 
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorTransparentWhite"
-            android:fontFamily="@font/montserrat_regular"
-            android:paddingBottom="5dp"
-            android:text="Already Have an account? "
-            android:textAlignment="center"
-            android:textColor="@color/colorWhite"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/signInBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorTransparentWhite"
-            android:clickable="true"
-            android:fontFamily="@font/montserrat_bold"
-            android:onClick="signInPressed"
-            android:paddingBottom="5dp"
-            android:text="@string/createAccountSignInBtn"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhite"
-            android:textSize="15sp" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/setup_sign_in_button_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparentWhite"
+        android:clickable="true"
+        android:fontFamily="@font/montserrat_bold"
+        android:onClick="onSignInClick"
+        android:paddingBottom="5dp"
+        android:text="@string/createAccountSignInBtn"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

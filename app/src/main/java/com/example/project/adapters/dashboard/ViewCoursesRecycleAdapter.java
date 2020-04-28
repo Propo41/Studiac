@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.R;
-import com.example.project.utility.dashboard.CourseItems;
+import com.example.project.utility.common.Course;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -21,11 +21,11 @@ import java.util.ArrayList;
 public class ViewCoursesRecycleAdapter extends RecyclerView.Adapter<ViewCoursesRecycleAdapter.ViewCoursesViewHolder> {
 
     private OnItemClickListener mListener;
-    private ArrayList<CourseItems> mCourseItems;
+    private ArrayList<Course> mCourseItems;
 
 
     // to extract the data from the Array list (that we created in out MainActivity file) we create a constructor
-    public ViewCoursesRecycleAdapter(ArrayList<CourseItems> courseItems) {
+    public ViewCoursesRecycleAdapter(ArrayList<Course> courseItems) {
         mCourseItems = courseItems;
     }
 
@@ -67,11 +67,10 @@ public class ViewCoursesRecycleAdapter extends RecyclerView.Adapter<ViewCoursesR
         // we got the data of ArrayList<ExampleItem> from the constructor
         // now what this method does is that it returns the data at position "int position" from the array
         // to bind it to the viewholder
-        CourseItems currentItem = mCourseItems.get(position); // since is one extra row for the header, we are subtracting one
-        holder.mCourseNameTv.setText(currentItem.getCourseName());
-        holder.mCourseCreditTv.setText(currentItem.getCourseCredit());
-        holder.mCourseCodeTv.setText(currentItem.getCourseCode());
-
+        Course course = mCourseItems.get(position); // since is one extra row for the header, we are subtracting one
+        holder.mCourseNameTv.setText(course.getName());
+        holder.mCourseCreditTv.setText("Course Credit: " + course.getCredit());
+        holder.mCourseCodeTv.setText("Course Code: " + course.getCode());
     }
 
 
@@ -79,8 +78,6 @@ public class ViewCoursesRecycleAdapter extends RecyclerView.Adapter<ViewCoursesR
     public int getItemCount() {
         // we need to return how many items are there in our array list
         return mCourseItems.size();
-
-
     }
 
 

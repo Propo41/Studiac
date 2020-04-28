@@ -1,30 +1,47 @@
 package com.example.project.utility.common;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.project.utility.todo.Task;
 
 import java.util.ArrayList;
 
-public class Course {
+public class Course implements Parcelable {
 
     private String mName;
     private String mCode;
     private Double mCredit;
-    private ArrayList<Schedule> mRoutine;
     private Instructor mInstructor;
-
-    public Course(String name, String code, Double credit, ArrayList<Schedule> routine, Instructor instructor, ArrayList<Task> todoTasks) {
-        mName = name;
-        mCode = code;
-        mCredit = credit;
-        mRoutine = routine;
-        mInstructor = instructor;
-    }
 
     public Course(String name, String code, Double credit) {
         mName = name;
         mCode = code;
         mCredit = credit;
     }
+
+
+    protected Course(Parcel in) {
+        mName = in.readString();
+        mCode = in.readString();
+        if (in.readByte() == 0) {
+            mCredit = null;
+        } else {
+            mCredit = in.readDouble();
+        }
+    }
+
+    public static final Creator<Course> CREATOR = new Creator<Course>() {
+        @Override
+        public Course createFromParcel(Parcel in) {
+            return new Course(in);
+        }
+
+        @Override
+        public Course[] newArray(int size) {
+            return new Course[size];
+        }
+    };
 
     public String getName() {
         return mName;
@@ -50,14 +67,6 @@ public class Course {
         mCredit = credit;
     }
 
-    public ArrayList<Schedule> getRoutine() {
-        return mRoutine;
-    }
-
-    public void setRoutine(ArrayList<Schedule> routine) {
-        mRoutine = routine;
-    }
-
     public Instructor getInstructor() {
         return mInstructor;
     }
@@ -66,4 +75,20 @@ public class Course {
         mInstructor = instructor;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(mName);
+        dest.writeString(mCode);
+        if (mCredit == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(mCredit);
+        }
+    }
 }

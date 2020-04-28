@@ -67,4 +67,32 @@
 
 
 
+
+    <!--tasksUtil names -->
+    <string name="RadioButtonDayOne">Sunday</string>
+    <string name="RadioButtonDayTwo">Monday</string>
+    <string name="RadioButtonDayThree">Tuesday</string>
+    <string name="RadioButtonDayFour">Wednesday</string>
+    <string name="RadioButtonDayFive">Thursday</string>
+    <string name="RadioButtonDaySix">Friday</string>
+    <string name="RadioButtonDaySeven">Saturday</string>
+
+    <!-- type names -->
+    <string name="RadioButtonTypeOne">Mid</string>
+    <string name="RadioButtonTypeTwo">Final</string>
+    <string name="RadioButtonTypeThree">Lab Quiz</string>
+    <string name="RadioButtonTypeFour">Lab Assignment</string>
+    <string name="RadioButtonTypeFive">Presentation</string>
+    <string name="RadioButtonTypeSix">Case Work</string>
+    <string name="RadioButtonTypeSeven">Project</string>
+
+
+    <string name="selectButton">Select</string>
+
+
+    <string name="viewRoutineHolidayPrompt"> It\'s a Holiday! </string>
+
+    <string name="ViewRoutineHintText"> Swipe right/left to navigate.</string>
+
+
 </resources>

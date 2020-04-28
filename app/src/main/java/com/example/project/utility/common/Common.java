@@ -3,34 +3,67 @@ package com.example.project.utility.common;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.example.project.R;
+import com.example.project.utility.todo.TodoTasks;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
+import static android.content.Context.MODE_APPEND;
+import static android.content.Context.MODE_PRIVATE;
 
 /*
  * A utility class that can be used across the entire project
  */
 public class Common {
 
+    public static String STUDENT = "STUDENT";
+    public static String TODO = "TODO";
+    private static String PROJECT_NAME = "Studiac";
+    public static HashMap<String, Integer> DAYS = new HashMap<String, Integer>() {{
+        put("Sunday", 0);
+        put("Monday", 1);
+        put("Tuesday", 2);
+        put("Wednesday", 3);
+        put("Thursday", 4);
+        put("Friday", 5);
+        put("Saturday", 6);
 
-    private static Student sStudent;
+    }};
 
+    public static String[] MONTHS = {"Jan", "Feb", "March", "April", "May", "June", "July", "August", "September", "October",
+            "November", "December"};
 
-    public static Student getStudent() {
-        return sStudent;
-    }
-
-    public static void setStudent(Student student) {
-        sStudent = student;
-    }
 
     /*
      * parameters: view - the view on which the stroke is to be added
@@ -45,7 +78,7 @@ public class Common {
     }
 
 
-    public static void showExceptionPrompt(Context context, String exceptionText){
+    public static void showExceptionPrompt(Context context, String exceptionText) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(exceptionText);
         builder.setCancelable(true);
@@ -70,11 +103,232 @@ public class Common {
             public void onShow(DialogInterface dialog) {
                 BottomSheetDialog d = (BottomSheetDialog) dialog;
                 View bottomSheetInternal = d.findViewById(com.google.android.material.R.id.design_bottom_sheet);
-                if(expanded.equals("EXPANDED")){
+                if (expanded.equals("EXPANDED")) {
                     BottomSheetBehavior.from(bottomSheetInternal).setState(BottomSheetBehavior.STATE_EXPANDED);
                 }
             }
         });
 
     }
+
+
+    // sets the margin of a particular view
+    public static TableRow.LayoutParams setMargin(int layoutWidth, int layoutHeight, int start, int left, int top,
+                                                  int right, int bottom) {
+
+        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(layoutWidth, layoutHeight);
+        layoutParams.setMarginStart(start);
+        layoutParams.setMargins(left, top, right, bottom);
+        return layoutParams;
+
+    }
+
+    /*
+     * outputs a 24hr format in a proper way, filling in single digits with 0
+     * takes input as 24hr format
+     */
+    public static String convertTo24hFormat(String time) {
+        SimpleDateFormat timeFormat24 = new SimpleDateFormat("HH:mm");
+        Date date = null;
+        try {
+            date = timeFormat24.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return timeFormat24.format(date);
+    }
+
+
+    /*
+     * returns a string in the 12hr format
+     * takes in a time in 24hr format
+     * output is in the format hh:mmAM
+     */
+    public static String convertTo12hFormat(String time) {
+        SimpleDateFormat timeFormat24 = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat timeFormat12 = new SimpleDateFormat("hh:mma");
+        Date date = null;
+        try {
+            date = timeFormat24.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Log.i("converted:::: ", timeFormat12.format(date));
+        return timeFormat12.format(date);
+    }
+
+    /*
+     * used to sort a treeMap by virtue of its values instead of keys in ascending order
+     */
+    public static <K, V extends Comparable<V>> Map<K, V> sortByValues(final Map<K, V> map) {
+        Comparator<K> valueComparator = new Comparator<K>() {
+            public int compare(K k1, K k2) {
+                int compare = map.get(k1).compareTo(map.get(k2));
+                if (compare == 0)
+                    return 1;
+                else
+                    return compare;
+            }
+        };
+
+        Map<K, V> sortedByValues = new TreeMap<K, V>(valueComparator);
+        sortedByValues.putAll(map);
+        return sortedByValues;
+    }
+
+
+    public static void registerStudent(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PROJECT_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("studentStatus", true);
+        editor.apply();
+    }
+
+    public static boolean isStudentRegistered(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PROJECT_NAME, MODE_PRIVATE);
+        return sharedPreferences.getBoolean("studentStatus", false);
+    }
+
+    public static void unregisterStudent(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PROJECT_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("studentStatus", false);
+        editor.apply();
+    }
+
+    public static void saveData(Student student, Context context) {
+        // instance of shared preferences
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PROJECT_NAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(student);
+        try {
+            System.out.println(":::: Size of data ::::" + Common.getSizeOfData(json));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        editor.putString("student", json);
+        editor.apply();
+    }
+
+    public static Student loadData(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(PROJECT_NAME, MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("student", null);
+        if (json == null) {
+            return null;
+        } else {
+            return gson.fromJson(json, Student.class);
+        }
+    }
+
+
+    /*
+     * saves to internal storage in a file.
+     * if a student object is saved, it's renamed as: Studiac_STUDENT
+     * if a to do task object is saved, it's renamed as: Studiac_TODO_studentEmail, where the studentEmail is used
+     * as a tag to identify the student is belongs to in case the device is shared among more than 1 students
+     */
+    public static void saveToFile(Object object, String type, String tag, Context context) {
+        String json = "null";
+        String fileName = "null";
+        Gson gson = new Gson();
+        if (type.equals(STUDENT)) {
+            Student student = (Student) object;
+            json = gson.toJson(student);
+            fileName = PROJECT_NAME + "_" + type;
+        } else if (type.equals(TODO)) {
+            TodoTasks todoTasks = (TodoTasks) object;
+            json = gson.toJson(todoTasks);
+            fileName = PROJECT_NAME + "_" + type + "_" + tag;
+        } else {
+            System.out.println("invalid parameters. Check type");
+        }
+        FileOutputStream fileOutputStream = null;
+        try {
+            fileOutputStream = context.openFileOutput(fileName, MODE_PRIVATE);
+            fileOutputStream.write(json.getBytes());
+            System.out.println("file dir: " + context.getFilesDir() + "/" + PROJECT_NAME + "_ " + type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+    /*
+     * loads the required object from file. The tag is used for identifying the To Do Tasks object mapped to
+     *  the student it belongs to
+     */
+    public static Object loadFromFile(String type, String tag, Context context) {
+        FileInputStream fileInputStream;
+        try {
+            if (type.equals(TODO)) {
+
+                fileInputStream = context.openFileInput(PROJECT_NAME + "_" + type + "_" + tag);
+            } else {
+                fileInputStream = context.openFileInput(PROJECT_NAME + "_" + type);
+            }
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String text;
+            while ((text = bufferedReader.readLine()) != null) {
+                stringBuilder.append(text).append("\n");
+            }
+            String json = stringBuilder.toString();
+            Gson gson = new Gson();
+            if (type.equals(TODO)) {
+                return gson.fromJson(json, TodoTasks.class);
+            } else if (type.equals(STUDENT)) {
+                return gson.fromJson(json, Student.class);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public static long getSizeOfData(String json) throws UnsupportedEncodingException {
+        assert json != null;
+        byte[] byteArray = json.getBytes("UTF-8");
+        return byteArray.length;
+    }
+
+
+    public static TextView createTextView(Context context, String text, TableRow.LayoutParams layoutParams, int color,
+                                          int textSize, int textAlignment, Typeface typeface,
+                                          int paddingStart, int paddingTop, int paddingEnd, int paddingBottom) {
+
+        TextView textView = new TextView(context);
+        textView.setLayoutParams(layoutParams);
+        textView.setTypeface(typeface);
+        textView.setTextSize(textSize);
+        textView.setTextColor(color);
+        textView.setPaddingRelative(paddingStart, paddingTop, paddingEnd, paddingBottom);
+        textView.setTextAlignment(textAlignment);
+        textView.setText(text);
+        return textView;
+
+    }
+
+    /*
+     * converts dpi to pixels
+     * used when creating views programmatically, since the methods take pixels as arguments.
+     */
+    public static int getEquivalentPx(int dpi) {
+        float d = Resources.getSystem().getDisplayMetrics().density;
+        return (int) (dpi * d); // margin in pixels
+    }
+
+
 }

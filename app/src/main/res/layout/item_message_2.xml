@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/shape_background_cuteblue"
+        android:background="@drawable/shape_background_cute_blue"
         android:fontFamily="@font/montserrat_medium"
         android:padding="10dp"
         android:layout_weight="1"

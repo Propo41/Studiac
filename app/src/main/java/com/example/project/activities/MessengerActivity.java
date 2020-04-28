@@ -9,13 +9,14 @@ import android.os.Bundle;
 import com.example.project.R;
 import com.example.project.adapters.messenger.MessengerRecycleAdapter;
 import com.example.project.toolbars.NavigationToolbarBlue;
+import com.example.project.toolbars.NavigationToolbarWhite;
 
-public class MessengerActivity extends NavigationToolbarBlue {
+public class MessengerActivity extends NavigationToolbarWhite {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.setContent(R.layout.activity_messenger, R.id.nav_messages);
+        super.setContent(R.layout.activity_messenger);
         setupList();
     }
 

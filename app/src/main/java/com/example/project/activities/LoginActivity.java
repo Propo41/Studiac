@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.project.R;
@@ -36,11 +35,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initViews() {
-        mForgotPasswordBtn = findViewById(R.id.forgotPasswordBtn);
-        mEmailField = findViewById(R.id.emailField);
-        mPasswordField = findViewById(R.id.passwordField);
-        mSignUpBtn = findViewById(R.id.signUpBtn);
-        mLoginButton = findViewById(R.id.loginBtn);
+        mForgotPasswordBtn = findViewById(R.id.login_forgot_password_button_id);
+        mEmailField = findViewById(R.id.setup_email_id);
+        mPasswordField = findViewById(R.id.setup_password_id);
+        mSignUpBtn = findViewById(R.id.login_sign_up_button_id);
+        mLoginButton = findViewById(R.id.login_login_button_id);
         mLoginWithFacebook = findViewById(R.id.loginWithFacebook);
         mLoginWithGoogle = findViewById(R.id.loginWithGoogle);
         mForgotPasswordBtn.setOnClickListener(this);
@@ -56,19 +55,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
 
         if (v.getId() == mForgotPasswordBtn.getId()) {
-            startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+            startActivity(new Intent(getBaseContext(), ForgotPasswordActivity.class));
         }
 
 
         if (v.getId() == mSignUpBtn.getId()) {
-            startActivity(new Intent(LoginActivity.this, CreateAccountActivity.class));
+            startActivity(new Intent(getBaseContext(), CreateAccountActivity.class));
         }
 
 
         if (v.getId() == mLoginButton.getId()) {
             if (loginInputErrorCheck()) {
                 // code after successful login
-                startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
+                startActivity(new Intent(getBaseContext(), DashboardActivity.class));
 
             } else {
 
@@ -91,14 +90,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
 
-        if (v.getId() == mLoginWithFacebook.getId()) {
-
-        }
-
-
-        if (v.getId() == mLoginWithGoogle.getId()) {
-
-        }
 
 
     }

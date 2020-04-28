@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_background_vividblue"
+    android:orientation="vertical"
+    android:paddingBottom="12dp">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/common_add_recycle_view_id"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:background="@drawable/shape_background_cute_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addroutine_text1_id">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/addroutine_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrasemibold"
+        android:text="@string/addroutinetext"
+        android:textColor="@color/colorWhite"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/addroutine_text1_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/addroutinetext1"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/setup_add_routine_button_id"
+        app:layout_constraintStart_toStartOf="@+id/setup_add_routine_button_id"
+        app:layout_constraintTop_toBottomOf="@+id/setup_add_routine_button_id" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/setup_add_routine_button_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addroutine_text1_id"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/colorWhite"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="#FFFFFF"
+        app:fabSize="mini"
+        app:layout_constraintEnd_toEndOf="@+id/addroutine_text_id"
+        app:layout_constraintStart_toStartOf="@+id/addroutine_text_id"
+        app:layout_constraintTop_toBottomOf="@+id/addroutine_text_id"
+        app:srcCompat="@drawable/common_ic_add_blue" />
+
+    <Button
+        android:id="@+id/setup_done_routine_button_id"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ripple_effect_common_button"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/addroutinebuttontext1"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/common_add_recycle_view_id"
+        app:layout_constraintStart_toStartOf="@+id/common_add_recycle_view_id"
+        app:layout_constraintTop_toBottomOf="@+id/common_add_recycle_view_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
