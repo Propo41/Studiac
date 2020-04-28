@@ -28,12 +28,9 @@ public class CurrentWeekRecycleAdapter extends RecyclerView.Adapter<CurrentWeekR
     private OnItemClickListener mListener;
     private ArrayList<Object> mTaskItems;
 
-    // creating macros to identify the header and the list
-    private static final int TYPE_COURSE = 0;
+    //  mTaskItems only contains a series of String(header) and Task(body) instances
+    private static final int TYPE_HEADER = 0;
     private static final int TYPE_LIST = 1;
-    private static final int TYPE_OTHERS = 2;
-    private static final int TYPE_SELF_STUDY = 3;
-
 
     static class CurrentWeekTabViewHolder extends RecyclerView.ViewHolder {
         ImageView mImageView;
@@ -105,12 +102,8 @@ public class CurrentWeekRecycleAdapter extends RecyclerView.Adapter<CurrentWeekR
     @Override
     public int getItemViewType(int position) {
 
-        if (mTaskItems.get(position) instanceof Course) {
-            return TYPE_COURSE;
-        } else if (mTaskItems.get(position) instanceof Others) {
-            return TYPE_OTHERS;
-        } else if (mTaskItems.get(position) instanceof SelfStudy) {
-            return TYPE_SELF_STUDY;
+        if (mTaskItems.get(position) instanceof String) {
+            return TYPE_HEADER;
         } else {
             return TYPE_LIST;
         }
@@ -136,13 +129,8 @@ public class CurrentWeekRecycleAdapter extends RecyclerView.Adapter<CurrentWeekR
     // binds the data from the array list to the view holder object
     @Override
     public void onBindViewHolder(@NonNull CurrentWeekTabViewHolder holder, int position) {
-        if (holder.view_type == TYPE_COURSE) {
-            Course course = (Course) mTaskItems.get(position);
-            holder.mHeaderTextView.setText(course.getName());
-        } else if (holder.view_type == TYPE_OTHERS) {
-            holder.mHeaderTextView.setText(R.string.Header_Others);
-        } else if (holder.view_type == TYPE_SELF_STUDY) {
-            holder.mHeaderTextView.setText(R.string.Header_SelfStudy);
+        if (holder.view_type == TYPE_HEADER) {
+            holder.mHeaderTextView.setText((String) mTaskItems.get(position));
         } else {
             Task task = (Task) mTaskItems.get(position); // since is one extra row for the header, we are subtracting one
             holder.mTask.setText(task.getDescription());

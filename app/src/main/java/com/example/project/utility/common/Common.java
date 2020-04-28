@@ -229,10 +229,11 @@ public class Common {
      * if a to do task object is saved, it's renamed as: Studiac_TODO_studentEmail, where the studentEmail is used
      * as a tag to identify the student is belongs to in case the device is shared among more than 1 students
      */
-    public static void saveToFile(Object object, String type, String tag, Context context) {
+    public static void saveToFile(Object object, String type, String tag, Context context) throws IOException {
         String json = "null";
         String fileName = "null";
         Gson gson = new Gson();
+
         if (type.equals(STUDENT)) {
             Student student = (Student) object;
             json = gson.toJson(student);
@@ -244,22 +245,13 @@ public class Common {
         } else {
             System.out.println("invalid parameters. Check type");
         }
-        FileOutputStream fileOutputStream = null;
-        try {
-            fileOutputStream = context.openFileOutput(fileName, MODE_PRIVATE);
-            fileOutputStream.write(json.getBytes());
-            System.out.println("file dir: " + context.getFilesDir() + "/" + PROJECT_NAME + "_ " + type);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+
+        FileOutputStream fileOutputStream = context.openFileOutput(fileName, MODE_PRIVATE);
+        fileOutputStream.write(json.getBytes());
+        System.out.println("file dir: " + context.getFilesDir() + "/" + PROJECT_NAME + "_ " + type);
+
+        fileOutputStream.close();
+
     }
 
 
@@ -267,32 +259,30 @@ public class Common {
      * loads the required object from file. The tag is used for identifying the To Do Tasks object mapped to
      *  the student it belongs to
      */
-    public static Object loadFromFile(String type, String tag, Context context) {
+    public static Object loadFromFile(String type, String tag, Context context) throws IOException {
         FileInputStream fileInputStream;
-        try {
-            if (type.equals(TODO)) {
+        if (type.equals(TODO)) {
+            fileInputStream = context.openFileInput(PROJECT_NAME + "_" + type + "_" + tag);
+        } else {
+            fileInputStream = context.openFileInput(PROJECT_NAME + "_" + type);
+        }
 
-                fileInputStream = context.openFileInput(PROJECT_NAME + "_" + type + "_" + tag);
-            } else {
-                fileInputStream = context.openFileInput(PROJECT_NAME + "_" + type);
-            }
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            StringBuilder stringBuilder = new StringBuilder();
-            String text;
-            while ((text = bufferedReader.readLine()) != null) {
-                stringBuilder.append(text).append("\n");
-            }
-            String json = stringBuilder.toString();
-            Gson gson = new Gson();
-            if (type.equals(TODO)) {
-                return gson.fromJson(json, TodoTasks.class);
-            } else if (type.equals(STUDENT)) {
-                return gson.fromJson(json, Student.class);
-            }
+        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        StringBuilder stringBuilder = new StringBuilder();
+        String text;
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        while ((text = bufferedReader.readLine()) != null) {
+            stringBuilder.append(text).append("\n");
+        }
+
+        String json = stringBuilder.toString();
+        Gson gson = new Gson();
+
+        if (type.equals(TODO)) {
+            return gson.fromJson(json, TodoTasks.class);
+        } else if (type.equals(STUDENT)) {
+            return gson.fromJson(json, Student.class);
         }
         return null;
     }
@@ -328,6 +318,31 @@ public class Common {
     public static int getEquivalentPx(int dpi) {
         float d = Resources.getSystem().getDisplayMetrics().density;
         return (int) (dpi * d); // margin in pixels
+    }
+
+
+    /*
+     * returns a string which corresponds to the month + year, for example: 11.2.20
+     * will be converted into February 20
+     */
+    public static String parseDate(Object object) {
+        String date = (String) object;
+        String[] dateContents = date.split("-");
+        for (String a : dateContents)
+            Log.i("dateContents: ", a);
+        return Common.MONTHS[Integer.parseInt(dateContents[1]) - 1] + " " + dateContents[2];
+    }
+
+    /*
+     * returns the day of the week given a date in the format dd-mm-yyyy
+     * throws ParseException if the input formats is wrong
+     */
+    public static String convertDateToDay(String date) throws ParseException {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", java.util.Locale.ENGLISH);
+        Date dateObj = simpleDateFormat.parse(date);
+        simpleDateFormat.applyPattern("EEE"); // EEE indicates that the format of the day will contain 3 words
+        return simpleDateFormat.format(dateObj);
     }
 
 

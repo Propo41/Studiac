@@ -3,17 +3,17 @@ package com.example.project.utility.todo;
 
 import androidx.core.util.Pair;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Task {
 
     private String mDescription;
     private String mAdditionalNotes;
-    private String mType;
-    // takes string "current-tasks/ current-week/ upcoming"
-    // takes object "Course,  null, null"
-    private Pair<String, Object> mCategory;
+    private String mType; // takes string "current-tasks/ current-week/ upcoming"
+    private String mCategory;
     private String mSchedule;
 
-    public Task(String description, String additionalNotes, Pair<String, Object> category, String schedule, String type) {
+    public Task(String description, String additionalNotes, String category, String schedule, String type) {
         mDescription = description;
         mAdditionalNotes = additionalNotes;
         mType = type;
@@ -21,7 +21,7 @@ public class Task {
         mSchedule = schedule;
     }
 
-    public Task(String description, String additionalNotes, Pair<String, Object> category, String type) {
+    public Task(String description, String additionalNotes,  String category, String type) {
         mType = type;
         mDescription = description;
         mAdditionalNotes = additionalNotes;
@@ -53,11 +53,11 @@ public class Task {
         mType = type;
     }
 
-    public Pair<String, Object> getCategory() {
+    public String getCategory() {
         return mCategory;
     }
 
-    public void setCategory(Pair<String, Object> category) {
+    public void setCategory(String category) {
         mCategory = category;
     }
 

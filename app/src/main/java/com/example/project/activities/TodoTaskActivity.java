@@ -22,6 +22,7 @@ import com.example.project.utility.todo.TodoTasks;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.internal.LinkedTreeMap;
 
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
@@ -37,41 +38,79 @@ public class TodoTaskActivity extends NavigationToolbarWhite {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        // uncomment the following lines.
-        // get the student tag from the passed intent
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        mStudentTag = bundle.getString("studentTag");
-
-        // load data from file
-        mTodoTasks = (TodoTasks) Common.loadFromFile(Common.TODO, mStudentTag, getApplicationContext());
-        mCurrentTasks = mTodoTasks.getCurrentTasks();
-        mCurrentWeek = mTodoTasks.getCurrentWeek();
-        mUpcoming = mTodoTasks.getUpcoming();
-
-        // https://stackoverflow.com/questions/32444863/google-gson-linkedtreemap-class-cast-to-myclass
-        // problem: generic types cause problem when deserialising. if the object is of a generic
-        // type, then the Generic type information is lost because of Java Type Erasure.
-       /* int i = 0;
-        for (Object object : mUpcoming.getTodoTasks()) {
-            System.out.println(i + ":  , " + object.getClass().getSimpleName());
-            if (object.getClass().getSimpleName().equals("LinkedTreeMap")) {
-                LinkedTreeMap<Object, Object> t = (LinkedTreeMap) object;
-
-            }
-            i++;
-        }*/
+        loadData();
 
         super.onCreate(savedInstanceState);
         super.setContent(R.layout.activity_todotask);
         setupBottomNav();
     }
 
+    /*
+     * loads data from internal storage
+     */
+    private void loadData() {
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        mStudentTag = bundle.getString("studentTag");
+
+        // load data from file
+        try {
+            mTodoTasks = (TodoTasks) Common.loadFromFile(Common.TODO, mStudentTag, getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert mTodoTasks != null;
+        mCurrentTasks = mTodoTasks.getCurrentTasks();
+        mCurrentWeek = mTodoTasks.getCurrentWeek();
+        mUpcoming = mTodoTasks.getUpcoming();
+
+        for (TasksUtil tasksUtil : mCurrentWeek) {
+            fixSerialization(tasksUtil);
+        }
+        fixSerialization(mUpcoming);
+
+    }
+
+    /*
+     *  fixes the generic type problem.
+     *  problem: generic types cause problem when de-serialising. if the object is of a generic
+     *  type, then the Generic type information is lost because of Java Type Erasure.
+     * for example, ArrayList<Object> is a generic type. Java cannot identity which is what.
+     * That's why it returns a LinkedTreeMap of Strings.
+     * The method iterates through this map and fetches the actual values and replaces them with the
+     * original variable
+     */
+    private void fixSerialization(TasksUtil upcoming) {
+        ArrayList<Object> parsedTodoTasks = new ArrayList<>();
+        for (Object object : upcoming.getTodoTasks()) {
+            if (object instanceof LinkedTreeMap) {
+                LinkedTreeMap treeMapObject = (LinkedTreeMap) object;
+                Task task = new Task(
+                        (String) treeMapObject.get("mDescription"),
+                        (String) treeMapObject.get("mAdditionalNotes"),
+                        (String) treeMapObject.get("mCategory"),
+                        (String) treeMapObject.get("mSchedule"),
+                        (String) treeMapObject.get("mType"));
+                parsedTodoTasks.add(task);
+            } else {
+                parsedTodoTasks.add(object);
+            }
+        }
+
+        upcoming.setTodoTasks(parsedTodoTasks);
+        upcoming.setVisited(upcoming.getVisited());
+
+    }
+
     @Override
     protected void onPause() {
         super.onPause();
         Toast.makeText(getApplicationContext(), "on pause", Toast.LENGTH_SHORT).show();
-       // Common.saveToFile(mTodoTasks, Common.TODO, mStudentTag, getApplicationContext());
+        try {
+            Common.saveToFile(mTodoTasks, Common.TODO, mStudentTag, getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void setupBottomNav() {

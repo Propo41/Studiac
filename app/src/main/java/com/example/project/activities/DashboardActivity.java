@@ -26,6 +26,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -206,7 +207,11 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     protected void loadStudent() {
         // if the data is already loaded from the memory, then don't
         if (!mDataLoadStatus) {
-            mStudent = (Student) Common.loadFromFile(Common.STUDENT, null, getApplicationContext());
+            try {
+                mStudent = (Student) Common.loadFromFile(Common.STUDENT, null, getApplicationContext());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             mDataLoadStatus = true;
         }
 

@@ -294,12 +294,14 @@ public class ProfileSetup2Activity extends AppCompatActivity {
                 university);
 
         TodoTasks todoTasks = new TodoTasks();
-        Common.saveToFile(todoTasks, Common.TODO, student.getEmail(), getApplicationContext());
-        // save the student object in local memory
-        // also upload it to database
-        // save to file in internal storage
-        Common.saveToFile(student, Common.STUDENT, null, getApplicationContext());
-       // Student student1 = (Student) Common.loadFromFile(Common.STUDENT, null, getApplicationContext());
+        // save the student object in local memory also upload it to database
+        try {
+            Common.saveToFile(todoTasks, Common.TODO, student.getEmail(), getApplicationContext());
+            Common.saveToFile(student, Common.STUDENT, null, getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // Student student1 = (Student) Common.loadFromFile(Common.STUDENT, null, getApplicationContext());
     }
 
 

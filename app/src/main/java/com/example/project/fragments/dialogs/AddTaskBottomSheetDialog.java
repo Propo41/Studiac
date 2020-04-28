@@ -123,13 +123,10 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
 
     /*
      * logic for when the add button is pressed.
-     * if all the mandatory fields are pressed, then the interface method onAddPressed() is invoked
+     * if all the mandatory fields are filled, then the interface method onAddPressed() is invoked
      * and the input data is passed along as parameters to the parent Activity
      */
     private void handleAddEvent(final View view) {
-
-        Course course;
-        String taskDescription;
 
         // add button
         Button addButton = view.findViewById(R.id.todo_ADD_add_id);
@@ -146,34 +143,26 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
                     Common.addStroke(taskDescriptionTv, 5);
                     taskDescriptionTv.setError("Field cannot be empty!");
                 } else if (isInputProvided(view)) {
-                    Pair<String, Object> category;
+
+                    String category = mCategory.first; // holds either courseCode, Self Study or Others
                     String type = mType.first;
-                    if (mCategory.first.equals("Others")) {
-                        Others others = new Others();
-                        category = new Pair<String, Object>("Others", others);
-                    } else if (mCategory.first.equals("Self Study")) {
-                        SelfStudy selfStudy = new SelfStudy();
-                        category = new Pair<String, Object>("Self Study", selfStudy);
-                    } else {
-                        Course course = new Course("Algorithm", "ALGO 1234", 3.0);
-                        category = new Pair<String, Object>("Course", course);
-                    }
 
+                    // by default, schedule will be set to null. If the dialog is opened from upcoming,
+                    // only then the schedule will be replaced in the method onActivityResult()
+                    mNewTask = new Task(taskDescription, additionalNotes, category, null, type);
 
-                    mNewTask = new Task(taskDescription, additionalNotes, category, type);
-                    // If the bottom sheet is opened from the CurrentWeek tab
-                    if (mTag.equals("currentWeek")) {
-                        mBottomSheetListener.onAddPressed(mNewTask);
-                        Toast.makeText(getContext(), "Task added", Toast.LENGTH_SHORT).show();
-                        mNewTask.setSchedule(null);
-                        dismiss();
-                        // If the bottom sheet is opened from the Upcoming tab
-                    } else if (mTag.equals("upcoming")) {
+                    // the following code is used to trigger what happens when the Button is pressed
+                    // while in different fragments:
+                    // If the bottom sheet is opened from the Upcoming tab, then on pressing the button,
+                    // open the date picker dialog
+                     if (mTag.equals("upcoming")) {
                         // open the date picker dialog and don't dismiss the bottom sheet unless a date
                         // is selected
                         showDatePickerDialog();
-                    } else {
-                        // If the bottom sheet is opened from the CurrentTasks tab
+                    }
+                     // If the bottom sheet is opened from the CurrentTasks or CurrentWeek tab, then
+                     // simply continue
+                     else {
                         mBottomSheetListener.onAddPressed(mNewTask);
                         mNewTask.setSchedule(null);
                         Toast.makeText(getContext(), "Task added", Toast.LENGTH_SHORT).show();
@@ -231,6 +220,7 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
     /*
      * returns a pair object having name of category: Name of course/Others/Self Study
      * and the View object of the button.
+     * it is used to check if a button is toggled or not
      */
     public Pair<String, View> checkIfToggled(Pair<String, View> current, String name, View view) {
 
@@ -294,7 +284,7 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
             public void onClick(View v) {
                 // todo: open dialog 31. Iff an item is selected, continue, else mark unchecked
                 // the dialog will return a string which will be courseNameSelected
-                String courseNameSelected = "course";
+                String courseNameSelected = "ALGO 1200";
                 mCategory = checkIfToggled(mCategory, courseNameSelected, v);
             }
         });

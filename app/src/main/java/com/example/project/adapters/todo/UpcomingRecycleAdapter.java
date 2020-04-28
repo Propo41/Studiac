@@ -9,10 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.R;
+import com.example.project.utility.common.Common;
 import com.example.project.utility.common.Course;
 import com.example.project.utility.todo.TasksUtil;
 import com.example.project.utility.todo.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class UpcomingRecycleAdapter extends RecyclerView.Adapter<UpcomingRecycleAdapter.UpcomingViewHolder> {
 
@@ -40,7 +45,7 @@ public class UpcomingRecycleAdapter extends RecyclerView.Adapter<UpcomingRecycle
 
     @Override
     public int getItemViewType(int position) {
-        if (mItems.getTodoTasks().get(position).getClass().getSimpleName().equals("Task")) {
+        if (mItems.getTodoTasks().get(position) instanceof Task) {
             return TYPE_LIST;
         } else {
             return TYPE_HEADER;
@@ -67,7 +72,6 @@ public class UpcomingRecycleAdapter extends RecyclerView.Adapter<UpcomingRecycle
 
     @Override
     public void onBindViewHolder(@NonNull UpcomingViewHolder holder, int position) {
-        // @TODO: random values are inserted. Add real values with real propoer classes
         if (holder.view_type == TYPE_HEADER) {
             holder.mHeader.setText(mItems.getTodoTasks().get(position).toString());
         } else {
@@ -75,18 +79,14 @@ public class UpcomingRecycleAdapter extends RecyclerView.Adapter<UpcomingRecycle
             String date = task.getSchedule();
             String[] dateContents = date.split("-");
             holder.mDate.setText(dateContents[0]);
-            holder.mDay.setText("Sun");
-            Object object = task.getCategory().second;
-            if(object.getClass().getSimpleName().equals("Course")){
-                Course course = (Course) task.getCategory().second;
-                holder.mTaskName.setText(course.getName());
-            }else if(object.getClass().getSimpleName().equals("Others")){
-                holder.mTaskName.setText(R.string.Header_Others);
-            }else{
-                holder.mTaskName.setText(R.string.Header_SelfStudy);
+            try {
+                holder.mDay.setText(Common.convertDateToDay(task.getSchedule()));
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
+            String category = task.getCategory();
+            holder.mTaskName.setText(category);
             holder.mTaskDescription.setText(task.getDescription());
-
         }
     }
 

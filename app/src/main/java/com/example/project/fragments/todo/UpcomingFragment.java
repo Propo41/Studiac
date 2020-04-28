@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.project.R;
 import com.example.project.adapters.todo.UpcomingRecycleAdapter;
 import com.example.project.fragments.dialogs.AddTaskBottomSheetDialog;
+import com.example.project.utility.common.Common;
 import com.example.project.utility.todo.TasksUtil;
 import com.example.project.utility.todo.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -90,27 +91,28 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
 
     @Override
     public void onAddPressed(Task task) {
-        Object object = task.getSchedule();
+        String schedule = task.getSchedule();
         Integer countOfItems;
         Integer indexOfHeader;
-        if (object != null) {
-            Pair<Integer, Integer> index = mUpcoming.isVisited(object);
-            // if the header is not already present in the list
-            if (index == null) {
-                // add a new task with the header
-                indexOfHeader = mUpcoming.insertNewTask(task, object);
-                mAdapter.notifyItemRangeInserted(indexOfHeader, 2);
 
-            } else {
-                indexOfHeader = index.first;
-                countOfItems = index.second;
-                // add a task below the current header after all the items
-                mUpcoming.insertTask(task, indexOfHeader, countOfItems);
-                //  Log.i("index header: ", indexOfHeader + "");
-                //  Log.i("item count: ", countOfItems + "");
-                mAdapter.notifyItemRangeInserted(indexOfHeader + countOfItems + 1, 1);
+        //  index = mDay.isVisited(Common.parseDate(task.getSchedule()));
+        Pair<Integer, Integer> index = mUpcoming.isVisited(Common.parseDate(schedule));
+        // if the header is not already present in the list
+        if (index == null) {
+            // add a new task with the header
+            indexOfHeader = mUpcoming.insertNewTask(task, schedule);
+            mAdapter.notifyItemRangeInserted(indexOfHeader, 2);
 
-            }
+        } else {
+            indexOfHeader = index.first;
+            countOfItems = index.second;
+            // add a task below the current header after all the items
+            mUpcoming.insertTask(task, indexOfHeader, countOfItems);
+            //  Log.i("index header: ", indexOfHeader + "");
+            //  Log.i("item count: ", countOfItems + "");
+            mAdapter.notifyItemRangeInserted(indexOfHeader + countOfItems + 1, 1);
+
         }
+
     }
 }
