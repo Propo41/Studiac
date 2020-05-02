@@ -9,10 +9,10 @@ of those circles using java code using:
 ImageView ivVectorImage = (ImageView) findViewById(R.id.ivVectorImage);
 ivVectorImage.setColorFilter(getResources().getColor(R.color.colorPrimary));
 -->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/todo_add_bottomSheet_layout_id"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -22,10 +22,10 @@ ivVectorImage.setColorFilter(getResources().getColor(R.color.colorPrimary));
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_regular"
         android:paddingTop="5dp"
-        android:visibility="invisible"
         android:text="@string/fieldRequiredPrompt"
         android:textColor="@color/colorInputRequired"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/textView21"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -35,10 +35,10 @@ ivVectorImage.setColorFilter(getResources().getColor(R.color.colorPrimary));
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_regular"
         android:paddingTop="5dp"
-        android:visibility="invisible"
         android:text="@string/fieldRequiredPrompt"
         android:textColor="@color/colorInputRequired"
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/textView20"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
@@ -97,7 +97,7 @@ ivVectorImage.setColorFilter(getResources().getColor(R.color.colorPrimary));
         app:srcCompat="@drawable/todo_ic_more" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/dashboard_cgpa_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_regular"
@@ -209,10 +209,10 @@ ivVectorImage.setColorFilter(getResources().getColor(R.color.colorPrimary));
         android:layout_marginTop="20dp"
         android:background="@drawable/ripple_effect_1"
         android:clickable="true"
-        android:textOn=""
-        android:textOff=""
-        android:text=""
         android:focusable="true"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent"
@@ -283,13 +283,13 @@ ivVectorImage.setColorFilter(getResources().getColor(R.color.colorPrimary));
         android:id="@+id/todo_ADD_adNotes_id"
         android:layout_width="349dp"
         android:layout_height="60dp"
-        android:paddingEnd="35dp"
         android:background="@drawable/shape_input_ash_2"
         android:ems="10"
         android:fontFamily="@font/montserrat_medium"
         android:hint="Add further notes if required . . . "
         android:inputType="textPersonName"
         android:paddingStart="35dp"
+        android:paddingEnd="35dp"
         android:textColor="@color/colorAsh"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/todo_additional_notes"

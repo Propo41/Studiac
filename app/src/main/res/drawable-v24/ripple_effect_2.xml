@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/colorAshLight">
-    <item android:drawable="@drawable/shape_todo_ic_background_checked">
-    </item>
+    <item android:drawable="@drawable/shape_todo_ic_background_checked" />
 
 </ripple>

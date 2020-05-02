@@ -29,13 +29,6 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_profilesetup);
         initViews();
         mNextBtn = findViewById(R.id.nextButton);
-        mNextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onNextClick();
-            }
-        });
-
 
     }
 
@@ -54,7 +47,7 @@ public class ProfileSetupActivity extends AppCompatActivity implements View.OnCl
         mChangeAvatarBtn.setOnClickListener(this);
     }
 
-    public void onNextClick() {
+    public void onNextClick(View view) {
         Log.i("on next click:", "all input valid");
         if (isInputValid()) {
             Log.i("on next click:", "all input valid");

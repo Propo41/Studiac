@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.project.fragments.todo.CurrentWeekTabFragment;
+import com.example.project.utility.common.Course;
 import com.example.project.utility.todo.Task;
 import com.example.project.utility.todo.TasksUtil;
 
@@ -20,18 +21,21 @@ public class CurrentWeekPagerAdapter extends FragmentStateAdapter {
 
     private ArrayList<TasksUtil> mCurrentWeek; // this will be a global variable which will be stored in TodoTasksClass and later will be saved in phone memory
     private ArrayList<Task> mCurrentTasks;
+    private ArrayList<Course> mCourses;
 
-    public CurrentWeekPagerAdapter(@NonNull Fragment fragment, ArrayList<TasksUtil> currentWeek, ArrayList<Task> currentTasks) {
+
+    public CurrentWeekPagerAdapter(@NonNull Fragment fragment, ArrayList<TasksUtil> currentWeek, ArrayList<Task> currentTasks, ArrayList<Course> courses) {
         super(fragment);
         mCurrentWeek = currentWeek;
         mCurrentTasks = currentTasks;
+        mCourses = courses;
     }
 
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return new CurrentWeekTabFragment(mCurrentWeek.get(position), mCurrentTasks);
+        return new CurrentWeekTabFragment(mCurrentWeek.get(position), mCurrentTasks, mCourses);
     }
 
     @Override

@@ -1,17 +1,19 @@
 package com.example.project.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -21,9 +23,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.project.R;
 import com.example.project.utility.common.Common;
+import com.example.project.utility.common.Course;
 import com.example.project.utility.common.Student;
 import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.navigation.NavigationView;
 
 import java.io.IOException;
@@ -31,22 +33,23 @@ import java.util.ArrayList;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    int animationDuration = 400;
-    CardView dashboardHeader;
-    ImageView dashboardUserImage;
-    CardView viewRoutineCardView;
-    CardView viewCoursesCardView;
-    CardView viewMessagesCardView;
-    CardView bulletinBoardCardView;
-    CardView todoTasksCardView;
-    CardView resultTrackerCardView;
-    int[] mTextViewIds = new int[6];
-    ArrayList<View> mTextViewsList;
+    private int animationDuration = 400;
+    private CardView dashboardHeader;
+    private ImageView dashboardUserImage;
+    private CardView viewRoutineCardView;
+    private CardView viewCoursesCardView;
+    private CardView viewMessagesCardView;
+    private CardView bulletinBoardCardView;
+    private CardView todoTasksCardView;
+    private CardView resultTrackerCardView;
+    private int[] mTextViewIds = new int[6];
+    private ArrayList<View> mTextViewsList;
 
     protected DrawerLayout mDrawer;
     protected NavigationView mNavigationView;
     private static Student mStudent;
     protected static boolean mDataLoadStatus = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,49 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         setContentView(R.layout.activity_dashboard);
         initialiseViews();
         setupDrawer();
+        setStudentContent();
         animateDashboard();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            Common.saveToFile(mStudent, Common.STUDENT, null, getApplicationContext());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Toast.makeText(getApplicationContext(), "saving data", Toast.LENGTH_SHORT).show();
+    }
+
+    private void setStudentContent() {
+
+        // setting content for navigation drawer
+        View headerView = mNavigationView.getHeaderView(0);
+        TextView navName = headerView.findViewById(R.id.nav_drawer_user_name_id);
+        navName.setText(mStudent.getFullName());
+        TextView navEmail = headerView.findViewById(R.id.nav_drawer_user_email_id);
+        navEmail.setText(mStudent.getEmail());
+        //  ImageView navImage = headerView.findViewById(R.id.nav_drawer_user_image_id);
+        //  navImage.setImageResource(mStudent.getImageResId());
+
+        // setting content for the dashboard views
+        TextView username = findViewById(R.id.dashboard_user_name_id);
+        username.setText(mStudent.getFullName());
+        TextView universityName = findViewById(R.id.dashboard_university_id);
+        universityName.setText(mStudent.getUniversity().getName());
+        TextView departmentName = findViewById(R.id.dashboard_department_id);
+        departmentName.setText(mStudent.getUniversity().getDepartment());
+        TextView semester = findViewById(R.id.dashboard_semester_id);
+        int currentSemester = mStudent.getUniversity().getCurrentSemester();
+        semester.setText("Semester: " + currentSemester);
+
+        // todo: calculate cgpa up to current semester
+        TextView cgpa = findViewById(R.id.dashboard_cgpa_id);
+        //departmentName.setText("CGPA: " + mStudent.getUniversity().getSemesterResults().get(currentSemester).getGpa());
+        cgpa.setText("CGPA: N/A");
+
+
     }
 
 
@@ -71,6 +116,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         mNavigationView = findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
         mNavigationView.setCheckedItem(R.id.nav_dashboard); // initially this will be checked
+
 
     }
 
@@ -113,7 +159,13 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                     dashboardHeader.animate().alpha(0.0f);
                     dashboardUserImage.animate().alpha(0.0f);
 
+                    Common.animateScaleDown(dashboardUserImage, 300);
+                    Common.animateScaleDown(dashboardHeader, 300);
+
                 } else if (verticalOffset == 0) {
+
+                    Common.animateScaleUp(dashboardUserImage, 300);
+                    Common.animateScaleUp(dashboardHeader, 300);
 
                     // if expanded, then do this
                     // headers
@@ -121,6 +173,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                     dashboardHeader.animate().translationY(0);
                     dashboardUserImage.animate().alpha(1.0f);
                     dashboardUserImage.animate().translationY(0);
+
+                    //     dashboardHeader.startAnimation(scaleUp);
 
                     // the card view buttons
                     viewRoutineCardView.animate().translationY(0); // 0 indicates, the views will return to their original position
@@ -174,7 +228,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         // pass the courses list to the view courses activity
         bundle.putParcelableArrayList("courses", mStudent.getUniversity().getCourses());
         intent.putExtras(bundle);
-        startActivity(intent);
+
+        startActivityForResult(intent, Common.VIEW_COURSES);
     }
 
     public void onBulletinBoardClick(View v) {
@@ -184,17 +239,21 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     }
 
     public void onTodoTasksClick(View v) {
-
         Intent intent = new Intent(this, TodoTaskActivity.class);
         Bundle bundle = new Bundle();
         bundle.putString("studentTag", mStudent.getEmail());
+        bundle.putParcelableArrayList("courses", mStudent.getUniversity().getCourses());
         intent.putExtras(bundle);
         startActivity(intent);
+
 
     }
 
 
     public void onResultTrackerClick(View v) {
+        // gson diye hashmap gula serialize korb. Kore intent use kore string diye pathaba
+        //  mStudent.getUniversity().getGradeWeights();
+        //  mStudent.getUniversity().getSemesterResults();
 
     }
 
@@ -213,6 +272,19 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                 e.printStackTrace();
             }
             mDataLoadStatus = true;
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Common.VIEW_COURSES && resultCode == Activity.RESULT_OK) {
+            // Toast.makeText(getApplicationContext(), "result ok", Toast.LENGTH_SHORT).show();
+            Bundle bundle = data.getExtras();
+            assert bundle != null;
+            ArrayList<Course> courses = bundle.getParcelableArrayList("courses");
+            mStudent.getUniversity().setCourses(courses);
         }
 
     }

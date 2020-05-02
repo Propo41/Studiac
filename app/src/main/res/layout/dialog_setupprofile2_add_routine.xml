@@ -21,12 +21,12 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
-        android:id="@+id/addroutine_text_id"
+        android:id="@+id/dialog_viewCourse_courseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/montserrasemibold"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:text="@string/addroutinetext"
         android:textColor="@color/colorWhite"
         android:textSize="21sp"
@@ -38,7 +38,7 @@
         android:id="@+id/addroutine_text1_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/addroutine_text_id"
+        android:layout_below="@+id/dialog_viewCourse_courseName"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/montserrat_regular"
         android:paddingTop="10dp"
@@ -64,9 +64,9 @@
         android:focusable="true"
         app:backgroundTint="#FFFFFF"
         app:fabSize="mini"
-        app:layout_constraintEnd_toEndOf="@+id/addroutine_text_id"
-        app:layout_constraintStart_toStartOf="@+id/addroutine_text_id"
-        app:layout_constraintTop_toBottomOf="@+id/addroutine_text_id"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_viewCourse_courseName"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourse_courseName"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_viewCourse_courseName"
         app:srcCompat="@drawable/common_ic_add_blue" />
 
     <Button

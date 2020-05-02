@@ -164,7 +164,7 @@ public class CurrentTasksRecycleAdapter extends RecyclerView.Adapter<CurrentTask
 
         } else {
             Task currentItem = mCurrentTaskItems.get(position ); // since is one extra row for the header, we are subtracting one
-            holder.mTask.setText(currentItem.getDescription());
+            holder.mTask.setText(currentItem.getDescription() + " | " + currentItem.getCategory());
             // don't change this ever. Used to reset the checkbox of the recycled item
             holder.mCheckBox.setChecked(false);
         }

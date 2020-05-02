@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.viewpager2.widget.ViewPager2;
 import com.example.project.R;
 import com.example.project.adapters.bulletinboard.BulletinPagerAdapter;
-import com.example.project.toolbars.NavigationToolbarBlue;
 import com.example.project.toolbars.NavigationToolbarWhite;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
@@ -87,8 +86,8 @@ public class BulletinBoardActivity extends NavigationToolbarWhite {
     }
 
     private void initAnimations() {
-        fab_open_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
-        fab_close_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_close);
+        fab_open_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.view_scale_up);
+        fab_close_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.view_scale_down);
         fab_rotate_clockwise_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_rotate_clockwise);
         fab_rotate_anticlockwise_anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_rotate_anticlockwise);
 

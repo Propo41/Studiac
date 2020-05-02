@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_background_vividblue"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="2dp"
+        android:layout_height="35dp"
+        android:background="@color/colorAshMedium"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_task_description_deleteButton"
+        app:layout_constraintStart_toEndOf="@+id/dialog_task_description_continueBtn"
+        app:layout_constraintTop_toTopOf="@+id/dialog_task_description_continueBtn" />
+
+    <TextView
+        android:id="@+id/addroutine_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="Description"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/dialog_task_description_continueBtn"
+        android:layout_width="150dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="35dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_button_white_four"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/dialogTextContinueBtn"
+        android:textAlignment="center"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_task_description_taskDue"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/dialog_task_description_deleteButton"
+        android:layout_width="150dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/shape_button_white_five"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="Delete"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlackShade"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dialog_task_description_continueBtn"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/dialog_task_description_taskName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/dialogTextCourseCodeInput"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/DialogSubtitleTextSize"
+        app:layout_constraintEnd_toEndOf="@+id/courseCredit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/courseCredit"
+        app:layout_constraintTop_toBottomOf="@+id/courseCredit" />
+
+
+    <TextView
+        android:id="@+id/instructorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Category"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_task_description_taskName"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/dialog_task_description_taskName"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_task_description_taskName" />
+
+
+    <TextView
+        android:id="@+id/instructorRoom3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Due"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_task_description_taskType"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/dialog_task_description_taskType"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_task_description_taskType" />
+
+    <TextView
+        android:id="@+id/dialog_task_description_taskDue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat_regular"
+        android:padding="5dp"
+        android:text="13.01.4"
+        android:textColor="@color/colorWhite"
+
+        android:textSize="@dimen/DialogSubtitleTextSize"
+        app:layout_constraintEnd_toEndOf="@+id/instructorRoom3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/instructorRoom3"
+        app:layout_constraintTop_toBottomOf="@+id/instructorRoom3" />
+
+    <TextView
+        android:id="@+id/instructorRoom2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Type"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_task_description_taskCategory"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/dialog_task_description_taskCategory"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_task_description_taskCategory" />
+
+
+    <TextView
+        android:id="@+id/dialog_task_description_taskType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat_regular"
+        android:padding="5dp"
+
+        android:text="Quiz"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/DialogSubtitleTextSize"
+        app:layout_constraintEnd_toEndOf="@+id/instructorRoom2"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/instructorRoom2"
+        app:layout_constraintTop_toBottomOf="@+id/instructorRoom2" />
+
+    <TextView
+        android:id="@+id/dialog_task_description_taskCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="Course: Math 1102"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/DialogSubtitleTextSize"
+        app:layout_constraintEnd_toEndOf="@+id/instructorName"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/instructorName"
+        app:layout_constraintTop_toBottomOf="@+id/instructorName" />
+
+    <TextView
+        android:id="@+id/courseCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addroutine_text_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Name"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/addroutine_text_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/addroutine_text_id"
+        app:layout_constraintTop_toBottomOf="@+id/addroutine_text_id" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

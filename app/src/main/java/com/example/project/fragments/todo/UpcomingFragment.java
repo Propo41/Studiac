@@ -1,5 +1,7 @@
 package com.example.project.fragments.todo;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.project.R;
 import com.example.project.adapters.todo.UpcomingRecycleAdapter;
 import com.example.project.fragments.dialogs.AddTaskBottomSheetDialog;
+import com.example.project.fragments.dialogs.TaskDescriptionDialog;
 import com.example.project.utility.common.Common;
+import com.example.project.utility.common.Course;
 import com.example.project.utility.todo.TasksUtil;
 import com.example.project.utility.todo.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,16 +29,18 @@ import java.util.ArrayList;
 
 public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDialog.BottomSheetListener {
 
-    private ArrayList<TasksUtil> mItems;
     private RecyclerView mRecyclerView;
     private UpcomingRecycleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private TasksUtil mUpcoming;
     private ArrayList<Task> mCurrentTasks;
+    private ArrayList<Course> mCourses;
+    private final int RESULT_DELETE_CLICKED = 1;
 
-    public UpcomingFragment(TasksUtil upcoming, ArrayList<Task> currentTasks) {
+    public UpcomingFragment(TasksUtil upcoming, ArrayList<Task> currentTasks, ArrayList<Course> courses) {
         mUpcoming = upcoming;
         mCurrentTasks = currentTasks;
+        mCourses = courses;
     }
 
     @Nullable
@@ -54,7 +60,7 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddTaskBottomSheetDialog bottomSheetDialog = new AddTaskBottomSheetDialog();
+                AddTaskBottomSheetDialog bottomSheetDialog = new AddTaskBottomSheetDialog(mCourses);
                 bottomSheetDialog.setTargetFragment(UpcomingFragment.this, 1);
                 if (getFragmentManager() != null) {
                     bottomSheetDialog.show(getFragmentManager(), "upcoming");
@@ -71,7 +77,12 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
         mAdapter.setOnItemClickListener(new UpcomingRecycleAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                // @TODO: open dialog 24
+                TaskDescriptionDialog dialog = new TaskDescriptionDialog((Task) mUpcoming.getTodoTasks().get(position), position);
+                dialog.setTargetFragment(UpcomingFragment.this, RESULT_DELETE_CLICKED);
+                assert getFragmentManager() != null;
+                dialog.show(getFragmentManager(), "currentUpcoming");
+
+
             }
 
             @Override
@@ -87,6 +98,17 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
         mRecyclerView.setAdapter(mAdapter);
 
 
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == RESULT_DELETE_CLICKED && resultCode == Activity.RESULT_OK) {
+            int pos = data.getExtras().getInt("pos");
+            mUpcoming.getTodoTasks().remove(pos);
+            mAdapter.notifyItemRemoved(pos);
+
+        }
     }
 
     @Override

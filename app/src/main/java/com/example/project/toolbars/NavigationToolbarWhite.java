@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import com.example.project.R;
+import com.example.project.utility.common.Common;
 
 /*
 Contains the up button along with the more icon on the toolbar.
@@ -26,7 +27,9 @@ navigation facilities.
 public class NavigationToolbarWhite extends AppCompatActivity {
 
 
+    protected int childActivity; // used to control what happens in the toolbar actions for each different activity
     protected FrameLayout mFrameLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,7 @@ public class NavigationToolbarWhite extends AppCompatActivity {
     }
 
 
-    public void setContent(int layout){
+    public void setContent(int layout) {
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //inflate the activity layout
         View contentView = inflater.inflate(layout, null, false);
@@ -63,7 +66,11 @@ public class NavigationToolbarWhite extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish(); // go back to parent activity
+                if (childActivity == Common.VIEW_COURSES) {
+                    onBackPressed();
+                } else {
+                    finish(); // go back to parent activity
+                }
                 return true;
             case R.id.main_menu_id:
                 Toast.makeText(this, "Default: Main Menu", Toast.LENGTH_SHORT).show();

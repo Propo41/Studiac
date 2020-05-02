@@ -9,7 +9,7 @@
     android:background="@drawable/shape_background_vividblue">
 
     <TextView
-        android:id="@+id/addroutine_text_id"
+        android:id="@+id/dialog_viewCourse_courseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -33,7 +33,7 @@
         android:background="@drawable/shape_background_cute_blue_rounded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addroutine_text_id" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_viewCourse_courseName" />
 
 
     <RadioGroup

@@ -1,5 +1,7 @@
 package com.example.project.fragments.todo;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,7 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.project.R;
 import com.example.project.adapters.todo.CurrentWeekRecycleAdapter;
 import com.example.project.fragments.dialogs.AddTaskBottomSheetDialog;
+import com.example.project.fragments.dialogs.TaskDescriptionDialog;
 import com.example.project.utility.common.Common;
+import com.example.project.utility.common.Course;
 import com.example.project.utility.todo.TasksUtil;
 import com.example.project.utility.todo.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,10 +39,14 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
     private TasksUtil mDay; // contains the task items for the current day of the week
     private CurrentWeekRecycleAdapter mAdapter; // we need to change it to ExampleAdapter object
     private ArrayList<Task> mCurrentTasks;
+    private ArrayList<Course> mCourses;
+    private final int RESULT_DELETE_CLICKED = 1;
 
-    public CurrentWeekTabFragment(TasksUtil day, ArrayList<Task> currentTasks) {
+
+    public CurrentWeekTabFragment(TasksUtil day, ArrayList<Task> currentTasks, ArrayList<Course> courses) {
         mDay = day;
         mCurrentTasks = currentTasks;
+        mCourses = courses;
     }
 
     public CurrentWeekRecycleAdapter getAdapter() {
@@ -67,7 +75,7 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddTaskBottomSheetDialog bottomSheetDialog = new AddTaskBottomSheetDialog();
+                AddTaskBottomSheetDialog bottomSheetDialog = new AddTaskBottomSheetDialog(mCourses);
                 bottomSheetDialog.setTargetFragment(CurrentWeekTabFragment.this, 1);
                 if (getFragmentManager() != null) {
                     bottomSheetDialog.show(getFragmentManager(), "currentWeek");
@@ -96,8 +104,6 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
             countOfItems = index.second;
             // add a task below the current header after all the items
             mDay.insertTask(task, indexOfHeader, countOfItems);
-            //  Log.i("index header: ", indexOfHeader + "");
-            //  Log.i("item count: ", countOfItems + "");
             mAdapter.notifyItemRangeInserted(indexOfHeader + countOfItems + 1, 1);
 
         }
@@ -122,6 +128,7 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
             Log.i("setup list: ", "Nothing here yet. Add a task");
         } else {
             mAdapter = new CurrentWeekRecycleAdapter(mDay.getTodoTasks());
+
             mAdapter.setOnItemClickListener(new CurrentWeekRecycleAdapter.OnItemClickListener() {
                 @Override
                 public void onButtonClick(int position) {
@@ -134,10 +141,11 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
 
                 @Override
                 public void onItemClick(int position) {
-                    //mAdapter.notifyItemChanged(position);
-                    // Task task = (Task) mTasksUtil.getTodoTasks().get(position);
-                    // open dialog and show contents of task instance
-                    // @TODO: open dialog 24
+                    TaskDescriptionDialog dialog = new TaskDescriptionDialog((Task) mDay.getTodoTasks().get(position), position);
+                    dialog.setTargetFragment(CurrentWeekTabFragment.this, RESULT_DELETE_CLICKED);
+                    assert getFragmentManager() != null;
+                    dialog.show(getFragmentManager(), "currentWeek");
+
                 }
             });
 
@@ -147,6 +155,17 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
         }
 
 
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == RESULT_DELETE_CLICKED && resultCode == Activity.RESULT_OK) {
+            int pos = data.getExtras().getInt("pos");
+            mDay.getTodoTasks().remove(pos);
+            mAdapter.notifyItemRemoved(pos);
+
+        }
     }
 
 }

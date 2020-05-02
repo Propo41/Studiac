@@ -7,7 +7,7 @@ import com.example.project.utility.todo.Task;
 
 import java.util.ArrayList;
 
-public class Course implements Parcelable {
+public class Course implements Parcelable{
 
     private String mName;
     private String mCode;
@@ -18,6 +18,7 @@ public class Course implements Parcelable {
         mName = name;
         mCode = code;
         mCredit = credit;
+        mInstructor = new Instructor("N/A","N/A", "N/A" );
     }
 
 
@@ -29,6 +30,7 @@ public class Course implements Parcelable {
         } else {
             mCredit = in.readDouble();
         }
+        mInstructor = in.readParcelable(Instructor.class.getClassLoader());
     }
 
     public static final Creator<Course> CREATOR = new Creator<Course>() {
@@ -75,6 +77,7 @@ public class Course implements Parcelable {
         mInstructor = instructor;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -90,5 +93,6 @@ public class Course implements Parcelable {
             dest.writeByte((byte) 1);
             dest.writeDouble(mCredit);
         }
+        dest.writeParcelable(mInstructor, flags);
     }
 }

@@ -13,9 +13,9 @@ import com.example.project.R;
 import com.example.project.fragments.todo.CurrentTasksFragment;
 import com.example.project.fragments.todo.CurrentWeekFragment;
 import com.example.project.fragments.todo.UpcomingFragment;
-import com.example.project.toolbars.NavigationToolbarBlue;
 import com.example.project.toolbars.NavigationToolbarWhite;
 import com.example.project.utility.common.Common;
+import com.example.project.utility.common.Course;
 import com.example.project.utility.todo.Task;
 import com.example.project.utility.todo.TasksUtil;
 import com.example.project.utility.todo.TodoTasks;
@@ -23,7 +23,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.internal.LinkedTreeMap;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class TodoTaskActivity extends NavigationToolbarWhite {
@@ -31,6 +30,7 @@ public class TodoTaskActivity extends NavigationToolbarWhite {
     private int mCurrentSelectedItemBottomNav;
     private ArrayList<Task> mCurrentTasks;
     private ArrayList<TasksUtil> mCurrentWeek;
+    private ArrayList<Course> mCourses;
     private TasksUtil mUpcoming;
     private TodoTasks mTodoTasks;
     private String mStudentTag;
@@ -51,7 +51,10 @@ public class TodoTaskActivity extends NavigationToolbarWhite {
     private void loadData() {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+        assert bundle != null;
         mStudentTag = bundle.getString("studentTag");
+        mCourses =  bundle.getParcelableArrayList("courses");
+
 
         // load data from file
         try {
@@ -105,7 +108,7 @@ public class TodoTaskActivity extends NavigationToolbarWhite {
     @Override
     protected void onPause() {
         super.onPause();
-        Toast.makeText(getApplicationContext(), "on pause", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "saved", Toast.LENGTH_SHORT).show();
         try {
             Common.saveToFile(mTodoTasks, Common.TODO, mStudentTag, getApplicationContext());
         } catch (IOException e) {
@@ -117,29 +120,29 @@ public class TodoTaskActivity extends NavigationToolbarWhite {
 
         // the default fragment that is open initially
         getSupportFragmentManager().beginTransaction().replace(R.id.todo_fragment_container,
-                new CurrentTasksFragment(mCurrentTasks)).commit();
+                new CurrentTasksFragment(mCurrentTasks, mCourses)).commit();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selected = new CurrentTasksFragment(mCurrentTasks);
+                Fragment selected = new CurrentTasksFragment(mCurrentTasks, mCourses);
                 if (mCurrentSelectedItemBottomNav != item.getItemId()) {
                     switch (item.getItemId()) {
 
                         case R.id.nav_btm_current:
                             Log.println(Log.DEBUG, "todoActivity", "current tasks tab selected");
-                            selected = new CurrentTasksFragment(mCurrentTasks);
+                            selected = new CurrentTasksFragment(mCurrentTasks, mCourses);
                             mCurrentSelectedItemBottomNav = item.getItemId();
                             break;
                         case R.id.nav_btm_week:
                             Log.println(Log.DEBUG, "todoActivity", "current week tab selected");
-                            selected = new CurrentWeekFragment(mCurrentWeek, mCurrentTasks);
+                            selected = new CurrentWeekFragment(mCurrentWeek, mCurrentTasks, mCourses);
                             mCurrentSelectedItemBottomNav = item.getItemId();
                             break;
                         case R.id.nav_btm_upcoming:
                             Log.println(Log.DEBUG, "todoActivity", "upcoming tab selected");
-                            selected = new UpcomingFragment(mUpcoming, mCurrentTasks);
+                            selected = new UpcomingFragment(mUpcoming, mCurrentTasks, mCourses);
                             mCurrentSelectedItemBottomNav = item.getItemId();
                             break;
                     }

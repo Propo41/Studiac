@@ -47,10 +47,19 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class Common {
 
+    public static final int VIEW_COURSES = 1;
+    public static final int VIEW_ROUTINE = 2;
+    public static final int TODO_TASKS = 3;
+    public static final int RESULT_TRACKER = 4;
+    public static final int BULLETIN_BOARD = 5;
+    public static final int MESSENGER = 6;
+
+    public static String[] GET_DAY_FROM_INDEX = {"Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"};
+
     public static String STUDENT = "STUDENT";
     public static String TODO = "TODO";
     private static String PROJECT_NAME = "Studiac";
-    public static HashMap<String, Integer> DAYS = new HashMap<String, Integer>() {{
+    public static HashMap<String, Integer> GET_INDEX_FROM_DAY = new HashMap<String, Integer>() {{
         put("Sunday", 0);
         put("Monday", 1);
         put("Tuesday", 2);
@@ -346,4 +355,19 @@ public class Common {
     }
 
 
+    /*
+     * animate view and scale them up to their original size
+     */
+    public static void animateScaleUp(View view, int duration) {
+        view.animate().scaleX(1.0f).scaleY(1.0f).alpha(1.0f).setDuration(duration);
+
+    }
+
+
+    /*
+     * animate view and scale them down to 0 size
+     */
+    public static void animateScaleDown(View view, int duration) {
+        view.animate().scaleX(0.0f).scaleY(0.0f).alpha(0.0f).setDuration(duration);
+    }
 }

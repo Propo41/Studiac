@@ -23,7 +23,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:titleEnabled="true"
             app:expandedTitleGravity="center"
-            app:collapsedTitleTextAppearance="@font/montserrasemibold"
+            app:collapsedTitleTextAppearance="@font/montserrat_semi_bold"
             app:expandedTitleTextAppearance="@style/TransparentText"
             app:title="Dashboard">
 
@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                app:popupTheme="@style/PopupMenuStyleWhiteToolbar" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -48,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <include layout="@layout/content_activity_dashboard"/>
     </androidx.core.widget.NestedScrollView>
 
@@ -68,7 +69,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/dashboard_user_name_id"
                 style="@style/CustomTitleFontBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,66 +81,69 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/dashboard_university_id"
                 style="@style/CustomSubtitleFontBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="2dp"
-                android:paddingStart="10dp"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+
                 android:layout_marginTop="10dp"
                 android:paddingTop="10dp"
-                android:paddingEnd="10dp"
-                android:text="University Name"
+                android:text="Ahsanullah University of Science &amp; Technology"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_user_name_id" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/dashboard_department_id"
                 style="@style/CustomSubtitleFontBlue"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
                 android:padding="2dp"
                 android:text="Department Name"
                 android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="@+id/textView15"
-                app:layout_constraintStart_toStartOf="@+id/textView15"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+                app:layout_constraintEnd_toEndOf="@+id/dashboard_university_id"
+                app:layout_constraintStart_toStartOf="@+id/dashboard_university_id"
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_university_id" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/dashboard_semester_id"
                 style="@style/CustomSubtitleFontBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="2dp"
                 android:text="Semester"
                 android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="@+id/textView16"
-                app:layout_constraintStart_toStartOf="@+id/textView16"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintEnd_toEndOf="@+id/dashboard_department_id"
+                app:layout_constraintStart_toStartOf="@+id/dashboard_department_id"
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_department_id" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/dashboard_cgpa_id"
                 style="@style/CustomSubtitleFontBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:paddingBottom="10dp"
+                android:paddingBottom="20dp"
                 android:paddingTop="2dp"
                 android:text="CGPA : 4.0"
                 android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="@+id/textView17"
-                app:layout_constraintStart_toStartOf="@+id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintEnd_toEndOf="@+id/dashboard_semester_id"
+                app:layout_constraintStart_toStartOf="@+id/dashboard_semester_id"
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_semester_id" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <ImageView
         android:id="@+id/dashboard_user_image_id"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_margin="10dp"
         android:src="@drawable/common_ic_profile"
         android:elevation="@dimen/ViewRoutineItemWidthTime"

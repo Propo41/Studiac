@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mPasswordField = findViewById(R.id.setup_password_id);
         mSignUpBtn = findViewById(R.id.login_sign_up_button_id);
         mLoginButton = findViewById(R.id.login_login_button_id);
-        mLoginWithFacebook = findViewById(R.id.loginWithFacebook);
         mLoginWithGoogle = findViewById(R.id.loginWithGoogle);
         mForgotPasswordBtn.setOnClickListener(this);
         mEmailField.setOnClickListener(this);

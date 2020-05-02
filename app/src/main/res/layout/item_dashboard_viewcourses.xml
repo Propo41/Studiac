@@ -12,9 +12,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="99dp"
-        android:layout_margin="4dp"
-        android:id="@+id/relativeLayout">
+        android:layout_height="wrap_content"
+        android:paddingBottom="15sp"
+        android:layout_margin="4dp">
 
         <TextView
             android:id="@+id/messenger_user_name_id"
@@ -23,17 +23,18 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:paddingBottom="5dp"
             android:text="Course Name"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.216" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/viewCourses_courseCredit_id"
             style="@style/CustomSubtitleFontWhite"
             android:layout_width="250dp"
+            android:layout_marginTop="3dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:text="Course Credit: 3.00"
@@ -60,8 +61,7 @@
             app:fabSize="mini"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.491"
+            app:layout_constraintTop_toTopOf="@+id/messenger_user_name_id"
             app:srcCompat="@drawable/common_ic_edit" />
 
 

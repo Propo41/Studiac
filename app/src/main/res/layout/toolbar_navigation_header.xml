@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="176dp"
     android:background="@color/colorAccent"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:backgroundTint="@color/colorPrimaryDark"
-    android:gravity="bottom">
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <ImageView
+        android:id="@+id/nav_drawer_user_image_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/common_ic_dp" />
 
     <TextView
+        android:id="@+id/nav_drawer_user_name_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrasemibold"
-        android:textColor="@color/colorWhite"
-        android:textSize="14sp"
+        android:fontFamily="@font/montserrat_semi_bold"
         android:text="Full Name"
-        />
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/nav_drawer_user_email_id"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
         android:fontFamily="@font/montserrat_medium"
-        android:textColor="@color/colorWhite"
-        android:textSize="14sp"
+        android:paddingTop="8dp"
         android:text="user_email@gmail.com"
-        />
-
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp" />
 
 
 </LinearLayout>

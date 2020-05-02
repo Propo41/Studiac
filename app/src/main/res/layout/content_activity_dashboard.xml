@@ -9,15 +9,17 @@
         android:id="@+id/dashboard_view_routine_button_id"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
-        app:cardElevation="10dp"
+        android:layout_marginTop="125dp"
+        android:foreground="?android:attr/selectableItemBackground"
         android:onClick="onRoutineClick"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="120dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/dashboard_view_courses_button_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -27,6 +29,7 @@
             android:layout_height="match_parent"
             android:scaleType="center"
             android:src="@drawable/dashboard_ic_routine"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="231dp"
             tools:layout_editor_absoluteY="137dp" />
 
@@ -35,15 +38,15 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/dashboard_bulletin_button_id"
         android:layout_width="120dp"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="120dp"
+        android:layout_marginTop="50dp"
         android:clickable="true"
         android:focusable="true"
-        android:layout_height="120dp"
+        android:foreground="?android:attr/selectableItemBackground"
         android:onClick="onBulletinBoardClick"
-        app:cardElevation="10dp"
-        android:layout_marginTop="50dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="@+id/dashboard_result_tracker_button_id"
         app:layout_constraintStart_toStartOf="@+id/dashboard_result_tracker_button_id"
         app:layout_constraintTop_toBottomOf="@+id/dashboard_result_tracker_button_id">
@@ -54,6 +57,7 @@
             android:layout_height="match_parent"
             android:scaleType="center"
             android:src="@drawable/dashboard_ic_bulletin"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="231dp"
             tools:layout_editor_absoluteY="137dp" />
 
@@ -64,15 +68,17 @@
         android:id="@+id/dashboard_view_courses_button_id"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        app:cardElevation="10dp"
-        android:onClick="onCourseClick"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginStart="30dp"
         android:clickable="true"
         android:focusable="true"
-        android:layout_marginStart="50dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="onCourseClick"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/dashboard_view_routine_button_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/dashboard_view_routine_button_id"
         app:layout_constraintTop_toTopOf="@+id/dashboard_view_routine_button_id">
 
@@ -82,6 +88,7 @@
             android:layout_height="match_parent"
             android:scaleType="center"
             android:src="@drawable/dashboard_ic_courses"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="231dp"
             tools:layout_editor_absoluteY="137dp" />
 
@@ -90,16 +97,16 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dashboard_todo_tasks_button_id"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="onTodoTasksClick"
-        android:clickable="true"
-        android:focusable="true"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="50dp"
-        app:cardElevation="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="onTodoTasksClick"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="@+id/dashboard_view_messages_button_id"
         app:layout_constraintStart_toStartOf="@+id/dashboard_view_messages_button_id"
         app:layout_constraintTop_toBottomOf="@+id/dashboard_view_messages_button_id">
@@ -110,26 +117,25 @@
             android:layout_height="match_parent"
             android:scaleType="center"
             android:src="@drawable/dashboard_ic_todo"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="231dp"
             tools:layout_editor_absoluteY="137dp" />
-
-
 
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
         android:id="@+id/dashboard_view_messages_button_id"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:onClick="onViewMessagesClick"
-        app:cardElevation="10dp"
         android:layout_marginTop="50dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="onViewMessagesClick"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="@+id/dashboard_view_routine_button_id"
         app:layout_constraintStart_toStartOf="@+id/dashboard_view_routine_button_id"
         app:layout_constraintTop_toBottomOf="@+id/dashboard_view_routine_button_id">
@@ -140,6 +146,7 @@
             android:layout_height="match_parent"
             android:scaleType="center"
             android:src="@drawable/dashboard_ic_message"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="231dp"
             tools:layout_editor_absoluteY="137dp" />
 
@@ -149,15 +156,15 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/dashboard_result_tracker_button_id"
         android:layout_width="120dp"
-        android:onClick="onResultTrackerClick"
         android:layout_height="120dp"
-        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginTop="50dp"
         android:clickable="true"
         android:focusable="true"
-        android:layout_marginTop="50dp"
-        app:cardElevation="10dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:onClick="onResultTrackerClick"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="@+id/dashboard_view_courses_button_id"
         app:layout_constraintStart_toStartOf="@+id/dashboard_view_courses_button_id"
         app:layout_constraintTop_toBottomOf="@+id/dashboard_view_courses_button_id">
@@ -168,6 +175,7 @@
             android:layout_height="match_parent"
             android:scaleType="center"
             android:src="@drawable/dashboard_ic_result"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="231dp"
             tools:layout_editor_absoluteY="137dp" />
 

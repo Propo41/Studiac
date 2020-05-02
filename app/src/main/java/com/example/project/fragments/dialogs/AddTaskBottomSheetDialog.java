@@ -1,14 +1,10 @@
 package com.example.project.fragments.dialogs;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,18 +12,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
 import androidx.fragment.app.FragmentManager;
+
 import com.example.project.R;
 import com.example.project.utility.common.Common;
 import com.example.project.utility.common.Course;
-import com.example.project.utility.todo.Others;
-import com.example.project.utility.todo.SelfStudy;
 import com.example.project.utility.todo.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+import java.util.ArrayList;
 
 
 /*
@@ -46,8 +44,18 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
     private Pair<String, View> mType = new Pair<>(null, null);
     private String mTag;
     private String mSelectedDate;
+    private View mCourseButtonView;
+    private View mMoreButtonView;
     private Task mNewTask;
-    public static final int REQUEST_CODE = 10; // Used to identify the result obtained from the time picker dialog
+    public static final int REQUEST_CODE_SELECT_DAY = 10; // Used to identify the result obtained from the DAY picker dialog
+    public static final int REQUEST_CODE_SELECT_COURSE = 11; // Used to identify the result obtained from the time picker dialog
+    public static final int REQUEST_CODE_SELECT_TYPE = 12;// Used to identify the result obtained from the SELECT type  dialog
+
+    private ArrayList<Course> mCourses;
+
+    public AddTaskBottomSheetDialog(ArrayList<Course> courses) {
+        mCourses = courses;
+    }
 
 
     // we use an interface here so that we can handle the events
@@ -76,14 +84,23 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // check for the results
-        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == REQUEST_CODE_SELECT_DAY && resultCode == Activity.RESULT_OK) {
             // get date from string
             mSelectedDate = data.getStringExtra("selectedDate");
             mNewTask.setSchedule(mSelectedDate);
             mBottomSheetListener.onAddPressed(mNewTask);
             Toast.makeText(getContext(), "Task added", Toast.LENGTH_SHORT).show();
             dismiss();
+        } else if (requestCode == REQUEST_CODE_SELECT_COURSE && resultCode == Activity.RESULT_OK) {
+            int pos = data.getExtras().getInt("selectedCoursePosition");
+            mCategory = new Pair<>(mCourses.get(pos).getCode(), mCourseButtonView);
+        } else if (requestCode == REQUEST_CODE_SELECT_TYPE && resultCode == Activity.RESULT_OK) {
+            String type = data.getExtras().getString("selectedType");
+            mType = new Pair<>(type, mMoreButtonView);
+
+
         }
+
     }
 
     @Override
@@ -143,7 +160,6 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
                     Common.addStroke(taskDescriptionTv, 5);
                     taskDescriptionTv.setError("Field cannot be empty!");
                 } else if (isInputProvided(view)) {
-
                     String category = mCategory.first; // holds either courseCode, Self Study or Others
                     String type = mType.first;
 
@@ -155,21 +171,19 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
                     // while in different fragments:
                     // If the bottom sheet is opened from the Upcoming tab, then on pressing the button,
                     // open the date picker dialog
-                     if (mTag.equals("upcoming")) {
+                    if (mTag.equals("upcoming")) {
                         // open the date picker dialog and don't dismiss the bottom sheet unless a date
                         // is selected
                         showDatePickerDialog();
                     }
-                     // If the bottom sheet is opened from the CurrentTasks or CurrentWeek tab, then
-                     // simply continue
-                     else {
+                    // If the bottom sheet is opened from the CurrentTasks or CurrentWeek tab, then
+                    // simply continue
+                    else {
                         mBottomSheetListener.onAddPressed(mNewTask);
                         mNewTask.setSchedule(null);
                         Toast.makeText(getContext(), "Task added", Toast.LENGTH_SHORT).show();
                         dismiss();
                     }
-
-
                 }
             }
         });
@@ -181,14 +195,12 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
     private void showDatePickerDialog() {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         // create the datePickerFragment
-        DatePickerFragment dialog = new DatePickerFragment();
+        DatePickerDialog dialog = new DatePickerDialog();
         // set the targetFragment to receive the results, specifying the request code
-        dialog.setTargetFragment(AddTaskBottomSheetDialog.this, REQUEST_CODE);
+        dialog.setTargetFragment(AddTaskBottomSheetDialog.this, REQUEST_CODE_SELECT_DAY);
         // show the datePicker
         dialog.show(fragmentManager, "datePickerFromFragment");
     }
-
-
 
 
     /*
@@ -269,8 +281,14 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
         moreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // todo: open dialog 30. Iff an item is selected, continue, else mark unchecked
                 mType = checkIfToggled(mType, "More", v);
+                mMoreButtonView = v;
+
+                SelectTypeDialog dialog = new SelectTypeDialog();
+                dialog.setTargetFragment(AddTaskBottomSheetDialog.this, REQUEST_CODE_SELECT_TYPE);
+                assert getFragmentManager() != null;
+                dialog.show(getFragmentManager(), "AddTaskBottomSheetDialog");
+
             }
         });
     }
@@ -282,10 +300,13 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
         courseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // todo: open dialog 31. Iff an item is selected, continue, else mark unchecked
-                // the dialog will return a string which will be courseNameSelected
-                String courseNameSelected = "ALGO 1200";
-                mCategory = checkIfToggled(mCategory, courseNameSelected, v);
+                mCategory = checkIfToggled(mCategory, "Course", v);
+                mCourseButtonView = v;
+                SelectCourseDialog dialog = new SelectCourseDialog(mCourses);
+                dialog.setTargetFragment(AddTaskBottomSheetDialog.this, REQUEST_CODE_SELECT_COURSE);
+                assert getFragmentManager() != null;
+                dialog.show(getFragmentManager(), "AddTaskBottomSheetDialog");
+
             }
         });
 
@@ -306,6 +327,7 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
         });
 
     }
+
 
     @Override
     public int getTheme() {

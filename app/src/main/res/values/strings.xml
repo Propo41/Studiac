@@ -89,10 +89,30 @@
 
     <string name="selectButton">Select</string>
 
-
     <string name="viewRoutineHolidayPrompt"> It\'s a Holiday! </string>
-
     <string name="ViewRoutineHintText"> Swipe right/left to navigate.</string>
+
+
+    <!-- dialog view courses show description -->
+    <string name="dialogTextCourseName">Course Name</string>
+    <string name="dialogTextCourseCredit">Course Credit:</string>
+    <string name="dialogTextCourseCode">Course Code:</string>
+    <string name="dialogTextInstructor">Instructor:</string>
+    <string name="dialogTextContact">Contact:</string>
+    <string name="dialogTextRoom">Enter Room:</string>
+    <string name="dialogTextCounselling">Counselling Hours:</string>
+    <string name="dialogTextCourseCreditInput">3.0</string>
+    <string name="dialogTextCourseCodeInput">MATH123</string>
+    <string name="dialogTextInstructorInput">Name</string>
+    <string name="dialogTextContactInput">Email/Phone</string>
+    <string name="dialogTextRoomInput">7A04</string>
+    <string name="dialogTextCounsellingInput">Something</string>
+    <string name="dialogTextContinueBtn">CONTINUE</string>
+    <string name="UpdateBtnText">UPDATE</string>
+
+
+    <string name="Unavailable">N/A</string>
+    <string name="AddCounsellingHoursFragment">AddCounsellingHoursFragment</string>
 
 
 </resources>

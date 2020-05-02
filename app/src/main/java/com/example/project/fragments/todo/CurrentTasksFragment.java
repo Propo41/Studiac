@@ -1,6 +1,9 @@
 package com.example.project.fragments.todo;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.MutableContextWrapper;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,7 +20,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project.R;
 import com.example.project.adapters.todo.CurrentTasksRecycleAdapter;
+import com.example.project.fragments.dialogs.AddQuickTaskBottomSheetDialog;
 import com.example.project.fragments.dialogs.AddTaskBottomSheetDialog;
+import com.example.project.fragments.dialogs.SelectCourseDialog;
+import com.example.project.fragments.dialogs.TaskDescriptionDialog;
+import com.example.project.utility.common.Course;
 import com.example.project.utility.todo.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,10 +38,16 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
     private View mView;
     private Context mContext;
     private ArrayList<Task> mCurrentTasks;
+    private ArrayList<Course> mCourses;
+    private final int RESULT_DELETE_CLICKED = 1;
+    private final int ITEM_DESCRIPTION = 2;
+    private final int ADD_QUICK_TASK = 3;
+
     private final int HEADER = 0;
 
-    public CurrentTasksFragment(ArrayList<Task> currentTasks) {
+    public CurrentTasksFragment(ArrayList<Task> currentTasks, ArrayList<Course> courses) {
         mCurrentTasks = currentTasks;
+        mCourses = courses;
     }
 
 
@@ -63,11 +77,6 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
 
     }
 
-    /*
-     * used for the dragging effects
-     * when the item is dropped, then customize the look
-     * when the item is being dragged after long press, then customize the look
-     */
     private ItemTouchHelper handleDragEvents() {
         return new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
             @Override
@@ -122,13 +131,12 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
     }
 
     private void handleEvents() {
-
         // when user clicks on the large add button
         FloatingActionButton button = mView.findViewById(R.id.todo_ADD_current_button_id);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddTaskBottomSheetDialog bottomSheetDialog = new AddTaskBottomSheetDialog();
+                AddTaskBottomSheetDialog bottomSheetDialog = new AddTaskBottomSheetDialog(mCourses);
                 bottomSheetDialog.setTargetFragment(CurrentTasksFragment.this, 1);
                 if (getFragmentManager() != null) {
                     bottomSheetDialog.show(getFragmentManager(), "currentTasks");
@@ -142,14 +150,21 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
             // when the mini add button is clicked
             @Override
             public void onAddClicked(int position) {
-                // @TODO: open dialog 28
+                AddQuickTaskBottomSheetDialog dialog = new AddQuickTaskBottomSheetDialog();
+                dialog.setTargetFragment(CurrentTasksFragment.this, ADD_QUICK_TASK);
+                assert getFragmentManager() != null;
+                dialog.show(getFragmentManager(), "currentTasks");
+
             }
 
             // when the entire task is clicked
             // show additional details of the item
             @Override
             public void onItemClick(int position) {
-                // @TODO: open dialog 24
+                TaskDescriptionDialog dialog = new TaskDescriptionDialog(mCurrentTasks.get(position), position);
+                dialog.setTargetFragment(CurrentTasksFragment.this, ITEM_DESCRIPTION);
+                assert getFragmentManager() != null;
+                dialog.show(getFragmentManager(), "currentTasks");
             }
 
             // when the task is checked
@@ -165,25 +180,25 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
     }
 
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == ITEM_DESCRIPTION && resultCode == Activity.RESULT_OK) {
+            int pos = data.getExtras().getInt("pos");
+            mCurrentTasks.remove(pos);
+            mAdapter.notifyItemRemoved(pos);
+
+        }else if(requestCode == ADD_QUICK_TASK && resultCode == Activity.RESULT_OK){
+            Bundle bundle = data.getExtras();
+            mCurrentTasks.add(new Task(bundle.getString("description"), bundle.getString("additionalNotes")));
+            mAdapter.notifyItemInserted(mCurrentTasks.size());
+        }
+    }
+
     // interface method of bottom sheet dialog
     @Override
     public void onAddPressed(Task task) {
-
         mCurrentTasks.add(task);
-        //   mAdapter.getCurrentTaskItems().add(task);
         mAdapter.notifyItemInserted(mAdapter.getCurrentTaskItems().size() - 1);
-
-    /*    if (task.getCategory().first.equals("Course")) {
-            Course course = (Course) task.getCategory().second;
-            course.getTodoTasks().add(task);
-            mAdapter.getCurrentTaskItems().add(task);
-            mAdapter.notifyItemInserted(mAdapter.getCurrentTaskItems().size()-1);
-
-        }*/
-
-        // if task.type == "Current Task", add it into current task stack
-        // if task.type == "Current Week", add it to current week stack
-        // if task.type == "Future", add it to future stack
 
     }
 

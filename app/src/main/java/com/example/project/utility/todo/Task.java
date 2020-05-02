@@ -29,6 +29,15 @@ public class Task {
 
     }
 
+    public Task(String description, String additionalNotes) {
+        mDescription = description;
+        mAdditionalNotes = additionalNotes;
+        mType = "N/A";
+        mCategory = "Quick Task";
+        mSchedule = "N/A";
+
+    }
+
     public String getDescription() {
         return mDescription;
     }
