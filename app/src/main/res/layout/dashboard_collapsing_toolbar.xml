@@ -1,0 +1,154 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/dashboard_app_bar_id"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/dashboard_collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:collapsedTitleTextAppearance="@font/montserrat_semi_bold"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleGravity="center"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleTextAppearance="@style/TransparentText"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="Dashboard"
+            app:titleEnabled="true">
+
+            <ImageView
+                android:id="@+id/toolbarImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimaryDark"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/dashboard_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/PopupMenuStyleWhiteToolbar" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <include layout="@layout/content_activity_dashboard"/>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dashboard_card_view_id"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        app:layout_anchor="@id/dashboard_app_bar_id"
+        app:layout_anchorGravity="center|bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="146dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/dashboard_user_name_id"
+                style="@style/CustomTitleFontBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:text="Full Name"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dashboard_university_id"
+                style="@style/CustomSubtitleFontBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:paddingStart="25dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="25dp"
+                android:text="Ahsanullah University of Science &amp; Technology"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_user_name_id" />
+
+            <TextView
+                android:id="@+id/dashboard_department_id"
+                style="@style/CustomSubtitleFontBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:paddingStart="25dp"
+                android:paddingEnd="25dp"
+                android:text="Department Name"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/dashboard_university_id"
+                app:layout_constraintStart_toStartOf="@+id/dashboard_university_id"
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_university_id" />
+
+            <TextView
+                android:id="@+id/dashboard_semester_id"
+                style="@style/CustomSubtitleFontBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="Semester: 4"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/dashboard_department_id"
+                app:layout_constraintStart_toStartOf="@+id/dashboard_department_id"
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_department_id" />
+
+            <TextView
+                android:id="@+id/dashboard_cgpa_id"
+                style="@style/CustomSubtitleFontBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="20dp"
+                android:text="CGPA : 4.0"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/dashboard_semester_id"
+                app:layout_constraintStart_toStartOf="@+id/dashboard_semester_id"
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_semester_id" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/dashboard_user_image_id"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_margin="10dp"
+        android:elevation="@dimen/ViewRoutineItemWidthTime"
+        android:src="@drawable/common_ic_profile"
+        app:layout_anchor="@id/dashboard_card_view_id"
+        app:layout_anchorGravity="top|center" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
