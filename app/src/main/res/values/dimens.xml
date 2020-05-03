@@ -31,4 +31,9 @@
     <dimen name="EditTextWidthLarge">330dp</dimen>
     <dimen name="EditTextWidthMedium">150dp</dimen>
 
+
+
+    <dimen name="DashboardCardSize">130dp</dimen>
+
+
 </resources>

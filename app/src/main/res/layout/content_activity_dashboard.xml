@@ -7,8 +7,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dashboard_view_routine_button_id"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/DashboardCardSize"
+        android:layout_height="@dimen/DashboardCardSize"
         android:clickable="true"
         android:focusable="true"
         android:layout_marginTop="125dp"
@@ -37,8 +37,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dashboard_bulletin_button_id"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/DashboardCardSize"
+        android:layout_height="@dimen/DashboardCardSize"
         android:layout_marginTop="50dp"
         android:clickable="true"
         android:focusable="true"
@@ -66,8 +66,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dashboard_view_courses_button_id"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/DashboardCardSize"
+        android:layout_height="@dimen/DashboardCardSize"
         android:layout_marginStart="30dp"
         android:clickable="true"
         android:focusable="true"
@@ -97,8 +97,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dashboard_todo_tasks_button_id"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/DashboardCardSize"
+        android:layout_height="@dimen/DashboardCardSize"
         android:layout_marginTop="50dp"
         android:clickable="true"
         android:focusable="true"
@@ -126,8 +126,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dashboard_view_messages_button_id"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/DashboardCardSize"
+        android:layout_height="@dimen/DashboardCardSize"
         android:layout_marginTop="50dp"
         android:clickable="true"
         android:focusable="true"
@@ -155,8 +155,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dashboard_result_tracker_button_id"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="@dimen/DashboardCardSize"
+        android:layout_height="@dimen/DashboardCardSize"
         android:layout_marginTop="50dp"
         android:clickable="true"
         android:focusable="true"
