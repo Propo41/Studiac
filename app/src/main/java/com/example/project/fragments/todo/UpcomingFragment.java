@@ -87,7 +87,6 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
 
             @Override
             public void onButtonClick(int position) {
-                // @TODO: add logic for adding the item to current task
                 mCurrentTasks.add((Task) mUpcoming.getTodoTasks().get(position));
                 Toast.makeText(getActivity(), "Task added", Toast.LENGTH_SHORT).show();
 
@@ -106,7 +105,14 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
         if (requestCode == RESULT_DELETE_CLICKED && resultCode == Activity.RESULT_OK) {
             int pos = data.getExtras().getInt("pos");
             mUpcoming.getTodoTasks().remove(pos);
-            mAdapter.notifyItemRemoved(pos);
+
+            int count = mUpcoming.removeTask(pos);
+            mAdapter.notifyItemRangeRemoved(pos, count);
+
+            // for debug
+            mUpcoming.showList();
+            mUpcoming.showMap();
+
 
         }
     }
@@ -135,6 +141,10 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
             mAdapter.notifyItemRangeInserted(indexOfHeader + countOfItems + 1, 1);
 
         }
+
+        mUpcoming.showList();
+        mUpcoming.showMap();
+
 
     }
 }

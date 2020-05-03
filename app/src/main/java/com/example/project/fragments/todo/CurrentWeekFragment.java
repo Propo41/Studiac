@@ -44,6 +44,7 @@ public class CurrentWeekFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_todo_week, container, false);
+
         mCurrentWeekPagerAdapter = new CurrentWeekPagerAdapter(this, mCurrentWeek, mCurrentTasks, mCourses);
         final ViewPager2 viewPager = view.findViewById(R.id.todo_week_viewpager2_id);
         TabLayout tabLayout = view.findViewById(R.id.todo_week_tab_layout_id);

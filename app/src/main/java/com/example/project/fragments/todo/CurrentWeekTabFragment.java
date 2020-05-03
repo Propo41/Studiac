@@ -41,6 +41,7 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
     private ArrayList<Task> mCurrentTasks;
     private ArrayList<Course> mCourses;
     private final int RESULT_DELETE_CLICKED = 1;
+    private final int RESULT_ADD_CLICKED = 2;
 
 
     public CurrentWeekTabFragment(TasksUtil day, ArrayList<Task> currentTasks, ArrayList<Course> courses) {
@@ -76,7 +77,7 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
             @Override
             public void onClick(View v) {
                 AddTaskBottomSheetDialog bottomSheetDialog = new AddTaskBottomSheetDialog(mCourses);
-                bottomSheetDialog.setTargetFragment(CurrentWeekTabFragment.this, 1);
+                bottomSheetDialog.setTargetFragment(CurrentWeekTabFragment.this, RESULT_ADD_CLICKED);
                 if (getFragmentManager() != null) {
                     bottomSheetDialog.show(getFragmentManager(), "currentWeek");
                 }
@@ -90,7 +91,6 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
         String category = task.getCategory();
         Integer countOfItems;
         Integer indexOfHeader;
-
         Pair<Integer, Integer> index = mDay.isVisited(category);
 
         // if the header is not already present in the list
@@ -98,14 +98,12 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
             // add a new task with the header
             indexOfHeader = mDay.insertNewTask(task, category);
             mAdapter.notifyItemRangeInserted(indexOfHeader, 2);
-
         } else {
             indexOfHeader = index.first;
             countOfItems = index.second;
             // add a task below the current header after all the items
             mDay.insertTask(task, indexOfHeader, countOfItems);
             mAdapter.notifyItemRangeInserted(indexOfHeader + countOfItems + 1, 1);
-
         }
 
     }
@@ -162,8 +160,8 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == RESULT_DELETE_CLICKED && resultCode == Activity.RESULT_OK) {
             int pos = data.getExtras().getInt("pos");
-            mDay.getTodoTasks().remove(pos);
-            mAdapter.notifyItemRemoved(pos);
+            int count = mDay.removeTask(pos);
+            mAdapter.notifyItemRangeRemoved(pos-1, count);
 
         }
     }

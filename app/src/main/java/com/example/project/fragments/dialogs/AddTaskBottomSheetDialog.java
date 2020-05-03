@@ -26,6 +26,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 /*
@@ -199,7 +200,7 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
         // set the targetFragment to receive the results, specifying the request code
         dialog.setTargetFragment(AddTaskBottomSheetDialog.this, REQUEST_CODE_SELECT_DAY);
         // show the datePicker
-        dialog.show(fragmentManager, "datePickerFromFragment");
+        dialog.show(fragmentManager, Common.TODO_TASKS);
     }
 
 

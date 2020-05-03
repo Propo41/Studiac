@@ -32,23 +32,94 @@ public class TasksUtil {
 
     }
 
+    public void showMap() {
+        System.out.println("*****SHOWING HASH MAP*******");
+        for (Map.Entry<String, Pair<Integer, Integer>> itr : mVisited.entrySet()) {
+            Integer index = itr.getValue().first;
+            Integer itemCount = itr.getValue().second;
+            System.out.println("KEY: " + itr.getKey() + "  ,  VALUE: < " + index + ", " + itemCount + " >");
+        }
+    }
+
+    public void showList() {
+        System.out.println("*****SHOWING LIST*******");
+        int i = 0;
+        for (Object itr : mTodoTasks) {
+            if (itr instanceof Task) {
+                System.out.println("task ---> " + i);
+            } else {
+                System.out.println("HEADER ---> " + i);
+            }
+            i++;
+        }
+    }
+
+
+    public int removeTask(int pos) {
+        int count;
+        Task task = (Task) mTodoTasks.get(pos);
+        String category = task.getCategory();
+        Pair<Integer, Integer> ref = isVisited(category);
+        Integer headerIndex = ref.first;
+
+        System.out.println("REMOVE TASK, POS ---> " + pos);
+        System.out.println("REMOVE TASK, headerIndex ---> " + headerIndex);
+
+        if ((pos - 1) == headerIndex) {
+            // if header is located at pos-1, then remove both header and task
+            mVisited.remove(category);
+            System.out.println("remove pos");
+            mTodoTasks.remove(pos);
+            System.out.println("remove pos - 1");
+
+            mTodoTasks.remove(pos - 1);
+            count = 2;
+
+            // decrement by 2 all the header indexes that are  > headerIndex
+            for (Map.Entry<String, Pair<Integer, Integer>> itr : mVisited.entrySet()) {
+                Integer index = itr.getValue().first;
+                Integer itemCount = itr.getValue().second;
+                if (index > headerIndex) {
+                    itr.setValue(new Pair<>(index - 2, itemCount));
+                }
+            }
+        } else {
+            // if header is not located at pos-1, then simply remove the task and decrement
+            // item count of associated header by 1 and decrement all header indexes below it by 1
+            mTodoTasks.remove(pos);
+            mVisited.put(category, new Pair<>(ref.first, ref.second - 1));
+            // decrement by 1 all the header indexes that are  > headerIndex
+            for (Map.Entry<String, Pair<Integer, Integer>> itr : mVisited.entrySet()) {
+                Integer index = itr.getValue().first;
+                Integer itemCount = itr.getValue().second;
+
+                if (index > headerIndex) {
+                    itr.setValue(new Pair<>(index - 1, itemCount));
+                }
+            }
+
+            count = 1;
+
+        }
+
+        return count;
+    }
+
+
     /*
      * inserts the course object into the list and saves the index of it in the list.
      */
     public void insertTask(Task task, Integer headerIndex, Integer count) {
         Log.i("index: ", headerIndex + "");
         mTodoTasks.add(headerIndex + count + 1, task);
+        mVisited.put(task.getCategory(), new Pair<>(headerIndex, count + 1));
 
         // increment the index of all headers that are below the current header
         for (Map.Entry<String, Pair<Integer, Integer>> itr : mVisited.entrySet()) {
             Integer index = itr.getValue().first;
             Integer itemCount = itr.getValue().second;
-            if (!headerIndex.equals(index)) {
+            if (index > headerIndex) {
                 itr.setValue(new Pair<>(index + 1, itemCount));
-                // Log.i("val changed to: ", itr.getValue().first + "");
-            } else {
-                itr.setValue(new Pair<>(index, itemCount + 1));
-
             }
         }
     }

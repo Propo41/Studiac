@@ -49,10 +49,11 @@ public class Common {
 
     public static final int VIEW_COURSES = 1;
     public static final int VIEW_ROUTINE = 2;
-    public static final int TODO_TASKS = 3;
+    public static final String TODO_TASKS = "3";
     public static final int RESULT_TRACKER = 4;
     public static final int BULLETIN_BOARD = 5;
     public static final int MESSENGER = 6;
+
 
     public static String[] GET_DAY_FROM_INDEX = {"Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"};
 

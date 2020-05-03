@@ -218,9 +218,12 @@
     </style>
 
 
-
     <style name="CustomDialogPosition" parent="Theme.AppCompat.Light">
         <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorPrimaryDark</item>
     </style>
 
 

@@ -7,19 +7,26 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.DatePicker;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+
+import com.example.project.R;
+import com.example.project.utility.common.Common;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class DatePickerDialog extends DialogFragment implements android.app.DatePickerDialog.OnDateSetListener {
-    private static final String TAG = "DatePickerFragment";
     private Calendar c = Calendar.getInstance();
+    private String mTag;
+    private final int SEVEN_DAYS = 604800000;
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
+        mTag = getTag();
         // Set the current date as the default date
         Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
@@ -27,8 +34,19 @@ public class DatePickerDialog extends DialogFragment implements android.app.Date
         int day = c.get(Calendar.DAY_OF_MONTH);
 
         // Return a new instance of DatePickerDialog
-        return new android.app.DatePickerDialog(getActivity(), DatePickerDialog.this, year, month, day);
+        android.app.DatePickerDialog dialog = new android.app.DatePickerDialog(
+                getActivity(),
+                R.style.DialogTheme,
+                DatePickerDialog.this,
+                year, month, day);
+        if (mTag.equals(Common.TODO_TASKS)) {
+            dialog.getDatePicker().setMinDate(Calendar.getInstance().getTimeInMillis() + SEVEN_DAYS);
+          //  dialog.getDatePicker().setMaxDate(Calendar.getInstance().getTimeInMillis() + 31556952000);
+
+        }
+        return dialog;
     }
+
 
     // called when a date has been selected
     public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -37,7 +55,6 @@ public class DatePickerDialog extends DialogFragment implements android.app.Date
         c.set(Calendar.DAY_OF_MONTH, day);
         String selectedDate = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH).format(c.getTime());
 
-        Log.d(TAG, "onDateSet: " + selectedDate);
         // send date back to the target fragment based on the Request Code that the target fragment provided
         getTargetFragment().onActivityResult(
                 getTargetRequestCode(),
