@@ -19,7 +19,7 @@ import com.example.project.R;
 import com.example.project.utility.common.Course;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class CourseDetailsDialog extends AppCompatDialogFragment implements View.OnClickListener {
+public class CourseDetailsDialog extends AppCompatDialogFragment {
 
 
     private Button mContinueButtonView;
@@ -74,7 +74,9 @@ public class CourseDetailsDialog extends AppCompatDialogFragment implements View
         mCounsellingHourButtonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // open dialog X
+                ViewCounsellingTimeDialog dialog = new ViewCounsellingTimeDialog(mCourse.getInstructor().getCounsellingTime());
+                assert getFragmentManager() != null;
+                dialog.show(getFragmentManager(), "courseDetailsFragment");
             }
         });
 
@@ -110,21 +112,10 @@ public class CourseDetailsDialog extends AppCompatDialogFragment implements View
         mInstructorRoomView.setText(mInstructorRoom);
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
         getDialog().getWindow().setLayout(800, 1000);
-    }
-
-
-    @Override
-    public void onClick(View v) {
-
-        if (v.getId() == mCounsellingHourButtonView.getId()) {
-            Toast.makeText(getContext(), "fab Pressed", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
 

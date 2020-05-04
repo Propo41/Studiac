@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="400dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@drawable/shape_background_vividblue"
     android:orientation="vertical">
@@ -39,7 +39,7 @@
         android:id="@+id/dialog_task_description_continueBtn"
         android:layout_width="150dp"
         android:layout_height="47dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/shape_button_white_four"
         android:fontFamily="@font/montserrat_semi_bold"

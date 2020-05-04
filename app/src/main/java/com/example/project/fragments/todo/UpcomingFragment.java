@@ -104,8 +104,6 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == RESULT_DELETE_CLICKED && resultCode == Activity.RESULT_OK) {
             int pos = data.getExtras().getInt("pos");
-            mUpcoming.getTodoTasks().remove(pos);
-
             int count = mUpcoming.removeTask(pos);
             mAdapter.notifyItemRangeRemoved(pos, count);
 
@@ -119,12 +117,14 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
 
     @Override
     public void onAddPressed(Task task) {
-        String schedule = task.getSchedule();
+        String schedule = Common.parseDate(task.getSchedule());
         Integer countOfItems;
         Integer indexOfHeader;
 
+
+
         //  index = mDay.isVisited(Common.parseDate(task.getSchedule()));
-        Pair<Integer, Integer> index = mUpcoming.isVisited(Common.parseDate(schedule));
+        Pair<Integer, Integer> index = mUpcoming.isVisited(schedule);
         // if the header is not already present in the list
         if (index == null) {
             // add a new task with the header

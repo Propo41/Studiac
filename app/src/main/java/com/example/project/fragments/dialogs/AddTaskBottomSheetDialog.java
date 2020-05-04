@@ -84,6 +84,9 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
      */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        Toast.makeText(getContext(), requestCode + " " + resultCode, Toast.LENGTH_SHORT).show();
+
         // check for the results
         if (requestCode == REQUEST_CODE_SELECT_DAY && resultCode == Activity.RESULT_OK) {
             // get date from string
@@ -93,12 +96,15 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
             Toast.makeText(getContext(), "Task added", Toast.LENGTH_SHORT).show();
             dismiss();
         } else if (requestCode == REQUEST_CODE_SELECT_COURSE && resultCode == Activity.RESULT_OK) {
+
             int pos = data.getExtras().getInt("selectedCoursePosition");
+            mCategory = checkIfToggled(mCategory, "Course", mCourseButtonView);
             mCategory = new Pair<>(mCourses.get(pos).getCode(), mCourseButtonView);
+
+
         } else if (requestCode == REQUEST_CODE_SELECT_TYPE && resultCode == Activity.RESULT_OK) {
             String type = data.getExtras().getString("selectedType");
             mType = new Pair<>(type, mMoreButtonView);
-
 
         }
 
@@ -161,7 +167,9 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
                     Common.addStroke(taskDescriptionTv, 5);
                     taskDescriptionTv.setError("Field cannot be empty!");
                 } else if (isInputProvided(view)) {
+
                     String category = mCategory.first; // holds either courseCode, Self Study or Others
+
                     String type = mType.first;
 
                     // by default, schedule will be set to null. If the dialog is opened from upcoming,
@@ -301,7 +309,7 @@ public class AddTaskBottomSheetDialog extends BottomSheetDialogFragment {
         courseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCategory = checkIfToggled(mCategory, "Course", v);
+                //  mCategory = checkIfToggled(mCategory, "Course", v);
                 mCourseButtonView = v;
                 SelectCourseDialog dialog = new SelectCourseDialog(mCourses);
                 dialog.setTargetFragment(AddTaskBottomSheetDialog.this, REQUEST_CODE_SELECT_COURSE);

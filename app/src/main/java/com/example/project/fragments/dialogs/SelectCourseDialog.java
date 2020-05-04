@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -65,15 +66,15 @@ public class SelectCourseDialog extends AppCompatDialogFragment {
 
         setupRecyclerView();
         handleClickEvents();
-
         builder.setView(view);
-        AlertDialog alertDialog = builder.create();
 
+        AlertDialog alertDialog = builder.create();
         alertDialog.getWindow().setLayout(Common.getEquivalentPx(300), ConstraintLayout.LayoutParams.WRAP_CONTENT);
         alertDialog.getWindow().setGravity(Gravity.CENTER);
 
         return alertDialog;
     }
+
 
     private void handleClickEvents() {
         Button selectButton = mView.findViewById(R.id.dialog_course_picker_button_id);

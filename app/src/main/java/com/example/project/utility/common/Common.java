@@ -115,7 +115,10 @@ public class Common {
                 View bottomSheetInternal = d.findViewById(com.google.android.material.R.id.design_bottom_sheet);
                 if (expanded.equals("EXPANDED")) {
                     BottomSheetBehavior.from(bottomSheetInternal).setState(BottomSheetBehavior.STATE_EXPANDED);
+                }else if(expanded.equals("HALF_EXPANDED")){
+                    BottomSheetBehavior.from(bottomSheetInternal).setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
                 }
+
             }
         });
 

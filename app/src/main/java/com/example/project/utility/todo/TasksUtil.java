@@ -57,6 +57,7 @@ public class TasksUtil {
 
     public int removeTask(int pos) {
         int count;
+
         Task task = (Task) mTodoTasks.get(pos);
         String category = task.getCategory();
         Pair<Integer, Integer> ref = isVisited(category);
@@ -112,7 +113,11 @@ public class TasksUtil {
     public void insertTask(Task task, Integer headerIndex, Integer count) {
         Log.i("index: ", headerIndex + "");
         mTodoTasks.add(headerIndex + count + 1, task);
-        mVisited.put(task.getCategory(), new Pair<>(headerIndex, count + 1));
+        if (task.getSchedule() != null) {
+            mVisited.put(Common.parseDate(task.getSchedule()), new Pair<>(headerIndex, count + 1));
+        } else {
+            mVisited.put(task.getCategory(), new Pair<>(headerIndex, count + 1));
+        }
 
         // increment the index of all headers that are below the current header
         for (Map.Entry<String, Pair<Integer, Integer>> itr : mVisited.entrySet()) {
@@ -132,9 +137,8 @@ public class TasksUtil {
     public Integer insertNewTask(Task task, String header) {
         // for upcoming tab, where we only have 1 header type: String
         if (task.getSchedule() != null) {
-            String date = Common.parseDate(header);
-            mTodoTasks.add(date);
-            mVisited.put(date, new Pair<>(mTodoTasks.size() - 1, 1));
+            mTodoTasks.add(header);
+            mVisited.put(header, new Pair<>(mTodoTasks.size() - 1, 1));
             mTodoTasks.add(task);
         } else {
             // for current week tab and upcoming

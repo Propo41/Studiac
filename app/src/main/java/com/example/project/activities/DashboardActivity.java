@@ -34,6 +34,7 @@ import java.util.ArrayList;
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private int animationDuration = 400;
+    private final int TRANSLATION_Y = 130;
     private CardView dashboardHeader;
     private ImageView dashboardUserImage;
     private CardView viewRoutineCardView;
@@ -189,23 +190,21 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                         view.animate().translationY(0);
                     }
 
-                    //  mToolbar.setTitle("casd");
-
                 } else {
                     // Somewhere in between.
                     dashboardHeader.animate().translationY(-dashboardHeader.getHeight()).setDuration(animationDuration);
                     dashboardUserImage.animate().translationY(-dashboardUserImage.getHeight()).setDuration(animationDuration);
 
                     // the card view buttons
-                    viewRoutineCardView.animate().translationY(-200).setDuration(animationDuration);
-                    viewCoursesCardView.animate().translationY(-200).setDuration(animationDuration);
-                    viewMessagesCardView.animate().translationY(-200).setDuration(animationDuration);
-                    bulletinBoardCardView.animate().translationY(-200).setDuration(animationDuration);
-                    todoTasksCardView.animate().translationY(-200).setDuration(animationDuration);
-                    resultTrackerCardView.animate().translationY(-200).setDuration(animationDuration);
+                    viewRoutineCardView.animate().translationY(-TRANSLATION_Y).setDuration(animationDuration);
+                    viewCoursesCardView.animate().translationY(-TRANSLATION_Y).setDuration(animationDuration);
+                    viewMessagesCardView.animate().translationY(-TRANSLATION_Y).setDuration(animationDuration);
+                    bulletinBoardCardView.animate().translationY(-TRANSLATION_Y).setDuration(animationDuration);
+                    todoTasksCardView.animate().translationY(-TRANSLATION_Y).setDuration(animationDuration);
+                    resultTrackerCardView.animate().translationY(-TRANSLATION_Y).setDuration(animationDuration);
 
                     for (View view : mTextViewsList) {
-                        view.animate().translationY(-200).setDuration(animationDuration);
+                        view.animate().translationY(-TRANSLATION_Y).setDuration(animationDuration);
                     }
 
                 }
