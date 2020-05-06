@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.ViewRoutineActivity">
 
-    <com.example.project.adapters.dashboard.CustomViewPager
+    <com.example.studiac.adapters.dashboard.CustomViewPager
         android:foregroundGravity="center"
         android:id="@+id/view_routine_viewPager"
         android:layout_centerInParent="true"
@@ -16,7 +16,7 @@
         android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </com.example.project.adapters.dashboard.CustomViewPager>
+    </com.example.studiac.adapters.dashboard.CustomViewPager>
 
 
     <View

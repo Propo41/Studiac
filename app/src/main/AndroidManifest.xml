@@ -1,60 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.project">
+    package="com.valhalla.studiac">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MessageActivity">
+        <activity android:name="com.valhalla.studiac.activities.MessageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.MessengerActivity"
+            android:name="com.valhalla.studiac.activities.MessengerActivity"
             android:label="View Messages"
-            android:parentActivityName=".activities.DashboardActivity">
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.BulletinBoardActivity"
+            android:name="com.valhalla.studiac.activities.BulletinBoardActivity"
             android:label="Bulletin Board"
-            android:parentActivityName=".activities.DashboardActivity">
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CreateAccountActivity">
+        <activity android:name="com.valhalla.studiac.activities.CreateAccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ForgotPasswordActivity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name="com.valhalla.studiac.activities.ForgotPasswordActivity" />
+        <activity android:name="com.valhalla.studiac.activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ProfileSetupActivity" />
-        <activity android:name=".activities.ProfileSetup2Activity">
+        <activity android:name="com.valhalla.studiac.activities.ProfileSetupActivity" />
+        <activity android:name="com.valhalla.studiac.activities.ProfileSetup2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.DashboardActivity"
+            android:name="com.valhalla.studiac.activities.DashboardActivity"
             android:label="Dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,32 +63,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.ViewRoutineActivity"
+            android:name="com.valhalla.studiac.activities.ViewRoutineActivity"
             android:label="View Routine"
-            android:parentActivityName=".activities.DashboardActivity">
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".toolbars.NavigationToolbarBlue" />
-        <activity android:name=".toolbars.NavigationToolbarWhite" />
+        <activity android:name="com.valhalla.studiac.toolbars.NavigationToolbarBlue" />
+        <activity android:name="com.valhalla.studiac.toolbars.NavigationToolbarWhite" />
         <activity
-            android:name=".activities.ViewCoursesActivity"
+            android:name="com.valhalla.studiac.activities.ViewCoursesActivity"
             android:label="View Courses"
-            android:parentActivityName=".activities.DashboardActivity">
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity">
         </activity>
         <activity
-            android:name=".activities.TodoTaskActivity"
+            android:name="com.valhalla.studiac.activities.TodoTaskActivity"
             android:label="To do Tasks"
-            android:parentActivityName=".activities.DashboardActivity">
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.StartAppActivity">
+        <activity android:name="com.valhalla.studiac.activities.StartAppActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
