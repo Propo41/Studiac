@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/shape_background_vividblue"
+    android:layout_width="match_parent"
+    android:paddingBottom="25dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/view_routine_item_title_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_marginTop="15dp"
+        android:text="Counselling Hours"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_routine__pager_item_recycler_view_id"
+        android:layout_width="320dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="320dp"
+        android:background="@drawable/shape_background_cute_blue_rounded"
+        android:padding="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_routine_item_title_id" />
+
+    <ImageView
+        android:id="@+id/view_routine_holiday_image_id"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/view_routine__pager_item_recycler_view_id"
+        app:layout_constraintEnd_toEndOf="@+id/view_routine__pager_item_recycler_view_id"
+        app:layout_constraintStart_toStartOf="@+id/view_routine__pager_item_recycler_view_id"
+        app:layout_constraintTop_toBottomOf="@+id/view_routine_item_title_id"
+        app:srcCompat="@drawable/common_ic_not_found" />
+
+    <Button
+        android:id="@+id/setup_dialog_course_added_add_id"
+        android:layout_width="135dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/course_added_text_id"
+        android:layout_centerHorizontal="true"
+        style="@style/EditTextShadowStyle"
+        android:background="@drawable/ripple_effect_common_button"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginTop="15dp"
+        android:text="CONTINUE"
+        android:textColor="@color/colorVividBlue"
+        app:layout_constraintEnd_toEndOf="@+id/view_routine__pager_item_recycler_view_id"
+        app:layout_constraintStart_toStartOf="@+id/view_routine__pager_item_recycler_view_id"
+        app:layout_constraintTop_toBottomOf="@+id/view_routine__pager_item_recycler_view_id" />
+
+    <TextView
+        android:id="@+id/view_routine_holiday_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Ops. Nothing here yet!"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/view_routine_holiday_image_id"
+        app:layout_constraintStart_toStartOf="@+id/view_routine_holiday_image_id"
+        app:layout_constraintTop_toBottomOf="@+id/view_routine_holiday_image_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
