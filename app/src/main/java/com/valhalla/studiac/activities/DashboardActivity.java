@@ -24,11 +24,14 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.valhalla.studiac.R;
 import com.valhalla.studiac.activities.BulletinBoardActivity;
 import com.valhalla.studiac.activities.ViewRoutineActivity;
+import com.valhalla.studiac.adapters.dashboard.ViewCoursesRecycleAdapter;
 import com.valhalla.studiac.database.Firebase;
+import com.valhalla.studiac.database.FirebaseListener;
 import com.valhalla.studiac.utility.common.Common;
 import com.valhalla.studiac.utility.common.Course;
 import com.valhalla.studiac.utility.common.Student;
@@ -37,7 +40,7 @@ import com.valhalla.studiac.utility.todo.TodoTasks;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, FirebaseListener {
 
     private int animationDuration = 400;
     private final int TRANSLATION_Y = 130;
@@ -54,18 +57,46 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     protected DrawerLayout mDrawer;
     protected NavigationView mNavigationView;
     private String mUserUid;
+    private FirebaseListener mFirebaseListener;
+    private DatabaseReference mDatabaseReference;
+    private ArrayList<Course> mCourses;
+    private Student mBasicInfo;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add shimmer effect
+        // load courses list from database
+        mFirebaseListener = this;
         // fetch the uid from previous activity using intent and use it to show the email
         mUserUid = "student"; // this is used for debug. use actual value later
-        super.onCreate(savedInstanceState);
+        mDatabaseReference = Firebase.getDatabaseReference().child(mUserUid);
         setContentView(R.layout.activity_dashboard);
         initialiseViews();
         setupDrawer();
         setStudentContent();
         animateDashboard();
+
+        importCourses();
+    }
+
+    private void importCourses() {
+
+        mDatabaseReference.child(Common.COURSES).addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mFirebaseListener.onLoadSuccess(dataSnapshot);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                mFirebaseListener.onLoadFailure(databaseError);
+
+            }
+
+        });
     }
 
     /*
@@ -87,7 +118,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         final TextView cgpa = findViewById(R.id.dashboard_cgpa_id);
 
 
-        Firebase.getDatabaseReference().child(mUserUid).child("basicInfo").addValueEventListener(new ValueEventListener() {
+        Firebase.getDatabaseReference().child(mUserUid).child(Firebase.BASIC_INFO).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Student student = dataSnapshot.getValue(Student.class);
@@ -285,6 +316,17 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Common.VIEW_COURSES && resultCode == Activity.RESULT_OK) {
+            // Toast.makeText(getApplicationContext(), "result ok", Toast.LENGTH_SHORT).show();
+            Bundle bundle = data.getExtras();
+            assert bundle != null;
+            mCourses = bundle.getParcelableArrayList("courses"); // the modified courses (if modified)
+        }
+
+    }
 
     public void onRoutineClick(View v) {
         Intent intent = new Intent(this, ViewRoutineActivity.class);
@@ -294,20 +336,25 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
     public void onCourseClick(View v) {
         Intent intent = new Intent(this, ViewCoursesActivity.class);
-        intent.putExtra(Common.UID, mUserUid);
-        startActivity(intent);
-
+        Bundle bundle = new Bundle();
+        // pass the courses list to the view courses activity
+        bundle.putParcelableArrayList("courses", mCourses);
+        bundle.putString(Firebase.UID, mUserUid);
+        intent.putExtras(bundle);
+        startActivityForResult(intent, Common.VIEW_COURSES);
     }
 
     public void onBulletinBoardClick(View v) {
         startActivity(new Intent(this, BulletinBoardActivity.class));
 
-
     }
 
     public void onTodoTasksClick(View v) {
         Intent intent = new Intent(this, TodoTaskActivity.class);
-        intent.putExtra(Common.UID, mUserUid);
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList("courses", mCourses);
+        bundle.putString(Firebase.UID, mUserUid);
+        intent.putExtras(bundle);
         startActivity(intent);
 
 
@@ -328,6 +375,45 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     }
 
 
+    /*
+     * the list of courses are imported from database. And then the basic info of the user is imported.
+     */
+    @Override
+    public void onLoadSuccess(DataSnapshot dataSnapshot) {
+        mCourses = new ArrayList<>();
+        for (DataSnapshot data : dataSnapshot.getChildren()) {
+            mCourses.add(data.getValue(Course.class));
+        }
+        //importBasicInfo();
+    }
+
+
+    /*
+     * imports the basic info of student from db and then creates the views for the ui
+     */
+    private void importBasicInfo() {
+        mDatabaseReference.child(Firebase.BASIC_INFO).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               mBasicInfo = dataSnapshot.getValue(Student.class);
+               //createView();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                databaseError.toException().printStackTrace();
+            }
+        });
+
+    }
+
+
+
+
+    @Override
+    public void onLoadFailure(DatabaseError databaseError) {
+
+    }
 
 
 }

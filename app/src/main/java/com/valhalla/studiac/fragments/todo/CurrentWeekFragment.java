@@ -12,8 +12,10 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.firebase.database.DatabaseReference;
 import com.valhalla.studiac.R;
 import com.valhalla.studiac.adapters.todo.CurrentWeekPagerAdapter;
+import com.valhalla.studiac.database.Firebase;
 import com.valhalla.studiac.utility.common.Common;
 import com.valhalla.studiac.utility.common.Course;
 import com.valhalla.studiac.utility.todo.Task;
@@ -32,12 +34,20 @@ public class CurrentWeekFragment extends Fragment {
     private CurrentWeekPagerAdapter mCurrentWeekPagerAdapter;
     private ArrayList<Task> mCurrentTasks;
     private ArrayList<Course> mCourses;
+    private DatabaseReference mDatabaseReference;
+    private String mUserUid;
+
 
     // we can pass data through this constructor
-    public CurrentWeekFragment(ArrayList<TasksUtil> currentWeek, ArrayList<Task> currentTasks, ArrayList<Course> courses) {
+    public CurrentWeekFragment(String userUid, ArrayList<TasksUtil> currentWeek, ArrayList<Task> currentTasks, ArrayList<Course> courses) {
         mCurrentTasks = currentTasks;
         mCurrentWeek = currentWeek;
         mCourses = courses;
+        mUserUid = userUid;
+        mDatabaseReference = Firebase.getDatabaseReference().
+                child(mUserUid).
+                child(Firebase.TODO).
+                child(Firebase.TODO_CURRENT_WEEK);
     }
 
     @Nullable
@@ -65,5 +75,10 @@ public class CurrentWeekFragment extends Fragment {
 
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mDatabaseReference.setValue(mCurrentWeek);
 
+    }
 }

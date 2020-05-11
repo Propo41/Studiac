@@ -15,8 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
 import com.valhalla.studiac.R;
 import com.valhalla.studiac.adapters.todo.UpcomingRecycleAdapter;
+import com.valhalla.studiac.database.Firebase;
 import com.valhalla.studiac.fragments.dialogs.AddTaskBottomSheetDialog;
 import com.valhalla.studiac.fragments.dialogs.TaskDescriptionDialog;
 import com.valhalla.studiac.utility.common.Common;
@@ -35,11 +37,19 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
     private ArrayList<Task> mCurrentTasks;
     private ArrayList<Course> mCourses;
     private final int RESULT_DELETE_CLICKED = 1;
+    private String mUserUid;
+    private DatabaseReference mDatabaseReference;
 
-    public UpcomingFragment(TasksUtil upcoming, ArrayList<Task> currentTasks, ArrayList<Course> courses) {
+
+    public UpcomingFragment(String userUid, TasksUtil upcoming, ArrayList<Task> currentTasks, ArrayList<Course> courses) {
         mUpcoming = upcoming;
         mCurrentTasks = currentTasks;
         mCourses = courses;
+        mUserUid = userUid;
+        mDatabaseReference = Firebase.getDatabaseReference().
+                child(mUserUid).
+                child(Firebase.TODO).
+                child(Firebase.TODO_UPCOMING);
     }
 
     @Nullable
@@ -144,6 +154,13 @@ public class UpcomingFragment extends Fragment implements AddTaskBottomSheetDial
         mUpcoming.showList();
         mUpcoming.showMap();
 
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mDatabaseReference.setValue(mUpcoming);
 
     }
 }

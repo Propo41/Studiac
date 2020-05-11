@@ -142,6 +142,11 @@ public class CourseEditBottomSheetDialog extends BottomSheetDialogFragment imple
     public void onClick(View v) {
         if (v.getId() == mCounsellingHourBtn.getId()) {
             // open dialog D
+            if(mCourse.getInstructor().getCounsellingTime()==null){
+                ArrayList<Schedule> counsellingTime = new ArrayList<>();
+                mCourse.getInstructor().setCounsellingTime(counsellingTime);
+            }
+
             SetupAddRoutineDialog dialog = new SetupAddRoutineDialog(mCourse.getInstructor().getCounsellingTime(), false);
             dialog.setTargetFragment(CourseEditBottomSheetDialog.this, Common.COUNSELLING_TIME);
             assert getFragmentManager() != null;

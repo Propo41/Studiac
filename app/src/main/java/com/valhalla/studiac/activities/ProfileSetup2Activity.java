@@ -31,6 +31,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
 
 public class ProfileSetup2Activity extends AppCompatActivity {
 
@@ -81,7 +83,7 @@ public class ProfileSetup2Activity extends AppCompatActivity {
      */
     public void onRoutineClick(View v) {
         SetupAddRoutineDialog dialog = new SetupAddRoutineDialog(mSchedules, newEntry);
-        dialog.show(getSupportFragmentManager(), "AddRoutine");
+        dialog.show(getSupportFragmentManager(), "profileSetupActivity");
     }
 
     public void onAddCourseClick(View v) {
@@ -89,11 +91,13 @@ public class ProfileSetup2Activity extends AppCompatActivity {
         if (isInputValid()) {
             mTotalCourses += 1;
             openDialog();
-            addRoutine();
+            ArrayList<String> days = addRoutine();
+
             mCourses.add(new Course(
                     mCourseNameField.getText().toString(),
                     mCourseCodeField.getText().toString(),
-                    Double.parseDouble(mCourseCreditField.getText().toString())));
+                    Double.parseDouble(mCourseCreditField.getText().toString()),
+                    days));
             mCourseNameField.setText("");
             mCourseCodeField.setText("");
             mCourseCreditField.setText("");
@@ -136,19 +140,21 @@ public class ProfileSetup2Activity extends AppCompatActivity {
         courseAddedDialog.show();
     }
 
-    private void addRoutine() {
+    private ArrayList<String> addRoutine() {
 
+        ArrayList<String> days = new ArrayList<>();
         for (int i = 0; i < mSchedules.size(); i++) {
-            String course = mCourseCodeField.getText().toString();
-            String startTime = mSchedules.get(i).getStartTime();
-            String endTime = mSchedules.get(i).getEndTime();
             Integer dayIndex = Common.GET_INDEX_FROM_DAY.get(mSchedules.get(i).getName());
+
             if (dayIndex != null) {
-                mRoutines.get(dayIndex).getItems().add(new Schedule(course, startTime, endTime));
+             //  mRoutines.get(dayIndex).getItems().add(new Schedule(course, startTime, endTime));
+                mRoutines.get(dayIndex).getItems().add(mSchedules.get(i));
+                days.add(Common.GET_DAY_FROM_INDEX_FULL[i]);
             } else {
                 Common.showExceptionPrompt(getBaseContext(), "Bug: Day index null");
             }
         }
+        return days;
     }
 
 
@@ -158,6 +164,27 @@ public class ProfileSetup2Activity extends AppCompatActivity {
 
      // sort the routine object
         // iterate through the list of Routines and then sort the inner list
+          *************************************************************
+        // todo: use this sort instead of the one down below this. Use the following sorting technique. It requires the dates to be in 12hr format
+         final DateFormat dateFormat = new SimpleDateFormat("hh:mma", Locale.US);
+            // sort the items for the particular day
+            Collections.sort(mRoutines.get(dayIndex).getItems(), new Comparator<Schedule>() {
+                @Override
+                public int compare(Schedule first, Schedule second) {
+                    Date date1 = null;
+                    Date date2 = null;
+                    try {
+                        date1 = dateFormat.parse(first.getStartTime());
+                        date2 = dateFormat.parse(second.getStartTime());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    return date1.compareTo(date2);
+                }
+            });
+
+           *************************************************************
+
         for (int i = 0; i < mRoutines.size(); i++) {
             // sort the items for the particular day
             Collections.sort(mRoutines.get(i).getItems(), new Comparator<Schedule>() {
@@ -232,7 +259,6 @@ public class ProfileSetup2Activity extends AppCompatActivity {
         routine = new Routine("sat"); // sat
         routines.add(routine);
 
-
         for (int i = 0; i < routines.size(); i++) {
             // sort the items for the particular day
             Collections.sort(routines.get(i).getItems(), new Comparator<Schedule>() {
@@ -247,17 +273,52 @@ public class ProfileSetup2Activity extends AppCompatActivity {
         }
 
         ArrayList<Course> courses = new ArrayList<>();
-        courses.add(new Course("Mathematics", "MATH 1234", 3.0));
-        courses.add(new Course("Software Development-III", "CSE 2200", 0.75));
-        courses.add(new Course("Numerical Methods", "CSE 2201", 3.0));
-        courses.add(new Course("Numerical Methods Lab", "CSE 2202", 0.75));
-        courses.add(new Course("Algorithms", "CSE 2207", 3.0));
-        courses.add(new Course("Algorithms Lab", "CSE 2208", 1.5));
-        courses.add(new Course("Digital Electronics and Pulse Techniques Lab", "CSE 2210", 0.75));
-        courses.add(new Course("Digital Electronics and Pulse Techniques", "CSE 2209", 3.0));
-        courses.add(new Course("Computer Architecture", "CSE 2213", 3.0));
-        courses.add(new Course("Assembly Language Programing", "CSE 2214", 1.5));
 
+        ArrayList<String> str = new ArrayList<>();
+        str.add("Sunday");
+        str.add("Tuesday");
+        str.add("Wednesday");
+        courses.add(new Course("Mathematics", "MATH 2203", 3.0, str));
+
+        str = new ArrayList<>();
+        str.add("Tuesday");
+        courses.add(new Course("Software Development-III", "CSE 2200", 0.75, str));
+
+        str = new ArrayList<>();
+        str.add("Thursday");
+        str.add("Sunday");
+        str.add("Monday");
+        courses.add(new Course("Numerical Methods", "CSE 2201", 3.0, str));
+
+        str = new ArrayList<>();
+        str.add("Monday");
+        str.add("Tuesday");
+        str.add("Thursday");
+        courses.add(new Course("Algorithms", "CSE 2207", 3.0, str));
+
+        str = new ArrayList<>();
+        str.add("Sunday");
+        courses.add(new Course("Algorithms Lab", "CSE 2208", 1.5, str));
+
+        str = new ArrayList<>();
+        str.add("Thursday");
+        courses.add(new Course("Digital Electronics and Pulse Techniques Lab", "CSE 2210", 0.75, str));
+
+        str = new ArrayList<>();
+        str.add("Sunday");
+        str.add("Tuesday");
+        str.add("Wednesday");
+        courses.add(new Course("Digital Electronics and Pulse Techniques", "CSE 2209", 3.0, str));
+
+        str = new ArrayList<>();
+        str.add("Monday");
+        str.add("Wednesday");
+        str.add("Thursday");
+        courses.add(new Course("Computer Architecture", "CSE 2213", 3.0, str));
+
+        str = new ArrayList<>();
+        str.add("Tuesday");
+        courses.add(new Course("Assembly Language Programing", "CSE 2214", 1.5 ,str));
 
         TodoTasks todoTasks = new TodoTasks();
 

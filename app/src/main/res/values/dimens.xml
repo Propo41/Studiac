@@ -12,6 +12,7 @@
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">13sp</dimen>
 
 
+    <dimen name="DialogSubtitleSmallTextSize">14sp</dimen>
     <dimen name="DialogSubtitleTextSize">15sp</dimen>
     <dimen name="DialogTitleTextSize">16sp</dimen>
 

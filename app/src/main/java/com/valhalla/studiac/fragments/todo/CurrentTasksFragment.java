@@ -52,10 +52,9 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
     private final int HEADER = 0;
     private DatabaseReference mDatabaseReference;
 
-    public CurrentTasksFragment(String userUid, ArrayList<Task> currentTasks, ArrayList<String> currentTasksKeys, ArrayList<Course> courses) {
+    public CurrentTasksFragment(String userUid, ArrayList<Task> currentTasks, ArrayList<Course> courses) {
         mUserUid = userUid;
         mCurrentTasks = currentTasks;
-        mCurrentTasksKeys = currentTasksKeys;
         mCourses = courses;
         mDatabaseReference = Firebase.getDatabaseReference().
                 child(mUserUid).
@@ -193,9 +192,7 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
      * It uses the mCurrentTasksKeys to find which key to remove from the database based on the position
      */
     private void removeTask(int position) {
-        mDatabaseReference.child(mCurrentTasksKeys.get(position)).removeValue();
         mCurrentTasks.remove(position);
-        mCurrentTasksKeys.remove(position);
         mAdapter.notifyItemRemoved(position);
 
     }
@@ -205,10 +202,7 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
      * It uses the mCurrentTasksKeys to find which key to add from the database based on the position
      */
     private void addTask(Task task) {
-        String key = mDatabaseReference.push().getKey();
         mCurrentTasks.add(task);
-        mCurrentTasksKeys.add(key);
-        mDatabaseReference.child(key).setValue(task);
         mAdapter.notifyItemInserted(mCurrentTasks.size());
 
     }
@@ -237,4 +231,10 @@ public class CurrentTasksFragment extends Fragment implements AddTaskBottomSheet
 
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mDatabaseReference.setValue(mCurrentTasks);
+
+    }
 }

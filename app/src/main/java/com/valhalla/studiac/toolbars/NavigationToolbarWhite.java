@@ -33,6 +33,7 @@ public class NavigationToolbarWhite extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.toolbar_back_white);
         Toolbar mToolbar = findViewById(R.id.toolbar_white);
+        //mToolbar.setElevation(0);
         mFrameLayout = findViewById(R.id.view_container);
         setSupportActionBar(mToolbar);
         // changes the default back button

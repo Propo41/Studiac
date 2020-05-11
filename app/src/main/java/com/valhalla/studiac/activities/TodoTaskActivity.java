@@ -49,13 +49,11 @@ public class TodoTaskActivity extends NavigationToolbarWhite implements Firebase
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContent(R.layout.activity_todotask);
-        mDatabaseReference = Firebase.getDatabaseReference().
-                child(mUserUid).
-                child(Firebase.TODO);
-
-        mFirebaseListener = this;
         fetchDataFromIntent();
+
+        mDatabaseReference = Firebase.getDatabaseReference().child(mUserUid).child(Firebase.TODO);
         importData();
+        mFirebaseListener = this;
         //setupBottomNav();
 
     }
@@ -83,15 +81,7 @@ public class TodoTaskActivity extends NavigationToolbarWhite implements Firebase
 
     @Override
     public void onLoadSuccess(DataSnapshot dataSnapshot) {
-        mCurrentTasksKeys = new ArrayList<>();
-        mCurrentTasks = new ArrayList<>();
-        if (dataSnapshot.exists()) {
-            for (DataSnapshot data : dataSnapshot.getChildren()) {
-                mCurrentTasks.add(data.getValue(Task.class));
-                mCurrentTasksKeys.add(data.getKey());
-            }
-        }
-
+        mTodoTasks = dataSnapshot.getValue(TodoTasks.class);
         setupBottomNav();
 
     }
@@ -99,40 +89,38 @@ public class TodoTaskActivity extends NavigationToolbarWhite implements Firebase
     private void fetchDataFromIntent() {
         // fetch the user uid from the parent activity
         Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            mUserUid = bundle.getString(Common.UID);
-        } else {
-            Common.showExceptionPrompt(this, "bundle is null");
-        }
+        assert bundle != null;
+        mCourses = bundle.getParcelableArrayList("courses");
+        mUserUid = bundle.getString(Firebase.UID);
     }
 
     private void setupBottomNav() {
 
         // the default fragment that is open initially
         getSupportFragmentManager().beginTransaction().replace(R.id.todo_fragment_container,
-                new CurrentTasksFragment(mUserUid, mCurrentTasks, mCurrentTasksKeys, mCourses)).commit();
+                new CurrentTasksFragment(mUserUid, mTodoTasks.getCurrentTasks(), mCourses)).commit();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selected = new CurrentTasksFragment(mUserUid, mCurrentTasks, mCurrentTasksKeys, mCourses);
+                Fragment selected = new CurrentTasksFragment(mUserUid, mTodoTasks.getCurrentTasks(), mCourses);
                 if (mCurrentSelectedItemBottomNav != item.getItemId()) {
                     switch (item.getItemId()) {
 
                         case R.id.nav_btm_current:
                             Log.println(Log.DEBUG, "todoActivity", "current tasks tab selected");
-                            selected = new CurrentTasksFragment(mUserUid, mCurrentTasks, mCurrentTasksKeys, mCourses);
+                            selected = new CurrentTasksFragment(mUserUid, mTodoTasks.getCurrentTasks(), mCourses);
                             mCurrentSelectedItemBottomNav = item.getItemId();
                             break;
                         case R.id.nav_btm_week:
                             Log.println(Log.DEBUG, "todoActivity", "current week tab selected");
-                            selected = new CurrentWeekFragment(mCurrentWeek, mCurrentTasks, mCourses);
+                            selected = new CurrentWeekFragment(mUserUid, mTodoTasks.getCurrentWeek(), mTodoTasks.getCurrentTasks(), mCourses);
                             mCurrentSelectedItemBottomNav = item.getItemId();
                             break;
                         case R.id.nav_btm_upcoming:
                             Log.println(Log.DEBUG, "todoActivity", "upcoming tab selected");
-                            selected = new UpcomingFragment(mUpcoming, mCurrentTasks, mCourses);
+                            selected = new UpcomingFragment(mUserUid, mTodoTasks.getUpcoming(), mTodoTasks.getCurrentTasks(), mCourses);
                             mCurrentSelectedItemBottomNav = item.getItemId();
                             break;
                     }

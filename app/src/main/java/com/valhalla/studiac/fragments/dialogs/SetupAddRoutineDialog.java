@@ -47,20 +47,18 @@ public class SetupAddRoutineDialog extends AppCompatDialogFragment {
     private CommonAddScheduleRecycleAdapter mAdapter;
     private Context mContext;
     private static int DAYS = 7;
+    private ArrayList<String> mDays;
 
     private static boolean[] visited = new boolean[DAYS];
 
 
     public SetupAddRoutineDialog(ArrayList<Schedule> schedules, boolean newEntry) {
-        if (schedules == null) {
-            mSchedules = new ArrayList<>();
-        } else {
-            mSchedules = schedules;
-        }
+        mSchedules = schedules;
         if (newEntry) {
             for (int i = 0; i < DAYS; i++)
                 visited[i] = false;
         }
+
     }
 
     @SuppressLint("RestrictedApi")
@@ -73,6 +71,7 @@ public class SetupAddRoutineDialog extends AppCompatDialogFragment {
     @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
+
         AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
         LayoutInflater inflater = getActivity().getLayoutInflater();
         mContext = getContext();
@@ -80,6 +79,11 @@ public class SetupAddRoutineDialog extends AppCompatDialogFragment {
         builder.setView(mView);
         FloatingActionButton addButton = mView.findViewById(R.id.setup_add_routine_button_id);
         Button doneButton = mView.findViewById(R.id.setup_done_routine_button_id);
+
+        if(getTag().equals("addCourseDialog")){
+            mDays = new ArrayList<>();
+        }
+
 
         // ******setup recycler view******
         setupRecyclerView();
@@ -105,12 +109,14 @@ public class SetupAddRoutineDialog extends AppCompatDialogFragment {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // pass the mSchedule object to previous dialog using intent
-                getTargetFragment().onActivityResult(
-                        getTargetRequestCode(),
-                        Activity.RESULT_OK,
-                        new Intent().putParcelableArrayListExtra("schedule", mSchedules)
-                );
+                if (getTag().equals("addCourseDialog")) {
+                    // pass the days list to previous dialog using intent
+                    getTargetFragment().onActivityResult(
+                            getTargetRequestCode(),
+                            Activity.RESULT_OK,
+                            new Intent().putStringArrayListExtra("days", mDays)
+                    );
+                }
 
                 dismiss();
             }
@@ -155,7 +161,7 @@ public class SetupAddRoutineDialog extends AppCompatDialogFragment {
      * the output is provided in the method onActivityResult()
      */
     private void openTimePicker(int requestCode) {
-        FragmentManager fragmentManager = Objects.requireNonNull(getActivity()).getSupportFragmentManager();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         TimePickerDialog dialog = new TimePickerDialog();
         // set the targetFragment to receive the results, specifying the request code
         dialog.setTargetFragment(SetupAddRoutineDialog.this, requestCode);
@@ -167,6 +173,7 @@ public class SetupAddRoutineDialog extends AppCompatDialogFragment {
 
         if (requestCode == REQUEST_DAY && resultCode == Activity.RESULT_OK) {
             mDaySelected = data.getStringExtra("selectedDay");
+            mDays.add(mDaySelected);
             Integer dayIndex = Common.GET_INDEX_FROM_DAY.get(mDaySelected);
             if (dayIndex != null) {
                 // if the dialog is called from "view courses -> add counselling hours"
@@ -192,6 +199,7 @@ public class SetupAddRoutineDialog extends AppCompatDialogFragment {
         // when the end time is selected, the view will be generated
         // the proceeding calls will be made from the method onActivityResult()
         else if (requestCode == REQUEST_END_TIME && resultCode == Activity.RESULT_OK) {
+
             mEndTime = data.getStringExtra("selectedTime");
             mSchedules.add(new Schedule(mDaySelected, mStartTime, mEndTime));
             mAdapter.notifyItemInserted(mSchedules.size() - 1);

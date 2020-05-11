@@ -35,6 +35,8 @@ public class Firebase extends Application {
     public final static String TODO_CURRENT_WEEK = "currentWeek";
     public final static String TODO_UPCOMING = "upcoming";
     public final static String BASIC_INFO = "basicInfo";
+    public final static String UID = "uid";
+
 
 
     @Override

@@ -49,7 +49,7 @@ public class Common {
     public static final int BULLETIN_BOARD = 5;
     public static final int MESSENGER = 6;
     public static final int COUNSELLING_TIME = 7;
-
+    public static final int ADD_COURSE_DIALOG = 8;
     public static final String UID = "uid";
     public static final String COURSES = "courses";
     public static final String ROUTINE = "routine";
@@ -59,6 +59,7 @@ public class Common {
 
 
     public static String[] GET_DAY_FROM_INDEX = {"Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"};
+    public static String[] GET_DAY_FROM_INDEX_FULL = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
     public static String STUDENT = "STUDENT";
     public static String TODO = "TODO";

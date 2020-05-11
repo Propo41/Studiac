@@ -20,7 +20,7 @@ public class TasksUtil {
 
     TasksUtil() {
         mTodoTasks = new ArrayList<>();
-        mTodoTasks.add("NULL"); // this is used to populate the database, since db doesn't allow empty entities
+       // mTodoTasks.add("NULL"); // this is used to populate the database, since db doesn't allow empty entities
     }
 
     /*
@@ -33,6 +33,8 @@ public class TasksUtil {
         //  return mVisited.get(parseDate(object));
 
     }
+
+
 
     public void showMap() {
         System.out.println("*****SHOWING HASH MAP*******");

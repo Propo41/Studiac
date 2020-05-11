@@ -1,5 +1,6 @@
 package com.valhalla.studiac.adapters.todo;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,9 +104,6 @@ public class CurrentWeekRecycleAdapter extends RecyclerView.Adapter<CurrentWeekR
     @Override
     public int getItemViewType(int position) {
 
-        if (position == 0) {
-            return TYPE_NULL;
-        }
         if (mTaskItems.get(position) instanceof String) {
             return TYPE_HEADER;
         } else {
@@ -135,6 +133,7 @@ public class CurrentWeekRecycleAdapter extends RecyclerView.Adapter<CurrentWeekR
     public void onBindViewHolder(@NonNull CurrentWeekTabViewHolder holder, int position) {
         if (holder.view_type == TYPE_NULL) {
             // do nothing. don't show anything
+            Log.i("RECYCLER ADAPTER", "nothing to show ");
         } else if (holder.view_type == TYPE_HEADER) {
             holder.mHeaderTextView.setText((String) mTaskItems.get(position));
         } else {
@@ -149,6 +148,9 @@ public class CurrentWeekRecycleAdapter extends RecyclerView.Adapter<CurrentWeekR
 
     @Override
     public int getItemCount() {
+        if (mTaskItems.size() == 1) {
+            return 0;
+        }
         return mTaskItems.size();
     }
 

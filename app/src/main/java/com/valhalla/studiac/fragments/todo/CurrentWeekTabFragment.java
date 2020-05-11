@@ -121,37 +121,34 @@ public class CurrentWeekTabFragment extends Fragment implements AddTaskBottomShe
                 DividerItemDecoration.VERTICAL));*/
         recyclerView.setHasFixedSize(false);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        if (mDay.getTodoTasks() == null) {
-            Log.i("setup list: ", "Nothing here yet. Add a task");
-        } else {
-            mAdapter = new CurrentWeekRecycleAdapter(mDay.getTodoTasks());
-
-            mAdapter.setOnItemClickListener(new CurrentWeekRecycleAdapter.OnItemClickListener() {
-                @Override
-                public void onButtonClick(int position) {
-                    // the mTasksUtil.getTodoTasks() contains several object types. But we need
-                    // only the Task object. So, we cast it into Task. We know for sure that the item
-                    // clicked must be a Task item, since we can't interact with headers
-                    mCurrentTasks.add((Task) mDay.getTodoTasks().get(position));
-                    Toast.makeText(getContext(), "Task added", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onItemClick(int position) {
-                    TaskDescriptionDialog dialog = new TaskDescriptionDialog((Task) mDay.getTodoTasks().get(position), position);
-                    dialog.setTargetFragment(CurrentWeekTabFragment.this, RESULT_DELETE_CLICKED);
-                    assert getFragmentManager() != null;
-                    dialog.show(getFragmentManager(), "currentWeek");
-
-                }
-            });
-
-            recyclerView.setLayoutManager(layoutManager);
-            recyclerView.setAdapter(mAdapter);
-
-        }
+        mAdapter = new CurrentWeekRecycleAdapter(mDay.getTodoTasks());
+        handleListEvents();
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(mAdapter);
 
 
+    }
+
+    private void handleListEvents() {
+        mAdapter.setOnItemClickListener(new CurrentWeekRecycleAdapter.OnItemClickListener() {
+            @Override
+            public void onButtonClick(int position) {
+                // the mTasksUtil.getTodoTasks() contains several object types. But we need
+                // only the Task object. So, we cast it into Task. We know for sure that the item
+                // clicked must be a Task item, since we can't interact with headers
+                mCurrentTasks.add((Task) mDay.getTodoTasks().get(position));
+                Toast.makeText(getContext(), "Task added", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemClick(int position) {
+                TaskDescriptionDialog dialog = new TaskDescriptionDialog((Task) mDay.getTodoTasks().get(position), position);
+                dialog.setTargetFragment(CurrentWeekTabFragment.this, RESULT_DELETE_CLICKED);
+                assert getFragmentManager() != null;
+                dialog.show(getFragmentManager(), "currentWeek");
+
+            }
+        });
     }
 
 

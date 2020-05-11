@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/currenttasks_quickadd_title_id"
+        android:id="@+id/view_courses_text_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/currenttasks_quickadd_description_id"
+        android:id="@+id/view_courses_add_name_id"
         android:layout_width="350dp"
         android:layout_height="@dimen/EditTextHeightMedium"
         android:layout_marginTop="5dp"
@@ -46,13 +46,13 @@
         android:textColor="@color/colorBlackShade"
         android:textColorHint="@color/colorAsh"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/currenttasks_quickadd_subtitle_id"
+        app:layout_constraintBottom_toTopOf="@+id/view_courses_text_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currenttasks_quickadd_title_id" />
 
     <TextView
-        android:id="@+id/currenttasks_quickadd_subtitle_id"
+        android:id="@+id/view_courses_text_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -80,10 +80,10 @@
         app:layout_constraintBottom_toTopOf="@+id/currenttasks_quickadd_button_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currenttasks_quickadd_subtitle_id" />
+        app:layout_constraintTop_toBottomOf="@+id/view_courses_text_name" />
 
     <Button
-        android:id="@+id/currenttasks_quickadd_button_id"
+        android:id="@+id/view_courses_add_button_id"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
