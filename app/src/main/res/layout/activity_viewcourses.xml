@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ViewCoursesActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_courses_recycle_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+
+    <ImageView
+        android:id="@+id/view_courses_imageAnim2_id"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/view_courses_add_course_button_id"
+        app:layout_constraintEnd_toEndOf="@+id/view_courses_add_course_button_id"
+        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintStart_toStartOf="@+id/view_courses_add_course_button_id"
+        app:layout_constraintTop_toTopOf="@+id/view_courses_add_course_button_id"
+        app:layout_constraintVertical_bias="0.723"
+        app:srcCompat="@drawable/anim_throbbing_color_blue" />
+
+    <ImageView
+        android:id="@+id/view_courses_imageAnim_id"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/view_courses_imageAnim2_id"
+        app:layout_constraintEnd_toEndOf="@+id/view_courses_imageAnim2_id"
+        app:layout_constraintStart_toStartOf="@+id/view_courses_add_course_button_id"
+        app:layout_constraintTop_toTopOf="@+id/view_courses_imageAnim2_id"
+        app:srcCompat="@drawable/anim_throbbing_color_blue" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/view_courses_add_course_button_id"
+        style="@style/AddFABStyle"
+        android:layout_width="wrap_content"
+        android:onClick="onAddCourseClick"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/view_courses_recycle_view_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/common_ic_add_white" />
+
+    <ImageView
+        android:id="@+id/view_courses_panda_image_id"
+        android:layout_width="275dp"
+        android:layout_height="275dp"
+        android:visibility="gone"
+        android:layout_marginTop="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/view_courses_ic_panda" />
+
+    <TextView
+        android:id="@+id/view_courses_panda_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="8dp"
+        android:text="Nothing here! Add a course."
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/view_courses_panda_image_id"
+        app:layout_constraintStart_toStartOf="@+id/view_courses_panda_image_id"
+        app:layout_constraintTop_toBottomOf="@+id/view_courses_panda_image_id" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

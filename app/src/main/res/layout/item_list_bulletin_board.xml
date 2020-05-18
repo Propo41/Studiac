@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@color/colorWhite">
+
+
+    <TextView
+        android:id="@+id/bulletin_user_name_id"
+        style="@style/CustomTitleFontBlue"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="3dp"
+        android:layout_marginStart="5dp"
+        android:text="Full Name"
+        android:textAlignment="textStart"
+        android:textSize="@dimen/BulletinItemListTitleSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bulletin_user_image_id"
+        app:layout_constraintTop_toTopOf="@+id/bulletin_user_image_id"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <TextView
+        android:id="@+id/bulletin_post_time_id"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/BulletinItemListSubtitleSize"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Posted xhrs ago"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="@+id/bulletin_post_topic_id"
+        app:layout_constraintTop_toBottomOf="@+id/bulletin_post_topic_id" />
+
+    <TextView
+        android:id="@+id/bulletin_post_topic_id"
+        android:fontFamily="@font/montserrat_regular"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/BulletinItemListSubtitleSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingBottom="3dp"
+        android:text="Topic"
+        android:textAlignment="textStart"
+        app:layout_constraintStart_toStartOf="@+id/bulletin_user_name_id"
+        app:layout_constraintTop_toBottomOf="@+id/bulletin_user_name_id" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bulletin_knock_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginEnd="20dp"
+        app:backgroundTint="@color/colorPrimaryLight"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="@+id/bulletin_user_image_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bulletin_user_image_id"
+        app:srcCompat="@drawable/bulletin_ic_star"
+        android:focusable="true" />
+
+    <ImageView
+        android:id="@+id/bulletin_user_image_id"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/common_ic_dp" />
+
+    <TextView
+        android:id="@+id/bulletin_post_description_id"
+        style="@style/CustomSubtitleFontAsh"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="16dp"
+        android:text="@string/sampleTextBulletin"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@+id/bulletin_knock_user_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bulletin_user_image_id"
+        app:layout_constraintTop_toBottomOf="@+id/bulletin_user_image_id" />
+
+    <ImageView
+        android:id="@+id/bulletin_post_topic_img_id"
+        android:layout_width="@dimen/BulletinItemListTopicImgSize"
+        android:layout_height="@dimen/BulletinItemListTopicImgSize"
+        android:tint="@color/colorPrimaryDark"
+        android:layout_marginStart="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bulletin_post_topic_id"
+        app:layout_constraintStart_toEndOf="@+id/bulletin_post_topic_id"
+        app:layout_constraintTop_toTopOf="@+id/bulletin_post_topic_id"
+        app:srcCompat="@drawable/bulletin_ic_blood_donation" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
