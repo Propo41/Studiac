@@ -1,16 +1,15 @@
 # Studiac
-VERSION 0.10
-
+##VERSION 0.10
 
 ::::::::::::::::::::::::::::::::
 messenger not completed. minor bugs.
 
-VERSION 0.20
+##VERSION 0.20
 ::::::::::::::::::::::::::::::::
 messenger not completed. minor bugs fixed.
 
 
-VERSION 0.30
+##VERSION 0.30
 ::::::::::::::::::::::::::::::::
 messenger not completed.
 doesnt support different screen sizes due to hardcoded width and height of views
@@ -19,7 +18,7 @@ some minor ui inconsistencies
 
 
 
-VERSION 0.40
+##VERSION 0.40
 ::::::::::::::::::::::::::::::::
 messenger not completed.
 fixed some of the crucial layouts to support different screen sizes.
