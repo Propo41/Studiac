@@ -1,5 +1,7 @@
 # Studiac
 VERSION 0.10
+
+
 ::::::::::::::::::::::::::::::::
 messenger not completed. minor bugs.
 
