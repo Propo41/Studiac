@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+
+
+    <TextView
+        android:paddingTop="9dp"
+        android:id="@+id/spinner_item_calculate_semester_gpa_grade_text"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/EditTextHeightMedium"
+        android:drawableStart="@drawable/result_tracker_ic_grade"
+        android:drawableTint="@color/colorPrimaryDark"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="10dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:hint="@string/SpinnerItem_Text"
+        android:textColor="@color/colorVividBlue"
+        android:textColorHint="@color/colorVividBlue"
+        android:textSize="@dimen/EditTextTextSizeSmall"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

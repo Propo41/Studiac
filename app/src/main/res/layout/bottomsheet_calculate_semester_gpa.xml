@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/BottomSheetIconWidth"
+        android:layout_height="@dimen/BottomSheetIconHeight"
+        android:layout_marginTop="@dimen/BottomSheetIconTopHeight"
+        android:background="@drawable/shape_background_cute_blue_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/CalculateSemesterGPA_Text"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogMainTitleSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calculate_semester_gpa_bottomsheet_recyclerview"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.85"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_input_light_blue"
+        android:layout_marginTop="10dp"
+        android:foregroundGravity="center"
+        android:padding="4dp"
+        android:scrollbarThumbVertical="@drawable/custom_scrollbar_color"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/calculate_semester_gpa_bottomsheet_calculatebtn"
+        android:layout_width="420dp"
+        android:layout_height="40dp"
+        android:background="@color/colorVividBlue"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/CalculateSemesterGPA_Btn"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/DialogButtonTextSize"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calculate_semester_gpa_bottomsheet_gpa_text" />
+
+
+    <TextView
+        android:id="@+id/calculate_semester_gpa_bottomsheet_gpa_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:maxLength="11"
+        android:layout_marginTop="10dp"
+        android:text="@string/resultTrackerBottomSheetGPATEXT"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/EditTextTextSizeLarge"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/calculate_semester_gpa_bottomsheet_recyclerview"
+        app:layout_constraintStart_toStartOf="@+id/calculate_semester_gpa_bottomsheet_recyclerview"
+        app:layout_constraintTop_toBottomOf="@+id/calculate_semester_gpa_bottomsheet_recyclerview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

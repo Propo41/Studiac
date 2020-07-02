@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_background_vividblue">
+
+
+    <TextView
+        android:id="@+id/view_profile_department"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/ViewProfile_department"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="@dimen/TextSizeSmall"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <Button
+        android:id="@+id/view_profile_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ButtonHeightDialog"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/ViewGapSmall"
+        android:background="@drawable/shape_bottom_dialog_button_full"
+        android:fontFamily="@font/montserrat_medium"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="@string/dialogTextCloseBtn"
+        android:textAlignment="center"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/TextSizeSmall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_profile_university_name" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+
+        android:text="@string/ViewProfile_university"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/view_profile_department" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/ViewProfile_department"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/view_profile_current_semester_id" />
+
+    <TextView
+        android:id="@+id/view_profile_name_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/ViewProfile_name"
+
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/TextTitleSizeSmall"
+        app:layout_constraintEnd_toEndOf="@+id/view_profile_image_id"
+        app:layout_constraintStart_toStartOf="@+id/view_profile_image_id"
+        app:layout_constraintTop_toBottomOf="@+id/view_profile_image_id" />
+
+
+    <TextView
+        android:id="@+id/view_profile_current_semester_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+
+        android:fontFamily="@font/montserrat_regular"
+        android:text="5"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/TextSizeSmall"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/ViewProfile_current_sem"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/view_profile_name_id"
+        app:layout_constraintStart_toStartOf="@+id/view_profile_name_id"
+        app:layout_constraintTop_toBottomOf="@+id/view_profile_name_id" />
+
+    <TextView
+        android:id="@+id/view_profile_university_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:text="@string/profileSetUp1_University_Text"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/TextSizeSmall"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/dialog_view_courses_group_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/dialog_view_courses_group_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/dialog_view_courses_group_counselling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/dialog_view_courses_group_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/dialog_view_courses_group_separator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/view_profile_image_id"
+        android:layout_width="@dimen/ImageSizeLarge"
+        android:layout_height="@dimen/ImageSizeLarge"
+        android:layout_marginTop="@dimen/ViewGapSmall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_picture_one" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

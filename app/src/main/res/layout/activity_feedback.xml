@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.settings.FeedbackActivity">
+
+    <Button
+        android:id="@+id/feedback_send_button_id"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/ButtonHeightLarge"
+        android:layout_marginBottom="@dimen/ButtonBottomHeight"
+        android:background="@drawable/shape_background_cute_blue_rounded"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/FeedBack_Btn"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/feedback_input_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/feedback_input_id" />
+
+    <EditText
+        android:id="@+id/feedback_input_id"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/shape_input_ash_3"
+        android:drawableStart="@drawable/settings_ic_feedback_small"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/FeedBack_EditText"
+        android:inputType="text"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView42"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/textView39"
+        style="@style/SettingsSubtitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:text="@string/FeedBack_Text3"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/feedback_input_id"
+        app:layout_constraintStart_toStartOf="@+id/feedback_input_id" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingTop="5dp"
+        android:text="@string/FeedBack_Text2"
+        android:textAlignment="center"
+        android:textColor="@color/colorCuteBlue"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView42"
+        app:layout_constraintStart_toStartOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/textView42" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/FeedBack_Text1"
+        android:textColor="@color/colorCuteBlue"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/feedback_input_id"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="30dp"
+        android:tint="@color/colorCuteBlue"
+        app:layout_constraintBottom_toTopOf="@+id/textView42"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_weight="50"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:srcCompat="@drawable/settings_ic_feedback_mail" />
+</androidx.constraintlayout.widget.ConstraintLayout>

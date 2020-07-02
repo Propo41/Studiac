@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <HorizontalScrollView
+        android:id="@+id/header_bulletin_sort_buttons_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ToggleButton
+                android:id="@+id/bulletin_header_button_all_id"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/BulletinHeaderButtonsGapWidth"
+                android:background="@drawable/toggle_button_selector"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/button_toggle_text_color"
+                android:textOff="@string/Bulletin_Category1"
+                android:textOn="@string/Bulletin_Category1" />
+
+            <ToggleButton
+                android:id="@+id/bulletin_header_button_official_id"
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:textColor="@color/button_toggle_text_color"
+                android:layout_marginStart="@dimen/BulletinHeaderButtonsGapWidth"
+                android:background="@drawable/toggle_button_selector"
+                android:fontFamily="@font/montserrat_regular"
+                android:textAllCaps="false"
+                android:textOff="@string/Bulletin_Category2"
+                android:textOn="@string/Bulletin_Category2" />
+
+            <ToggleButton
+                android:id="@+id/bulletin_header_button_advertisement_id"
+                android:layout_width="135dp"
+                android:layout_height="39dp"
+                android:textColor="@color/button_toggle_text_color"
+                android:layout_marginStart="@dimen/BulletinHeaderButtonsGapWidth"
+                android:background="@drawable/toggle_button_selector"
+                android:fontFamily="@font/montserrat_regular"
+                android:textAllCaps="false"
+                android:textOff="@string/Bulletin_Category3"
+                android:textOn="@string/Bulletin_Category3" />
+
+
+            <ToggleButton
+                android:id="@+id/bulletin_header_button_help_id"
+                android:layout_width="wrap_content"
+                android:layout_height="39dp"
+                android:textColor="@color/button_toggle_text_color"
+                android:layout_marginStart="@dimen/BulletinHeaderButtonsGapWidth"
+                android:background="@drawable/toggle_button_selector"
+                android:fontFamily="@font/montserrat_regular"
+                android:textAllCaps="false"
+                android:textOff="@string/Bulletin_Category4"
+                android:textOn="@string/Bulletin_Category4" />
+
+            <ToggleButton
+                android:id="@+id/bulletin_header_button_others_id"
+                android:layout_width="135dp"
+                android:layout_height="39dp"
+                android:textColor="@color/button_toggle_text_color"
+                android:layout_marginStart="@dimen/BulletinHeaderButtonsGapWidth"
+                android:background="@drawable/toggle_button_selector"
+                android:fontFamily="@font/montserrat_regular"
+                android:textAllCaps="false"
+                android:textOff="@string/Bulletin_Category5"
+                android:textOn="@string/Bulletin_Category5" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

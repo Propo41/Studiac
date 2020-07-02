@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.valhalla.studiac">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".database.Firebase"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!-- push notification service -->
+        <service
+            android:name=".utility.FirebaseCloudMessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".activities.StartAppActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.settings.VerifyAccountActivity"
+            android:label="Verify Account" />
+        <activity
+            android:name=".activities.settings.ReportBugActivity"
+            android:label="Report Bug" />
+        <activity
+            android:name=".activities.settings.FeedbackActivity"
+            android:label="Feedback" />
+        <activity
+            android:name=".activities.settings.ChangePasswordActivity"
+            android:label="Change Password" />
+        <activity
+            android:name=".activities.settings.EditProfileActivity"
+            android:label="Edit Profile" />
+        <activity
+            android:name=".activities.settings.SettingsActivity"
+            android:label="Settings" />
+        <activity android:name=".activities.MessageActivity" />
+        <activity
+            android:name=".activities.MessengerActivity"
+            android:label="View Messages"
+            android:parentActivityName=".activities.DashboardActivity" />
+        <activity
+            android:name=".activities.BulletinBoardActivity"
+            android:label="Bulletin Board"
+            android:parentActivityName=".activities.DashboardActivity" />
+        <activity android:name=".activities.setup.CreateAccountActivity" />
+        <activity android:name=".activities.ForgotPasswordActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.setup.ProfileSetupActivity" />
+        <activity android:name=".activities.setup.ProfileSetup2Activity" />
+        <activity
+            android:name=".activities.DashboardActivity"
+            android:label="Dashboard" />
+        <activity
+            android:name=".activities.ViewRoutineActivity"
+            android:label="View Routine"
+            android:parentActivityName=".activities.DashboardActivity" />
+        <activity android:name=".toolbars.NavigationToolbarBlue" />
+        <activity android:name=".toolbars.NavigationToolbarWhite" />
+        <activity
+            android:name=".activities.ViewCoursesActivity"
+            android:label="View Courses"
+            android:parentActivityName=".activities.DashboardActivity" />
+        <activity
+            android:name=".activities.TodoTaskActivity"
+            android:label="To do Tasks"
+            android:parentActivityName=".activities.DashboardActivity" />
+        <activity
+            android:name=".activities.BulletinBoardMyPostsActivity"
+            android:label="My Posts" />
+        <activity android:name=".activities.setup.SelectImageActivity" />
+        <activity
+            android:name=".activities.ResultTrackerActivity"
+            android:label="Result Tracker" />
+        <activity android:name=".activities.WalkThroughActivity" />
+        <activity
+            android:name=".activities.EditWeightActivity"
+            android:label="Grade Weights" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

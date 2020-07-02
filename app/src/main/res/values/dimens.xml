@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="card_padding">30dp</dimen>
+    <dimen name="todo_item_elevation">4dp</dimen>
+
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">10sp</dimen>
+    <dimen name="fab_margin_bottom">24dp</dimen>
+    <dimen name="fab_margin_end">24dp</dimen>
+    <dimen name="fab_popup_prompt_marginEnd">5dp</dimen>
+
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">13sp</dimen>
+
+
+    <dimen name="DialogSubtitleSmallTextSize">14sp</dimen>
+    <dimen name="DialogSubtitleTextSize">15sp</dimen>
+    <dimen name="DialogTitleTextSize">16sp</dimen>
+    <dimen name="DialogTitleTextSizeSmall">14sp</dimen>
+
+
+    <!-- contains the dimens of view routine items -->
+    <dimen name="ViewRoutineItemHeight">30dp</dimen>
+    <dimen name="ViewRoutineItemWidthName">108dp</dimen>
+    <dimen name="ViewRoutineItemWidthTime">78dp</dimen>
+    <dimen name="ViewRoutineItemTextSize">15sp</dimen>
+
+    <dimen name="ImageSizeLarge">100dp</dimen>
+    <dimen name="ImageExtraSizeLarge">115dp</dimen>
+    <dimen name="ImageExtraSizeLarge_small_screen">90dp</dimen>
+
+
+    <dimen name="DashboardCardSizeSmall">100dp</dimen>
+
+    <dimen name="DashboardCardSize">130dp</dimen>
+
+    <!--Bulletin Board-->
+    <dimen name="BulletinButtonStrokeWidth">1dp</dimen>
+    <dimen name="BulletinHeaderButtonHeight">35dp</dimen>
+    <dimen name="BulletinItemListTitleSize">16sp</dimen>
+    <dimen name="BulletinItemListTopicImgSize">15sp</dimen>
+    <dimen name="BulletinItemListMyPostsMargin">35dp</dimen>
+
+    <dimen name="BulletinItemListSubtitleSize">13sp</dimen>
+
+
+    <dimen name="BulletinHeaderButtonsGapWidth">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+
+    <!--Common-->
+    <dimen name="EditTextGapHeight">40dp</dimen>
+    <dimen name="EditTextPromptTextGap">2dp</dimen>
+
+
+
+
+
+    <!-- *** SETTINGS *** -->
+    <dimen name="SettingsItemHeight">55dp</dimen>
+    <!-- Size of Settings Menu Drawables -->
+    <dimen name="SettingsDrawableSize">25dp</dimen>
+
+
+
+    <!--BUTTON-->
+    <dimen name="ButtonBottomHeight">30dp</dimen>
+    <dimen name="ButtonTextSize">15sp</dimen>
+    <dimen name="ButtonHeightBottomSheet">40sp</dimen>
+    <dimen name="ButtonWidthLarge">330dp</dimen>
+    <dimen name="ButtonHeightLarge">45dp</dimen>
+    <dimen name="ButtonHeightDialog">50dp</dimen>
+
+
+    <!--Edit Texts-->
+
+    <dimen name="EditTextWidthLarge">330dp</dimen>
+    <dimen name="EditTextTextSizeSmall">13sp</dimen>
+    <dimen name="EditTextTextSizeSmallTwo">15sp</dimen>
+    <dimen name="EditTextTextSizeMedium">17sp</dimen>
+    <dimen name="EditTextTextSizeLarge">23sp</dimen>
+    <dimen name="EditTextWidthSmall">130dp</dimen>
+    <dimen name="EditTextWidthMediumSmall">100dp</dimen>
+    <dimen name="EditTextWidthExtraSmall">80dp</dimen>
+
+    <!-- Size of EditTextDrawables -->
+    <dimen name="EditTextDrawableSize">55dp</dimen>
+    <dimen name="EditTextDrawablePaddingStart">15dp</dimen>
+    <dimen name="EditTextDrawablePadding">20dp</dimen>
+    <dimen name="EditTextGap">45dp</dimen>
+    <dimen name="EditTextGapSmall">30dp</dimen>
+
+    <!-- HEIGHT OF EDIT TEXTS -->
+    <dimen name="EditTextHeightNormal">55dp</dimen>
+    <dimen name="EditTextHeightSmall">50dp</dimen>
+    <dimen name="EditTextHeightMedium">45dp</dimen>
+    <dimen name="EditTextWidthNormal">330dp</dimen>
+    <dimen name="EditTextWidthMedium">150dp</dimen>
+    <dimen name="EditTextPromptPadding">5dp</dimen>
+    <dimen name="TextSizeSmall">13sp</dimen>
+    <dimen name="HintSizeSmall">12sp</dimen>
+    <dimen name="TextTitleSizeSmall">20sp</dimen>
+
+    <dimen name="ViewGapSmall">30dp</dimen>
+
+
+    <!--Dialogs -->
+    <dimen name="DialogMainTitleSize">22sp</dimen>
+    <dimen name="DialogMainTitleSizeSmall">18sp</dimen>
+
+    <dimen name="BottomSheetIconTopHeight">7dp</dimen>
+    <dimen name="BottomSheetIconWidth">60dp</dimen>
+    <dimen name="BottomSheetIconHeight">6dp</dimen>
+
+    <dimen name="DialogTitleSize">17sp</dimen>
+    <dimen name="DialogSubtitleSize">15sp</dimen>
+    <dimen name="DialogButtonTextSize">15sp</dimen>
+    <dimen name="DialogSubtitleSizeSmall">14sp</dimen>
+
+
+    <dimen name="NormalWidthPercent">0.85</dimen>
+
+    <dimen name="MaxCharacterCount">150</dimen>
+
+
+
+</resources>

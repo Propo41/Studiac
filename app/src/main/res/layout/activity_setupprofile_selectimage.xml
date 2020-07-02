@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorVividBlue"
+    tools:context=".activities.setup.SelectImageActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/SelectImage_text"
+        android:textColor="@color/colorWhite"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/profile_picture_three_id"
+        android:layout_width="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_height="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/profile_picture_three"
+        android:textOff=""
+        android:textOn=""
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_picture_one_id"
+        app:layout_constraintEnd_toStartOf="@+id/profile_picture_four_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ToggleButton
+        android:id="@+id/profile_picture_four_id"
+        android:layout_width="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_height="@dimen/ImageExtraSizeLarge_small_screen"
+        android:background="@drawable/profile_picture_four"
+        android:textOff=""
+        android:textOn=""
+        android:layout_marginEnd="5dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/profile_picture_three_id"
+        app:layout_constraintEnd_toStartOf="@+id/profile_picture_five_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/profile_picture_three_id"
+        app:layout_constraintTop_toTopOf="@+id/profile_picture_three_id" />
+
+
+    <ToggleButton
+        android:id="@+id/profile_picture_one_id"
+        android:layout_width="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_height="@dimen/ImageExtraSizeLarge_small_screen"
+        android:background="@drawable/profile_picture_one"
+        android:textOff=""
+        android:textOn=""
+        android:layout_marginEnd="5dp"
+
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_picture_six_id"
+        app:layout_constraintEnd_toStartOf="@+id/profile_picture_seven_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_picture_three_id" />
+
+    <ToggleButton
+        android:id="@+id/profile_picture_two_id"
+        android:layout_width="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_height="@dimen/ImageExtraSizeLarge_small_screen"
+        android:background="@drawable/profile_picture_two"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/profile_picture_seven_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/profile_picture_seven_id"
+        app:layout_constraintTop_toTopOf="@+id/profile_picture_seven_id" />
+
+    <ToggleButton
+        android:id="@+id/profile_picture_five_id"
+        android:layout_width="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_height="@dimen/ImageExtraSizeLarge_small_screen"
+        android:background="@drawable/profile_picture_five"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/profile_picture_four_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/profile_picture_four_id"
+        app:layout_constraintTop_toTopOf="@+id/profile_picture_four_id" />
+
+    <ToggleButton
+        android:id="@+id/profile_picture_seven_id"
+        android:layout_width="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_height="@dimen/ImageExtraSizeLarge_small_screen"
+        android:background="@drawable/profile_picture_seven"
+        android:textOff=""
+        android:textOn=""
+        android:layout_marginEnd="5dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/profile_picture_one_id"
+        app:layout_constraintEnd_toStartOf="@+id/profile_picture_two_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/profile_picture_one_id"
+        app:layout_constraintTop_toTopOf="@+id/profile_picture_one_id" />
+
+    <ToggleButton
+        android:id="@+id/profile_picture_eight_id"
+        android:layout_width="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_height="@dimen/ImageExtraSizeLarge_small_screen"
+        android:background="@drawable/profile_picture_eight"
+        android:textOff=""
+        android:textOn=""
+        android:layout_marginEnd="5dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/profile_picture_six_id"
+        app:layout_constraintEnd_toStartOf="@+id/profile_picture_nine_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/profile_picture_six_id"
+        app:layout_constraintTop_toTopOf="@+id/profile_picture_six_id" />
+
+    <ToggleButton
+        android:id="@+id/profile_picture_six_id"
+        android:layout_width="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_height="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/profile_picture_six"
+        android:textOff=""
+        android:textOn=""
+
+        app:layout_constraintEnd_toStartOf="@+id/profile_picture_eight_id"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_picture_one_id" />
+
+    <ToggleButton
+        android:id="@+id/profile_picture_nine_id"
+        android:layout_width="@dimen/ImageExtraSizeLarge_small_screen"
+        android:layout_height="@dimen/ImageExtraSizeLarge_small_screen"
+        android:background="@drawable/profile_picture_nine"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/profile_picture_eight_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/profile_picture_eight_id"
+        app:layout_constraintTop_toBottomOf="@+id/profile_picture_seven_id" />
+
+    <Button
+        android:id="@+id/changeimg_button_id"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/ButtonHeightLarge"
+        android:background="@drawable/ripple_effect_1"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/SelectImage_Btn"
+        android:textAlignment="center"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/select_img_progress_bar"
+        app:layout_constraintEnd_toEndOf="@id/profile_picture_nine_id"
+        app:layout_constraintStart_toStartOf="@id/profile_picture_six_id" />
+
+    <ProgressBar
+        android:id="@+id/select_img_progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

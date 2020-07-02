@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/BottomSheetIconWidth"
+        android:layout_height="@dimen/BottomSheetIconHeight"
+        android:layout_marginTop="@dimen/BottomSheetIconTopHeight"
+        android:background="@drawable/shape_background_cute_blue_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/SemesterGPA_Text1"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogMainTitleSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.91"
+        android:layout_height="320dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_input_light_blue"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/semester_result_info_bottomsheet_enterbtn"
+        android:layout_width="420dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="22dp"
+        android:background="@color/colorVividBlue"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/SemesterGPA_Btn"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/DialogButtonTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+
+    <EditText
+        android:id="@+id/semester_result_info_bottomsheet_total_credits_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_marginTop="@dimen/EditTextGap"
+        android:background="@drawable/shape_background_white_result_tracker_2"
+        android:drawableStart="@drawable/common_ic_weight_blue_small"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/SemesterGPA_TotalCreditsResultDisplay_EditText"
+        android:inputType="numberDecimal"
+        android:maxLength="6"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textColor="@color/colorVividBlue"
+        android:textColorHint="@color/colorVividBlue"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintEnd_toEndOf="@+id/semester_result_info_bottomsheet_courses_taken"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/semester_result_info_bottomsheet_courses_taken"
+        app:layout_constraintTop_toBottomOf="@+id/semester_result_info_bottomsheet_courses_taken"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/SemesterGPA_TotalCreditsResultDisplay_Text"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintBottom_toTopOf="@+id/semester_result_info_bottomsheet_total_credits_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/semester_result_info_bottomsheet_total_credits_edit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/semester_result_info_bottomsheet_total_credits_edit_text" />
+
+    <EditText
+        android:id="@+id/semester_result_info_bottomsheet_gpa_edit_text"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/shape_background_white_result_tracker_2"
+        android:drawableStart="@drawable/result_tracker_ic_gpa"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:paddingEnd="15dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/SemesterGPA_GPAResult_EditText"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:importantForAutofill="no"
+        android:textColor="@color/colorVividBlue"
+        android:textColorHint="@color/colorVividBlue"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+
+    <TextView
+        android:id="@+id/textViewGPA"
+        android:layout_width="46dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/SemesterGPA_GPAResult_Text"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogTitleTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/semester_result_info_bottomsheet_gpa_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/semester_result_info_bottomsheet_gpa_edit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/semester_result_info_bottomsheet_gpa_edit_text" />
+
+    <TextView
+        android:id="@+id/textViewGPA2"
+        android:layout_width="90dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/SemesterGPA_CoursesTaken_Text"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogTitleTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/semester_result_info_bottomsheet_courses_taken"
+        app:layout_constraintEnd_toEndOf="@+id/semester_result_info_bottomsheet_courses_taken"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/semester_result_info_bottomsheet_courses_taken" />
+
+    <EditText
+        android:id="@+id/semester_result_info_bottomsheet_courses_taken"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_marginTop="@dimen/EditTextGap"
+        android:background="@drawable/shape_background_white_result_tracker_2"
+        android:drawableStart="@drawable/result_tracker_ic_book_icon_s"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/SemesterGPA_CoursesTaken_EditText"
+        android:inputType="number"
+        android:maxLength="2"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:importantForAutofill="no"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textColor="@color/colorVividBlue"
+        android:textColorHint="@color/colorVividBlue"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintEnd_toEndOf="@+id/semester_result_info_bottomsheet_gpa_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/semester_result_info_bottomsheet_gpa_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/semester_result_info_bottomsheet_gpa_edit_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

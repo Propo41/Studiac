@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.settings.EditProfileActivity">
+
+    <EditText
+        android:id="@+id/edit_profile_email_id"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_marginTop="@dimen/EditTextGap"
+        android:background="@drawable/shape_input_ash_3"
+        android:drawableStart="@drawable/common_ic_email_ash"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/EditProfile_Email_EditText"
+        android:inputType="textEmailAddress"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_profile_name_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_name_id"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_name_id" />
+
+    <TextView
+        android:id="@+id/textView36"
+        style="@style/SettingsSubtitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:text="@string/EditProfile_Email_Text"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_profile_email_id"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_email_id" />
+
+    <ImageView
+        android:id="@+id/edit_profile_image_id"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_picture_eight" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_profile_edit_image_button_id"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="90dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="@color/colorVividBlueTransparent"
+        app:fabCustomSize="45dp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_profile_image_id"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_image_id"
+        app:layout_constraintTop_toTopOf="@+id/edit_profile_image_id"
+        app:srcCompat="@drawable/common_ic_edit" />
+
+    <TextView
+        android:id="@+id/textView32"
+        style="@style/SettingsSubtitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:text="@string/EditProfile_Name_Text"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_profile_name_id"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_name_id" />
+
+    <EditText
+        android:id="@+id/edit_profile_name_id"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_marginTop="@dimen/EditTextGap"
+        android:background="@drawable/shape_input_ash_3"
+        android:drawableStart="@drawable/settings_ic_name"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/EditProfile_Name_EditText"
+        android:inputType="textPersonName"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_profile_image_id"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_image_id"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_image_id" />
+
+    <Button
+        android:id="@+id/edit_profile_update_button_id"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/ButtonHeightLarge"
+        android:layout_marginBottom="@dimen/ButtonBottomHeight"
+        android:background="@drawable/shape_background_cute_blue_rounded"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/EditProfile_Btn"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edit_profile_email_id"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_email_id" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
