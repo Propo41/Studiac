@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorVividBlue"
+    tools:context=".activities.setup.ProfileSetupActivity">
+
+    <ProgressBar
+        android:id="@+id/profile_setup_progress_bar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:gravity="center_horizontal"
+        android:text="@string/profileSetUp1_text"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/TextTitleSizeSmall"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingBottom="@dimen/EditTextPromptPadding"
+        android:text="@string/profileSetUp1_University_Text"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/TextSizeSmall"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/universityNameField"
+        app:layout_constraintStart_toStartOf="@+id/universityNameField" />
+
+    <AutoCompleteTextView
+        android:id="@+id/universityNameField"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:digits="@string/All_Alphabets"
+        android:inputType="text"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/EditTextGap"
+        android:background="@drawable/shape_input_blue"
+        android:completionThreshold="1"
+        android:drawableStart="@drawable/ic_university"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/profileSetUp1_University_EditText"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="@dimen/HintSizeSmall"
+        app:layout_constraintEnd_toEndOf="@+id/textView14"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingBottom="@dimen/EditTextPromptPadding"
+
+        android:text="@string/profileSetUp1_Department_Text"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/TextSizeSmall"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/departmentNameField"
+        app:layout_constraintStart_toStartOf="@+id/departmentNameField" />
+
+    <AutoCompleteTextView
+        android:id="@+id/departmentNameField"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/EditTextGapSmall"
+        android:background="@drawable/shape_input_blue"
+        android:digits="@string/All_Alphabets"
+        android:inputType="text"
+        android:completionThreshold="1"
+        android:drawableStart="@drawable/ic_department"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/profileSetUp1_Department_EditText"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="@dimen/HintSizeSmall"
+        app:layout_constraintEnd_toEndOf="@+id/universityNameField"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintStart_toStartOf="@+id/universityNameField"
+        app:layout_constraintTop_toBottomOf="@+id/universityNameField" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingBottom="@dimen/EditTextPromptPadding"
+        android:text="@string/profileSetUp1_EnterValue_Text1"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/TextSizeSmall"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/currentSemesterField"
+        app:layout_constraintStart_toStartOf="@+id/currentSemesterField" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:paddingBottom="@dimen/EditTextPromptPadding"
+        android:text="@string/profileSetUp1_EnterValue_Text2"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/TextSizeSmall"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/totalSemesterField"
+        app:layout_constraintStart_toStartOf="@+id/totalSemesterField" />
+
+
+    <EditText
+        android:id="@+id/currentSemesterField"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/EditTextGapSmall"
+        android:background="@drawable/shape_input_blue"
+        android:drawableStart="@drawable/ic_current_semester"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/profileSetUp1_EnterValue_EditText"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="@dimen/HintSizeSmall"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.09
+"
+        app:layout_constraintStart_toStartOf="@+id/departmentNameField"
+        app:layout_constraintTop_toBottomOf="@+id/departmentNameField"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.38" />
+
+    <EditText
+        android:id="@+id/totalSemesterField"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_input_blue"
+        android:drawableStart="@drawable/common_ic_hat_s"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/profileSetUp1_EnterValue_EditText"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="@dimen/HintSizeSmall"
+        app:layout_constraintBottom_toBottomOf="@+id/currentSemesterField"
+        app:layout_constraintEnd_toEndOf="@+id/departmentNameField"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintTop_toBottomOf="@+id/textView30"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.38" />
+
+    <Button
+        android:id="@+id/nextButton"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:background="@drawable/shape_button_white_two"
+        android:clickable="false"
+        android:focusable="false"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingTop="9dp"
+        android:text="@string/profileSetUp1_Next_Btn"
+        android:textAlignment="center"
+        android:textColor="@color/colorVividLightBlue"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_setup_progress_bar"
+        app:layout_constraintEnd_toEndOf="@+id/totalSemesterField"
+        app:layout_constraintStart_toStartOf="@+id/currentSemesterField" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

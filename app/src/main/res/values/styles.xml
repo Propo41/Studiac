@@ -1,0 +1,283 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="actionModeStyle">@style/ActionModeStyle</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+ <!--   changes the text/icon/background color of the action mode bar-->
+    <style name="ActionModeStyle" parent="@style/Widget.AppCompat.ActionMode">
+        <item name="background">@color/colorPrimaryDark</item>
+        <item name="titleTextStyle">@style/ActionModeTitleTextStyle</item>
+    </style>
+
+    <style name="ActionModeTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+
+    <style name="PopupMenuStyle2WhiteToolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="PopupMenuStyle2BlueToolbar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+        <item name="colorControlHighlight">@color/colorWhite</item>
+    </style>
+
+
+    <style name="PopupMenuStyleWhiteToolbar">
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorAsh</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="CustomDrawerFont" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/colorAsh</item>
+        <item name="android:textSize">16sp</item>
+        <item name="itemIconSize">18dp</item>
+    </style>
+
+    <style name="CustomTitleFontWhite">
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <style name="CustomTitleFontBlue">
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="CustomSubtitleFontBlue">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="CustomSubtitleFontWhite">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="CustomSubtitleFontAsh">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/colorAsh</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="CustomTabStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAllCaps">true</item>
+        <!--to fix the selected tab color side effect   -->
+        <item name="tabSelectedTextColor">@color/colorPrimaryDark</item>
+
+        <item name="tabTextColor">@color/colorAsh</item>
+
+
+    </style>
+
+    <style name="CurrentWeekCustomHeaderStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="tabTextColor">@color/colorAsh</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginStart">25dp</item>
+
+    </style>
+
+    <style name="WhiteActionBar">
+        <item name="titleTextColor">@color/colorPrimaryDark</item>
+        <item name="fontFamily"> @font/montserrat_semi_bold</item>
+    </style>
+
+
+    <!--    custom font for bottom navigation view    -->
+    <style name="CustomBottomNavFont" parent="Widget.Design.BottomNavigationView">
+        <item name="titleTextColor">@color/colorAsh</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+
+    <style name="ToDo_Task_FontStyle">
+        <item name="android:textColor">@color/colorAsh</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
+
+    <!-- style for the rounded bottom sheet dialog -->
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/shape_background_dialog_bottom</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+
+    <!-- style for the big floating action button -->
+    <style name="AddFABStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
+        <item name="srcCompat">@drawable/common_ic_add_white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <!-- style for small floating action buttons -->
+    <style name="AddMiniFABStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
+        <item name="srcCompat">@drawable/common_ic_add_white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- style for COMMON BLUE FAB -->
+    <style name="CommonFABBlue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
+        <item name="srcCompat">@drawable/common_ic_add_white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+
+    <!-- style for the popup FAB Official button -->
+
+
+    <!-- style for the popup FAB Advertisement button -->
+
+    <!-- style for the popup FAB Help button -->
+
+
+    <!-- style for the text style of dashboard -->
+    <style name="DashboardButtonFontStyle">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">7dp</item>
+    </style>
+
+    <!-- style for the text style of dashboard -->
+    <style name="DashboardButtonFontStyleSmall">
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="TransparentText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+
+    <!-- style for the shadow of EditText boxes -->
+    <style name="EditTextShadowStyle">
+        <item name="elevation">1dp</item>
+        <item name="android:translationZ">5dp</item>
+    </style>
+
+
+    <!-- style for subtitle texts in Settings window -->
+    <style name="SettingsSubtitleTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/colorAsh</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- style for Title texts in Settings window -->
+    <style name="SettingsTitleTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textColor">@color/colorCuteBlue</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <!-- style for Drawable ic in Settings window -->
+    <style name="SettingsDrawableStyle">
+        <item name="android:layout_marginEnd">20dp</item>
+        <item name="tint">@color/colorAshHint</item>
+    </style>
+
+
+    <style name="AppTheme2" parent="android:Theme.Material.Light">
+        <!--Workaround for the Android bug-->
+        <item name="android:dropDownListViewStyle">@style/Theme.MyListView</item>
+    </style>
+
+    <style name="Theme.MyListView" parent="@android:style/Widget.Material.ListView.DropDown">
+        <item name="android:listSelector">@drawable/result_tracker_spinner_ripple_effect</item>
+    </style>
+
+    <style name="CustomDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+    <!-- a sliding animation where the dialog pops up from the bottom like a bottom sheet dialog-->
+    <style name="DialogAnimationSliding" parent="@android:style/Theme.Dialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_slide_up</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimationSliding</item>
+        <item name="android:windowExitAnimation">@anim/dialog_bottom_exit</item>
+    </style>
+    <!-- a sliding animation where the dialog pops up from the top to the bottom and then
+    slides further down on dismiss-->
+    <style name="DialogBottomAnimationSliding" parent="@android:style/Theme.Dialog">
+        <item name="android:windowEnterAnimation">@anim/dialog_bottom_enter</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimationSliding</item>
+        <item name="android:windowExitAnimation">@anim/dialog_bottom_exit</item>
+    </style>
+
+
+    <!-- a sliding animation where the dialog fades in with a transition-->
+
+    <!-- the dialog scales up from the center of the view like whatsapp's animation when an image is clicked-->
+
+    <style name="DialogAnimationScale" parent="@android:style/Theme.Dialog">
+        <item name="android:windowEnterAnimation">@anim/scale_in</item>
+        <item name="android:windowExitAnimation">@anim/scale_out</item>
+    </style>
+
+
+
+
+</resources>

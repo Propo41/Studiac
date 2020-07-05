@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_button_white">
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="@dimen/BottomSheetIconWidth"
+        android:layout_height="@dimen/BottomSheetIconHeight"
+        android:layout_marginTop="@dimen/BottomSheetIconTopHeight"
+        android:background="@drawable/shape_background_cute_blue_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="@string/EditCourse_Text1"
+        android:textAlignment="center"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogMainTitleSize"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingBottom="5dp"
+        android:text="@string/EditCourse_CourseName_Text"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_viewCourses_edit_courseName_id"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_courseName_id" />
+
+    <EditText
+        android:id="@+id/dialog_viewCourses_edit_courseName_id"
+        android:layout_width="0dp"
+        android:digits="@string/All_Alphabets"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.8"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/shape_input_ash_3"
+        android:drawableStart="@drawable/common_ic_book_s"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/EditCourse_CourseName_EditText"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textColor="@color/colorBlackShade"
+        android:textColorHint="@color/colorAsh"
+        android:textCursorDrawable="@drawable/colored_cursor"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/EditCourse_Text2"
+        android:textColor="@color/colorVividBlueTransparent"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_viewCourses_edit_courseCredit_id" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/colorVividBlueTransparent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintEnd_toStartOf="@+id/textView9"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_courseCredit_id"
+        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.22" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/colorVividBlueTransparent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_viewCourses_edit_courseCode_id"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView9"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.22" />
+
+
+    <TextView
+        android:id="@+id/textView114"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/EditCourse_CourseCredit_Text"
+        android:paddingBottom="5dp"
+
+        android:textAlignment="textStart"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_viewCourses_edit_courseCredit_id"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_courseCredit_id" />
+
+    <EditText
+        android:id="@+id/dialog_viewCourses_edit_courseCredit_id"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.38"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/shape_input_ash_3"
+        android:drawableStart="@drawable/common_ic_weight_blue_small"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/HintEnter"
+        android:maxLength="5"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textColor="@color/colorAsh"
+        android:textColorHint="@color/colorAsh"
+        android:textCursorDrawable="@drawable/colored_cursor"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_courseName_id"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_viewCourses_edit_courseName_id"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingBottom="5dp"
+        android:text="@string/EditCourse_CourseCode_Text"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_viewCourses_edit_courseCode_id"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_courseCode_id" />
+
+
+    <EditText
+        android:id="@+id/dialog_viewCourses_edit_courseCode_id"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.38"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/shape_input_ash_3"
+        android:drawableStart="@drawable/common_ic_code_s"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/HintEnter"
+        android:maxLength="10"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:importantForAutofill="no"
+        android:inputType="textCapCharacters"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="10dp"
+        android:textColor="@color/colorAsh"
+        android:textColorHint="@color/colorAsh"
+        android:textCursorDrawable="@drawable/colored_cursor"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_viewCourses_edit_courseName_id"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_viewCourses_edit_courseName_id" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingBottom="5dp"
+        android:text="@string/EditCourse_Name_Text"
+        android:textAlignment="center"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_viewCourses_edit_instructorName_id"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_instructorName_id" />
+
+    <EditText
+        android:id="@+id/dialog_viewCourses_edit_instructorName_id"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_gravity="center_horizontal"
+        android:digits="@string/All_Alphabets"
+
+        android:layout_marginTop="35dp"
+        android:background="@drawable/shape_input_ash_3"
+        android:drawableStart="@drawable/common_ic_blue_contact_s"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/EditCourse_Name_EditText"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textColor="@color/colorAsh"
+        android:textColorHint="@color/colorAsh"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_viewCourses_edit_courseName_id"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_courseName_id"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/dialog_viewCourses_edit_instructorEmail_id"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/shape_input_ash_3"
+        android:drawableStart="@drawable/common_ic_email_blue"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/EditCourse_Email_EditText"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textColor="@color/colorAsh"
+        android:textColorHint="@color/colorAsh"
+        android:textCursorDrawable="@drawable/colored_cursor"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_viewCourses_edit_instructorName_id"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_instructorName_id"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_viewCourses_edit_instructorName_id" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingBottom="5dp"
+        android:text="@string/EditCourse_Email_Text"
+        android:textAlignment="center"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_viewCourses_edit_instructorEmail_id"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_instructorEmail_id" />
+
+
+    <TextView
+
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingBottom="5dp"
+        android:text="@string/EditCourse_Room_Text"
+        android:textAlignment="center"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_viewCourses_edit_instructorRoom_id"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_instructorRoom_id" />
+
+
+    <EditText
+        android:id="@+id/dialog_viewCourses_edit_instructorRoom_id"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.38"
+        android:layout_height="@dimen/EditTextHeightNormal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/shape_input_ash_3"
+        android:drawableStart="@drawable/common_ic_blue_room_s"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/HintEnter"
+        android:drawablePadding="@dimen/EditTextDrawablePadding"
+        android:paddingStart="@dimen/EditTextDrawablePaddingStart"
+        android:maxLength="8"
+        android:paddingEnd="@dimen/EditTextDrawablePaddingStart"
+        android:textColor="@color/colorAsh"
+        android:textColorHint="@color/colorAsh"
+        android:textCursorDrawable="@drawable/colored_cursor"
+        android:textSize="@dimen/DialogSubtitleSize"
+        app:layout_constraintStart_toStartOf="@+id/dialog_viewCourses_edit_instructorEmail_id"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_viewCourses_edit_instructorEmail_id"
+        android:importantForAutofill="no"
+        android:inputType="textPostalAddress" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/montserrat_medium"
+        android:paddingBottom="5dp"
+        android:text="@string/EditCourse_Text3"
+        android:textAlignment="center"
+        android:textColor="@color/colorVividBlue"
+        android:textSize="@dimen/DialogTitleTextSize"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_viewCourses_edit_instructorEmail_id"
+        app:layout_constraintStart_toEndOf="@+id/dialog_viewCourses_edit_updateButton_id"
+        app:layout_constraintTop_toTopOf="@+id/textView20"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/dialog_viewCourses_edit_updateButton_id"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/ButtonHeightBottomSheet"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_background_vividblue_square"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/UpdateBtnText"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dialog_viewCourses_edit_delete_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_viewCourses_edit_instructorRoom_id"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/dialog_viewCourses_edit_delete_id"
+        style="@style/EditTextShadowStyle"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_background_vividblue_square"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/EditCourse_Delete_BTn"
+        android:textAllCaps="true"
+        android:textColor="@color/colorBlack"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dialog_viewCourses_edit_updateButton_id"
+        app:layout_constraintTop_toTopOf="@+id/dialog_viewCourses_edit_updateButton_id" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/dialog_viewCourses_edit_addCounsellingHour_button_id"
+        style="@style/CommonFABBlue"
+        android:layout_width="39dp"
+        android:layout_height="45dp"
+        android:clickable="true"
+        app:fabCustomSize="39dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dialog_viewCourses_edit_instructorRoom_id"
+        app:layout_constraintEnd_toEndOf="@+id/textView17"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toTopOf="@+id/dialog_viewCourses_edit_instructorRoom_id"
+        android:focusable="true" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
