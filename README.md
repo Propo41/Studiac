@@ -10,7 +10,7 @@ A utility application that allow students to keep track of their daily activitie
 
 - Project Functionality and Key Features
 
--- Tracking your Routine and Courses </b> : You can simply put down the courses you have taken each semester, along with their credits, timings, instructor information and etc.
+  * `Tracking your Routine and Courses` - You can simply put down the courses you have taken each semester, along with their credits, timings, instructor information and etc..
 
 <b>To-do tasks</b>: A to-do task designed specifically for students with the aim of keeping track of their ongoing assessments, assignments, and homework for each course with an option to remind them at due time.
 
