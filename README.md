@@ -6,10 +6,11 @@ Description
 
 A utility application that allow students to keep track of their daily activities, set reminders for their exams or assignments, keep track of the important news and extracurricular activities of their respective universities, such as seminars, club events, etc.
 
-<b>Target Android version</b>: Marshmallow (V 6.0)
+Target Android version: Marshmallow (V 6.0)
+------------
 
-
-<b>Project Functionality and Key Features</b>
+Project Functionality and Key Features
+------------
 
 <b> Tracking your Routine and Courses </b> : You can simply put down the courses you have taken each semester, along with their credits, timings, instructor information and etc.
 
