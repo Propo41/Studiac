@@ -6,13 +6,11 @@ Description
 
 A utility application that allow students to keep track of their daily activities, set reminders for their exams or assignments, keep track of the important news and extracurricular activities of their respective universities, such as seminars, club events, etc.
 
-Target Android version: Marshmallow (V 6.0)
-------------
+- Target Android version: Marshmallow (V 6.0)
 
-Project Functionality and Key Features
-------------
+- Project Functionality and Key Features
 
-<b> Tracking your Routine and Courses </b> : You can simply put down the courses you have taken each semester, along with their credits, timings, instructor information and etc.
+-- Tracking your Routine and Courses </b> : You can simply put down the courses you have taken each semester, along with their credits, timings, instructor information and etc.
 
 <b>To-do tasks</b>: A to-do task designed specifically for students with the aim of keeping track of their ongoing assessments, assignments, and homework for each course with an option to remind them at due time.
 
