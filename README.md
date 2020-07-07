@@ -1,6 +1,8 @@
-# Studiac
+Studiac
+=============================
 
-<b>Description</b>
+Description
+------------
 
 A utility application that allow students to keep track of their daily activities, set reminders for their exams or assignments, keep track of the important news and extracurricular activities of their respective universities, such as seminars, club events, etc.
 
