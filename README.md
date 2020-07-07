@@ -11,11 +11,10 @@ A utility application that allow students to keep track of their daily activitie
 - Project Functionality and Key Features
 
   * `Tracking your Routine and Courses` - You can simply put down the courses you have taken each semester, along with their credits, timings, instructor information and etc..
+  * `To-do tasks` - A to-do task designed specifically for students with the aim of keeping track of their ongoing assessments, assignments, and homework for each course with an option to remind them at due time.
+  * `Bulletin Board` - A public bulletin board, visible to every student of their respective universities, that contains posts that are categorized into individual topics such as items to giveaway, sale posts, seminar schedules, club recruitment posts, help-seeking posts, and many more, depending on your needs.
 
-<b>To-do tasks</b>: A to-do task designed specifically for students with the aim of keeping track of their ongoing assessments, assignments, and homework for each course with an option to remind them at due time.
-
-<b>Bulletin Board</b>: A public bulletin board, visible to every student of their respective universities, that contains posts that are categorized into individual topics such as items to giveaway, sale posts, seminar schedules, club recruitment posts, help-seeking posts, and many more, depending on your needs.
-
+ 
 <b>Anonymous Global Chat Group</b>: A group conversation, with one thread per university, where all students can discuss and hang out freely.
 Bus tracker: a tracking service that allows the students to track their university busses. 
 
