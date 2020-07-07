@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.valhalla.studiac">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.valhalla.studiac.database.Firebase"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.valhalla.studiac.activities.settings.AboutActivity"
+            android:label="About"/>
+        <!-- push notification service -->
+        <service
+            android:name="com.valhalla.studiac.utility.FirebaseCloudMessageService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.valhalla.studiac.activities.StartAppActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.valhalla.studiac.activities.settings.VerifyAccountActivity"
+            android:label="Verify Account" />
+        <activity
+            android:name="com.valhalla.studiac.activities.settings.ReportBugActivity"
+            android:label="Report Bug"
+            android:parentActivityName="com.valhalla.studiac.activities.settings.SettingsActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.settings.FeedbackActivity"
+            android:label="Feedback"
+            android:parentActivityName="com.valhalla.studiac.activities.settings.SettingsActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.settings.ChangePasswordActivity"
+            android:label="Change Password"
+            android:parentActivityName="com.valhalla.studiac.activities.settings.SettingsActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.settings.EditProfileActivity"
+            android:label="Edit Profile"
+            android:parentActivityName="com.valhalla.studiac.activities.settings.SettingsActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.settings.SettingsActivity"
+            android:label="Settings"
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.MessageActivity"
+            android:parentActivityName="com.valhalla.studiac.activities.MessengerActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.MessengerActivity"
+            android:label="View Messages"
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.BulletinBoardActivity"
+            android:label="Bulletin Board"
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity" />
+        <activity android:name="com.valhalla.studiac.activities.setup.CreateAccountActivity" />
+        <activity android:name="com.valhalla.studiac.activities.settings.ForgotPasswordActivity" />
+        <activity android:name="com.valhalla.studiac.activities.LoginActivity" />
+        <activity android:name="com.valhalla.studiac.activities.setup.ProfileSetupActivity"/>
+        <activity android:name="com.valhalla.studiac.activities.setup.ProfileSetup2Activity" />
+        <activity android:name="com.valhalla.studiac.activities.WebActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.DashboardActivity"
+            android:label="Dashboard" />
+        <activity
+            android:name="com.valhalla.studiac.activities.ViewRoutineActivity"
+            android:label="View Routine"
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity" />
+        <activity android:name="com.valhalla.studiac.toolbars.NavigationToolbarWhite" />
+        <activity
+            android:name="com.valhalla.studiac.activities.ViewCoursesActivity"
+            android:label="View Courses"
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.TodoTaskActivity"
+            android:label="To do Tasks"
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.BulletinBoardMyPostsActivity"
+            android:label="My Posts" />
+        <activity android:name="com.valhalla.studiac.activities.setup.SelectImageActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.ResultTrackerActivity"
+            android:label="Result Tracker"
+            android:parentActivityName="com.valhalla.studiac.activities.DashboardActivity" />
+        <activity android:name="com.valhalla.studiac.activities.WalkThroughActivity" />
+        <activity
+            android:name="com.valhalla.studiac.activities.EditWeightActivity"
+            android:label="Grade Weights"
+            android:parentActivityName="com.valhalla.studiac.activities.ResultTrackerActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

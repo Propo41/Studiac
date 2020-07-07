@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "871834519043",
+    "firebase_url": "https://studiac-2020.firebaseio.com",
+    "project_id": "studiac-2020",
+    "storage_bucket": "studiac-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871834519043:android:31bf7b721ad312d914f036",
+        "android_client_info": {
+          "package_name": "com.valhalla.studiac"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871834519043-v3j5745f53pq20dqc3o6hcp8u6df9717.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.valhalla.studiac",
+            "certificate_hash": "55f618106c2a2c958949e1a016e4faa5ee2992fd"
+          }
+        },
+        {
+          "client_id": "871834519043-0frusa2nnvcu8cuscksd4s7v3dq6ekm1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.valhalla.studiac",
+            "certificate_hash": "3d74f4e91ace02608ae69e14db7a6c6f34bf456f"
+          }
+        },
+        {
+          "client_id": "871834519043-jcko9gq2trebr9fvl5lggbtaso2e3h5n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBl69pKPccppGZjr0tsyn-vil6BiPSRQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871834519043-jcko9gq2trebr9fvl5lggbtaso2e3h5n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

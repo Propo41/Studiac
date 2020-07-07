@@ -1,0 +1,536 @@
+<resources>
+    <string name="app_name">Studiac</string>
+
+    <string name="navigation_drawer_open"> Open navigation drawer</string>
+    <string name="navigation_drawer_close"> Close navigation drawer</string>
+    <string name="dev_email">studiac.domain.bd@gmail.com</string>
+
+
+    <!-- user prompts/alerts-->
+
+    <!--ProfileSetUp1 Activity-->
+    <string name="profileSetUp1_University_EditText">Enter your University name</string>
+    <string name="profileSetUp1_Department_EditText">Enter your Department name</string>
+    <string name="profileSetUp1_EnterValue_EditText">Enter</string>
+    <string name="profileSetUp1_University_Text">University Name</string>
+    <string name="profileSetUp1_Department_Text">Department Name</string>
+    <string name="profileSetUp1_EnterValue_Text1">Current Semester</string>
+    <string name="profileSetUp1_EnterValue_Text2">Total Semester</string>
+    <string name="profileSetUp1_Next_Btn">NEXT</string>
+    <string name="profileSetUp1_text">You need to setup your profile first"</string>
+
+
+    <string name="eula">By using this app, you agree to our Terms of Use and Privacy Policy
+    powered by Pixieium Studios</string>
+
+    <!-- ProfileSetUp2 Activity -->
+    <string name="profileSetup2_Course_EditText">Enter Course Name</string>
+    <string name="profileSetup2_CourseCode_EditText">Enter Course Code</string>
+    <string name="profileSetup2_Credit_EditText">Enter Credit</string>
+    <string name="profileSetup2_Course_Text">Course Name</string>
+    <string name="profileSetup2_CourseCode_Text">Course Code</string>
+    <string name="profileSetup2_Credit_Text">Course Credit</string>
+    <string name="profileSetup2_Type_Text">Course Type</string>
+    <string name="profileSetup2_AddCourse_Btn">Add course</string>
+    <string name="profileSetup2_AddLater_Btn">Add Later</string>
+    <!--<string name="profileSetup2_Text1">You're almost finished\nAdd your courses!</string>-->
+    <string name="profileSetup2_Text2">Add Routine</string>
+    <string name="profileSetup2_Text3">Feeling lazy?  </string>
+    <string name="profileSetup2_Section">Select Section</string>
+    <string name="profileSetup2_Group">Select Group</string>
+
+
+    <!-- Create Account Activity -->
+    <string name="creatAccount_title">Create a new account</string>
+    <string name="createAccount_Name_EditText">Enter your full name</string>
+    <string name="createAccount_Email_EditText">Enter your email</string>
+    <string name="createAccount_Password_EditText">Enter your password</string>
+    <string name="createAccount_ReTypePassword_EditText">Enter your password again</string>
+    <string name="createAccount_Name_Text">Full Name</string>
+    <string name="createAccount_Email_Text">Email</string>
+    <string name="createAccount_Password_Text">Password</string>
+    <string name="createAccount_ReTypePassword_Text">Confirm Password</string>
+    <string name="createAccount_Btn">CREATE ACCOUNT</string>
+    <string name="createAccount_SignIn_Btn">Sign In</string>
+    <string name="creatAccount_HaveAccount_text">Already Have an account? </string>
+
+    <!-- Forgot Password Activity ForgotPassword_ -->
+    <string name="forgotPassword_Email_EditText">Enter your email</string>
+    <string name="forgotPassword_Email_Text">Email</string>
+    <string name="forgotPassword_Confirm_Btn">CONFIRM</string>
+    <string name="forgotPassword_SignIn_Btn">Sign In</string>
+    <string name="forgotPassword_Text">Recalled already? </string>
+
+    <!--LogIn Activity -->
+    <string name="logIn_Text3">Forgot Password?</string>
+    <string name="logIn_Text4">Sign in with</string>
+    <string name="logIn_Text5">- OR -</string>
+    <string name="logIn_Email_EditText">Enter your email</string>
+    <string name="logIn_Email_Text">Email</string>
+    <string name="logIn_Password_EditText">Enter your password</string>
+    <string name="logIn_Password_Text">Password</string>
+    <string name="logIn_Btn">LOGIN</string>
+    <string name="logIn_SignUp_Btn">Sign up</string>
+
+    <!--LogInIncorrect Dialog-->
+    <string name="alert1buttontext">OK</string>
+    <!--SetUp Profile SelectImage Activity -->
+    <string name="SelectImage_text">Go on. Pick an image!</string>
+    <string name="Next_Btn">NEXT</string>
+
+    <string name="courseaddedDescription">The course has been added successfully.</string>
+
+    <string name="courseaddedtext">Course Added</string>
+    <string name="courseaddedbuttontext">Add more</string>
+    <string name="courseaddedbuttontext1">Continue</string>
+
+    <!-- ForgetPasswordEmailSent Dialod-->
+    <string name="forgotPasswordEmailSent_text">A temporary password</string>
+    <string name="forgotPasswordEmailSent_text1">has been sent to your email. Log into your account with the password.</string>
+
+
+    <string name="addroutinetext">Add routine</string>
+    <string name="addroutinebuttontext1">Done</string>
+
+
+    <!-- Place holder names -->
+    <string name="sampleTextBulletin">lorem epsum</string>
+
+    <!-- header names -->
+    <string name="Header_CurrentTasks">Current Tasks</string>
+
+
+    <!-- SelectType Dialog -->
+    <string name="SelectType_text">Tags</string>
+
+    <!--tasksUtil names -->
+
+    <!-- SelectDay Dialog-->
+
+
+    <string name="selectButton">Select</string>
+
+    <string name="viewRoutineHolidayPrompt"> It\'s a Holiday! </string>
+    <!--ViewRoutin Activity -->
+
+
+    <!-- dialog view courses show description -->
+    <string name="dialogTextTitle">Course Details</string>
+
+    <string name="dialogTextCourseName">Course Name</string>
+    <string name="dialogTextCourseCredit">Course Credit</string>
+    <string name="dialogTextCourseCode">Course Code</string>
+    <string name="dialogTextInstructor">Instructor</string>
+    <string name="dialogTextInstructorInfo">Instructor Info</string>
+
+    <string name="PlaceHolder_CourseCredit">Course Credit: %s</string>
+    <string name="PlaceHolder_CourseCode">Course Code: %s</string>
+
+
+    <string name="dialogTextContact">Contact</string>
+    <string name="dialogTextRoom">Room</string>
+    <string name="dialogTextCounselling">Counselling Hours</string>
+    <string name="dialogTextCourseCreditInput">3.0</string>
+    <string name="dialogTextCourseCodeInput">MATH123</string>
+    <string name="dialogTextInstructorInput">Name</string>
+    <string name="dialogTextContactInput">Email/Phone</string>
+    <string name="dialogTextRoomInput">7A04</string>
+    <string name="UpdateBtnText">UPDATE</string>
+    <string name="dialogTextCloseBtn">CLOSE</string>
+    <string name="dialogTextGoodByeBtn">GOODBYE</string>
+
+
+    <!-- BULLETIN BOARD -->
+    <string name="Bulletin_Category1">All</string>
+    <string name="Bulletin_Category2">Official</string>
+    <string name="Bulletin_Category3">Advertisement</string>
+    <string name="Bulletin_Category4">Help</string>
+    <string name="Bulletin_Category5">Others</string>
+    <string name="bulletin_board_delete_it_text">Delete it?</string>
+    <string name="bulletin_board_sure_text">Are you sure?</string>
+    <string name="bulletin_board_button_confirm_text">CONFIRM</string>
+    <string name="bulletin_board_button_cancel_text">Cancel</string>
+
+
+    <string name="ContentDescriptionTopicImage">TopicImage</string>
+
+
+    <!-- Sign-in status messages -->
+
+
+    <!-- REPORT BUG ACTIVITY -->
+    <string name="ReportBug_InputPrompt">Enter A Brief Description</string>
+    <string name="ReportBug_ButtonPrompt">SEND BUG REPORT</string>
+    <string name="ReportBug_Description1">Bugs Are Annoying</string>
+    <string name="ReportBug_Description2">Bugs in an app is no better than the bugs at home. Help us to find them.</string>
+    <string name="ReportBug_InputHeader">Bug Description</string>
+
+
+    <string name="profile_changes">profileChanges</string>
+    <string name="current_activity">current_activity</string>
+    <string name="device_token">device_token</string>
+
+
+    <string name="activityResultTrackerCGPA">CGPA : N / A </string>
+
+    <string name="snackbar_edit_weight_confirmation">You won\'t be able to make any changes after
+        you update the values. Make sure you provide the correct values.</string>
+
+    <!--SemesterGPA BottomSheet-->
+    <string name="SemesterGPA_GPAResult_EditText">Enter GPA</string>
+    <string name="SemesterGPA_CoursesTaken_EditText">Enter Courses Taken</string>
+    <string name="SemesterGPA_TotalCreditsResultDisplay_EditText">Enter Total Credits Completed</string>
+    <string name="SemesterGPA_GPAResult_Text">GPA</string>
+    <string name="SemesterGPA_CoursesTaken_Text">Courses</string>
+    <string name="SemesterGPA_TotalCreditsResultDisplay_Text">Total Credits</string>
+    <string name="SemesterGPA_Btn">Enter</string>
+    <string name="SemesterGPA_Text1">Enter Semester Info</string>
+
+    <!-- CalculateSemesterGPA Bottomsheet-->
+    <string name="CalculateSemesterGPA_Text">Calculate Semester GPA</string>
+    <string name="CalculateSemesterGPA_Btn">CALCULATE</string>
+
+
+    <string name="updateButton">Update</string>
+
+
+    <!--SemesterResultDisplay Dialog-->
+
+    <string name="SemesterResultDisplay_text1">Semester Result</string>
+    <string name="SemesterResultDisplay_text2">GPA :</string>
+    <string name="SemesterResultDisplay_text3">Courses Taken :</string>
+
+
+    <string name="resultTrackerBottomSheetGPATEXT">GPA : 2.565</string>
+    <string name="resultTrackerItemDialogPointHint">4.0</string>
+
+    <string name="resultTrackerItemSemesterGPACourseHint">Course 1234</string>
+    <string name="resultTrackerItemDialogGradeHint">A+</string>
+
+    <string name="ActivityResultTrackerItemSemester">Semester : 1</string>
+    <string name="ActivityResultTrackerItemGPA">GPA : N/A</string>
+    <string name="ActivityResultTrackerItemCoursesTaken">Courses Taken : N/A</string>
+
+    <!-- Change Password  Activity -->
+    <string name="ChangePassword_Button_text">CHANGE PASSWORD</string>
+    <string name="ChangePassword_OldPassword_EditText">Enter Old Password</string>
+    <string name="ChangePassword_OldPassword_Text">Old Password</string>
+    <string name="ChangePassword_NewPassword_EditText">Enter New Password</string>
+    <string name="ChangePassword_NewPassword_Text">New Password</string>
+    <string name="ChangePassword_RetypePassword_EditText">Enter Password Again</string>
+    <string name="ChangePassword_RetypePassword_Text">Re-type Password</string>
+
+    <!-- Edit Profile Activity   -->
+    <string name="EditProfile_Name_EditText">Enter Full Name</string>
+    <string name="EditProfile_Name_Text">Full Name</string>
+    <string name="EditProfile_Email_EditText">Enter Email Address</string>
+    <string name="EditProfile_Email_Text">Email</string>
+    <string name="EditProfile_Btn">UPDATE PROFILE</string>
+
+    <!-- About  Activity   -->
+    <string name="about_contact_us">CONTACT US</string>
+    <string name="about_developers">Developers</string>
+    <string name="about_name_1">Ali Ahnaf</string>
+    <string name="about_name_2">Samia Sabrina</string>
+    <string name="about_name_3">Mustofa Ahmed</string>
+    <string name="about_asset_att">Asset Attributions</string>
+    <string name="about_asset_att_details">App icons taken from:\nflaticon.com\nfreepik.com</string>
+
+    <!-- FeedBack Activity  -->
+    <string name="FeedBack_Text1">Your Feedback Matters</string>
+    <string name="FeedBack_Text2">Your feedback will help us deliver the best experience to users.</string>
+    <string name="FeedBack_Text3">FeedBack</string>
+    <string name="FeedBack_EditText">Give Us Your Feedback</string>
+    <string name="FeedBack_Btn">SEND FEEDBACK</string>
+
+    <!--Message Activity -->
+    <string name="Message_EditText">Write your message here . . .</string>
+
+    <!-- Settings Activity-->
+    <string name="Setting_Text">SIGN OUT</string>
+
+    <!-- StartApp activity-->
+
+    <!-- VerifyAccount Activity-->
+    <string name="VerifyAccount_Text1">Verify Yourself</string>
+    <string name="VerifyAccount_Text3">- OR -</string>
+    <string name="VerifyAccount_Btn">VERIFY</string>
+    <string name="VerifyAccount_Password_EditText">Enter Your Password</string>
+    <string name="VerifyAccount__Password_Text">Password</string>
+
+    <!-- ContentDashboard activity-->
+    <string name="ContentDashboard_Text1">View Routine</string>
+    <string name="ContentDashboard_Text2">View Courses</string>
+    <string name="ContentDashboard_Text3">View Messages</string>
+    <string name="ContentDashboard_Text4">Result Tracker</string>
+    <string name="ContentDashboard_Text5">Todo Tasks</string>
+    <string name="ContentDashboard_Text6">Bulletin Board</string>
+
+    <!--CollapsingToolbar Dashboard-->
+    <string name="CollapsingToolbar_text1">Full Name</string>
+    <string name="CollapsingToolbar_text2">Ahsanullah University of Science &amp; Technology</string>
+    <string name="CollapsingToolbar_text3">Computer science and engineering</string>
+    <string name="CollapsingToolbar_text4">Semester: 4</string>
+    <string name="CollapsingToolbar_text5">CGPA : 4.0</string>
+
+    <!--BulletinAddPost Dialog -->
+    <string name="BulletinAddPost_Text">Post Your Ad</string>
+    <string name="BulletinAddPost_Btn">ADD</string>
+    <string name="BulletinAddPost_Description_EditText">Give a Description . . .</string>
+    <string name="BulletinAddPost_Description_text">Description</string>
+    <string name="BulletinAddPost_SelectCategory_text">Select Category</string>
+    <string name="BulletinAddPost_SelectTopic_text">Select Topic</string>
+
+    <!--SelectCourse Dialog-->
+    <string name="SelectCourse_text1">Courses</string>
+    <string name="SelectCourse_Btn">SELECT</string>
+
+    <!--DeleteAccount Dialoag -->
+    <string name="DeleteAccount_text">Are You Sure?</string>
+    <string name="DeleteAccount_text1">All your information will be deleted \nand you won\'t be able to recover them anymore.</string>
+    <string name="DeleteAccount_Yes_Btn">YEs</string>
+    <string name="DeleteAccount_No_Btn">NO</string>
+
+    <!--TaskDescription Dialog -->
+    <string name="TaskDescription_Title">Task Details</string>
+
+    <string name="TaskDescription_Text1">Description</string>
+    <string name="TaskDescription_Category_text">Category</string>
+    <string name="TaskDescription_Tag_Text">Tag</string>
+    <string name="TaskDescription_Due_Text">Due</string>
+    <string name="TaskDescription_Delete_Btn">Delete</string>
+    <string name="TaskDescription_CreatedOn">Created On</string>
+
+
+    <!--TodoQuickAdd Dalog-->
+    <string name="TodoQuickAdd_Text1">Add Quick Task</string>
+    <string name="TodoQuickAdd_EditText1">I want to . . .</string>
+    <string name="TodoQuickAdd_EditText2">Enter Additional Notes If Any . . .</string>
+    <string name="TodoQuickAdd_Text2">Additional Notes</string>
+    <string name="TodoQuickAdd_Btn">ADD</string>
+
+    <!--TodoAddTask Dialog -->
+    <string name="TodoAddTask_Text1">Add a new task</string>
+    <string name="TodoAddTask_EditText1">I want to . . .</string>
+    <string name="TodoAddTask_EditText2">Add further notes if required . . .</string>
+    <string name="TodoAddTask_Btn">ADD</string>
+    <string name="TodoAddTask_Text2">Category</string>
+    <string name="TodoAddTask_Text3">Course</string>
+    <string name="TodoAddTask_Text4">Self-Study</string>
+    <string name="TodoAddTask_Text5">Others</string>
+    <string name="TodoAddTask_Text6">Tag</string>
+    <string name="TodoAddTask_Text7">Quiz</string>
+    <string name="TodoAddTask_Text8">Assignment</string>
+    <string name="TodoAddTask_Text9">More</string>
+    <string name="TodoAddTask_Text10">Additional Notes</string>
+
+    <!--CourseAdd Dialog-->
+    <string name="CourseAdd_Text">Add New Course</string>
+    <string name="CourseAdd_Btn">ADD</string>
+    <string name="CourseAdd_CourseName_EditText">Enter Course Name</string>
+    <string name="CourseAdd_CourseName_text">Course Name</string>
+    <string name="CourseAdd_CourseCode_Text">Course Code</string>
+    <string name="CourseAdd_CourseCode_EditText">Enter Code</string>
+    <string name="CourseAdd_CourseType_Text">Course Type</string>
+    <string name="CourseAdd_CourseType_EditText">Enter Credit</string>
+    <string name="CourseAdd_CourseCredit_Text">Course Credit</string>
+
+    <!--Send Message Dialog -->
+    <string name="SendMsgDialog_Title">Send Message</string>
+    <string name="SendMsgDialog_Hint">Write your message . . .</string>
+    <string name="SendMsgDialog_Description">Be respective. Be polite.</string>
+
+
+    <!--EditCourse Dialog -->
+    <string name="EditCourse_Text1">Edit Course</string>
+    <string name="EditCourse_Text2">Instructor Info</string>
+    <string name="EditCourse_Text3">Counseling Hours</string>
+    <string name="EditCourse_CourseName_Text">Course Name</string>
+    <string name="EditCourse_CourseName_EditText">Enter Course Name</string>
+    <string name="EditCourse_CourseCredit_Text">Course Credit</string>
+    <string name="EditCourse_CourseCode_Text">Course Code</string>
+    <string name="EditCourse_Name_Text">Name</string>
+    <string name="EditCourse_Name_EditText">Enter Instructor Name</string>
+    <string name="EditCourse_Email_EditText">Enter Instructor Email</string>
+    <string name="EditCourse_Email_Text">Email</string>
+    <string name="EditCourse_Room_Text">Room</string>
+    <string name="HintEnter">Enter</string>
+
+    <string name="EditCourse_Delete_BTn">DELETE</string>
+    <!--ViewSchedule Dialog -->
+    <string name="ViewSchedule_Text">Counselling Hours</string>
+    <string name="ViewSchedule_Btn">CONTINUE</string>
+
+    <!--EditWeight bootomsheet -->
+    <string name="EditWeight_GradeWeight">Grade Weight</string>
+
+    <string name="EditWeight_Text2">Grade</string>
+    <string name="EditWeight_Text3">Grade Point</string>
+
+
+    <!--ItemDashboard -->
+    <string name="ItemDashboard_Text1">Course Name</string>
+    <string name="ItemDashboard_Text2">Course Code: MATH1234</string>
+    <string name="ItemDashboard_Text3">Course Credit: 3.00</string>
+
+    <!--ItemSehedule -->
+    <string name="ItemSehedule_Text1">MATH133234</string>
+    <string name="ItemSehedule_Text2">03:40AM</string>
+    <string name="ItemSehedule_Text3">03:40AM</string>
+    <!--ItemHeader -->
+    <string name="ItemHeader_text">HEADER</string>
+
+    <!--ItemSelectCourse -->
+    <string name="ItemSelectCourse_Text">Course 1234</string>
+
+
+    <!-- dialog view profile -->
+    <string name="ViewProfile_name">Full name</string>
+    <string name="ViewProfile_current_sem">Current Semester</string>
+    <string name="ViewProfile_university">University</string>
+    <string name="ViewProfile_department">Department</string>
+
+
+    <!--ItemList -->
+    <string name="ItemList_Text1">Full Name</string>
+    <string name="ItemList_Text3">Posted xhrs ago</string>
+    <!--ItemBulletin -->
+    <string name="ItemBulletin_Text1">Category Name</string>
+    <string name="ItemBulletin_Text2">Topic</string>
+    <string name="ItemBulletin_Text3">Posted X XX</string>
+
+    <string name="ItemMessage1_Text">this is a random message..this is a random message..his is a random message..this is a random message.</string>
+
+    <!--ItemMessenger -->
+    <string name="ItemMessenger_Name_Text">Full Name</string>
+    <string name="ItemMessenger_Text">Hey! I\'m interested in your post.</string>
+    <string name="ItemMessenger_Time_Text">YesterDay</string>
+
+    <string name="ItemPager_Text">Sunday</string>
+
+    <string name="ItemSpinner_Text">Advertisement</string>
+
+    <string name="ItemTodoHeader_Text">Current Tasks</string>
+
+    <string name="ItemTodoBody_Text">This is a task</string>
+
+    <string name="ItemUpComingHeader_text">header</string>
+
+    <string name="SpinnerItem_Text">Select Grade</string>
+
+    <string name="ItemWeekBody_Text">Place holder task</string>
+
+    <!-- ItemTodoUpComing Body -->
+    <string name="ItemTodoUpComing_Course_Text">Place holder course</string>
+    <string name="ItemTodoUpComing_Task_Text">Place holder task</string>
+    <string name="ItemTodoUpComing_Day_Text">Tue</string>
+    <string name="ItemTodoUpComing_Time_Text">16</string>
+
+
+    <!--ToolBarNavigation -->
+    <string name="ToolBarNavigation_Name_Text">Full Name</string>
+    <string name="ToolBarNavigation_Email_Text">user_email@gmail.com</string>
+
+
+    <!--Walk Through -->
+    <string name="WalkThrough_Skip">SKIP</string>
+    <string name="WalkThrough_Messenger_Title">Messenger</string>
+    <string name="WalkThrough_Messenger_Text">Directly inbox the authors of\nthe posts from
+        the bulletin board\nto clear any doubts or ask additional\nquestions.</string>
+    <string name="WalkThrough_Bulletin_Title">Bulletin Board</string>
+    <string name="WalkThrough_Bulletin_Text">It\'s hard to miss a single event in \n your
+        university when you have\na live feed dedicated solely for your\nuniversity!</string>
+    <string name="WalkThrough_Routine_Title">Routine  Course Tracker</string>
+    <string name="WalkThrough_Routine_Text">Never miss a class again!\nKeep track of your routine
+        \n&amp;courses</string>
+    <string name="WalkThrough_Todo_Title">Todo Tasks &amp; Event Tracker</string>
+    <string name="WalkThrough_Todo_Text">Always stay productive by keeping \ntrack of the tasks you have
+        in \nhand and the daring quizzes \nin the future!</string>
+    <string name="WalkThrough_Result_Title">Result Tracker </string>
+    <string name="WalkThrough_Result_Text">Keep track of your past semesters\nas well as new ones and
+        calculate\nyour GPA on the go!</string>
+    <string name="WalkThrough_Btn">CONTINUE</string>
+
+
+    <!-- ItemTodoUpComing Body -->
+    <string name="AddRoutineTimePicker">00:00AM</string>
+
+    <string name="resultTrackerGradeWeightWarningText">We recommend you to update the grade weights in accordance with your university. If you ignore it, you won\'t be able to change the grade weights anymore.</string>
+    <string name="resultTrackerGradeWeightWarningYesButton">Ignore</string>
+    <string name="resultTrackerGradeWeightWarningNoButton">Update</string>
+    <string name="is_new_user">new user</string>
+
+    <!-- firebase cloud function -->
+    <string name="notification_type">data_type</string>
+    <string name="post_notification">post_notification</string>
+    <string name="data_title">title</string>
+    <string name="data_body">body</string>
+    <string name="admin_notification">admin_notification</string>
+    <string name="content_sad_emoji">emoji sad face</string>
+    <string name="content_gpa_emoji">emoji gpa</string>
+    <string name="content_emoji_lock">emoji lock</string>
+    <string name="content_emoji_delete">emoji delete account</string>
+    <string name="data_message">message</string>
+
+
+    <!-- placeholders -->
+    <string name="PlaceHolder_Double">3.80</string>
+    <string name="PlaceHolder_Integer">10</string>
+    <string name="PlaceHolder_Date">10.06.69</string>
+    <string name="PlaceHolder_Text">lorem epsum lorem epsum </string>
+    <string name="PlaceHolder_TextSmall">lorem</string>
+    <string name="PlaceHolder_GPA">GPA : %s</string>
+    <string name="PlaceHolder_CGPA">CGPA : %s</string>
+    <string name="PlaceHolder_CoursesTaken">Courses Taken : %s</string>
+    <string name="PlaceHolder_Semester">Semester : %s</string>
+
+
+    <!--image content descriptions -->
+    <string name="content_emoji_correct">correct moji</string>
+    <string name="content_button_quiz">quiz</string>
+    <string name="content_button_more">more</string>
+    <string name="content_button_assignment">assignment</string>
+    <string name="content_button_others">others</string>
+    <string name="content_button_self_study">self study</string>
+    <string name="content_button_course">course</string>
+
+
+    <!--notification channels -->
+    <string name="channel_name_post">channel_id_post</string>
+    <string name="channel_post_description">Don\'t get notified when new posts are added.</string>
+
+    <string name="Button_send">SEND</string>
+
+    <string name="DialogUpdateSemesterBtnLater">LATER</string>
+    <string name="DialogUpdateSemesterBtnCalculate">CALCULATE</string>
+    <string name="DialogUpdateSemesterBtnUpdate">UPDATE</string>
+    <string name="DialogUpdateSemesterCalculateGPAPrompt">You cannot move on to the next \nsemester without first calculating \nyour GPA of the current semester</string>
+    <string name="DialogUpdateSemesterConfirmation">Are you sure you want to move to\nthe next semester?\nYour routine and all your courses\nwill resset</string>
+    <string name="DialogUpdateSemesterUpdateSuccessful">You have chosen to move to\n the next semester.\n Your GPA in the last semester was 3.99.\nGood Luck on the next semester!</string>
+
+    <string name="Placeholder_congratsSemesterPassed">You have chosen to move to\n the next semester.\nYour GPA in the last semester was %s.\nGood Luck!</string>
+
+    <string name="Placeholder_lastSemesterDescription">This is the end of the road, %s \nYour journey ends here.\n This is the last semester.\n Good luck!</string>
+    <string name="ProfileSetup_ImportData">Want to import \nsemester info?</string>
+
+    <!-- Error messages of edit texts -->
+    <string name="Error_EmptyField">Required</string>
+    <string name="Error_ShortName">Name too short</string>
+    <string name="Error_Password_Mismatch">Password doesn\'t match</string>
+    <string name="All_Alphabets">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="All_Alphabets_Digits">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890</string>
+    <string name="Error_MoreWord">Some more words would be helpful!</string>
+    <string name="Error_DescribeBriefly">Please describe in more details.</string>
+    <string name="Error_Meaningful_description">Write a more meaningful description</string>
+    <string name="Error_IncorrectCredential">Incorrect credential</string>
+    <string name="Error_InvalidConversion">Invalid input</string>
+    <string name="Error_InvalidSemesterNumber">Invalid current semester number</string>
+    <string name="content_user_image">image description</string>
+    <string name="BulletinBoard_noPostsYet">No Posts Yet</string>
+    <string name="bulletinBoard_goOnAddPost">Go on, add a post now</string>
+    <string name="message_user_deleted_description">The user is either removed or deactivated their account. You can no longer send a message.</string>
+    <string name="content_description_logo">studiac logo</string>
+
+</resources>
+
+
