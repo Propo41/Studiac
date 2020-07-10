@@ -20,7 +20,7 @@ Future Implementations
 ---------------
 
 - Anonymous Global Chat Group: A group conversation, with one thread per university, where all students can discuss and hang out freely.
-Bus tracker: a tracking service that allows the students to track their university busses. 
+- Bus tracker: a tracking service that allows the students to track their university busses. 
 - User Status: users can be able to check others in their universities who are online.
 - Delete Message Threads: users can delete the message threads by pressing on long click
 
