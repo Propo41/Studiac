@@ -25,6 +25,15 @@ Bus tracker: a tracking service that allows the students to track their universi
 - Delete Message Threads: users can delete the message threads by pressing on long click
 
 
+Technical Details
+---------------
+
+- Used Firebase Database for the backend service. 
+- Used Firebase Cloud Messaging for the push notifications that trigger every time a new post has been added to the bulletin board.
+- Message notifications, for the time being, has been used locally. FCM is not used.
+- Data for the todo tasks is saved locally. Upon clicking the sync button, the data gets uploaded to the database.
+- Since firebase can support up to 10MB of data locally while offline, all other data is saved directly in the database.
+
 
 Project doc: https://docs.google.com/spreadsheets/d/1A2JqFxCHdygT_PnYNztQmMI-_O3uoOfdiQrATbli3gY/edit?usp=sharing
 
