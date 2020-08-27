@@ -64,6 +64,7 @@ public class BulletinBoardActivity extends AppCompatActivity implements AddPostB
     private static int mPostCounter = 0; // since we're using both child and singleValue listener, we need to keep track of the number of posts imported from single value listener, since we don't want to duplicate them
     private FloatingActionButton mAddPostButton;
     private ShimmerFrameLayout mShimmerViewContainer;
+    private String randomGit; // delete it.
 
 
     @Override
