@@ -66,6 +66,7 @@ public class BulletinBoardActivity extends AppCompatActivity implements AddPostB
     private ShimmerFrameLayout mShimmerViewContainer;
     private String randomGit; // delete it.
     private String randomGit2; // delete it.
+    private String randomGit3; // delete it.
 
 
     @Override
