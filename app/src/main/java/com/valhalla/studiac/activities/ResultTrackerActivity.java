@@ -1,5 +1,5 @@
 package com.valhalla.studiac.activities;
-
+//added a comment
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
