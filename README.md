@@ -24,6 +24,21 @@ Future Implementations
 - User Status: users can be able to check others in their universities who are online.
 - Delete Message Threads: users can delete the message threads by pressing on long click
 
+Screenshots
+--------------------------
+![image](https://user-images.githubusercontent.com/46298019/114276217-7cacff80-9a47-11eb-8dc4-f35c1cc74fd1.png)
+
+![image](https://user-images.githubusercontent.com/46298019/114276220-82a2e080-9a47-11eb-8505-e7649408e863.png)
+
+![image](https://user-images.githubusercontent.com/46298019/114276226-89c9ee80-9a47-11eb-8783-e87b92cbe09e.png)
+
+![image](https://user-images.githubusercontent.com/46298019/114276236-90f0fc80-9a47-11eb-8968-a1e3328e9f30.png)
+
+![image](https://user-images.githubusercontent.com/46298019/114276247-99493780-9a47-11eb-8c68-e697b7338e3c.png)
+
+![image](https://user-images.githubusercontent.com/46298019/114276250-9fd7af00-9a47-11eb-8bce-d226be38e523.png)
+
+
 
 Technical Details
 ---------------
